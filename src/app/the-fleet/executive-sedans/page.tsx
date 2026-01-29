@@ -1,0 +1,77 @@
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ContactHelp from "@/components/ContactHelp";
+import styles from "./sedans.module.css";
+import Link from "next/link";
+
+export default function ExecutiveSedansPage() {
+    return (
+        <main className={styles.pageWrapper}>
+            <Navbar />
+
+            {/* HER SECTION */}
+            <section className={styles.hero}>
+                <div className={styles.heroOverlay}></div>
+                <div className={styles.heroContent}>
+                    <div className={styles.breadcrumbs}>
+                        <Link href="/">Home</Link> &gt; <Link href="/the-fleet">The Fleet</Link> &gt; Executive Sedans
+                    </div>
+                    <h1 className={styles.heroTitle}>Executive Sedans</h1>
+                    <p className={styles.heroSubtitle}>
+                        Accessible and reliable; indulge in the experience of luxury at a reasonable price.
+                    </p>
+                    <div className={styles.heroButtons}>
+                        <Link href="/book" className={styles.btnGold}>Book Now</Link>
+                        <Link href="/quote" className={styles.btnTransparent}>Instant Quote</Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* INTRO CONTENT */}
+            <section className={styles.introSection}>
+                <div className={styles.twoColumnLayout}>
+                    <h2 className={styles.introHeading}>
+                        Executive Sedans: Luxury On Demand, Anytime, Anywhere
+                    </h2>
+                    <div className={styles.introText}>
+                        <p>
+                            Experience the epitome of refined elegance with our fleet of executive sedans, available to hire anytime and anywhere. Our meticulously selected sedans are designed to elevate your travel experience, whether it&apos;s for business or pleasure. Step into the world of serene comfort as you sink into plush leather seats, surrounded by premium amenities and classic interior.
+                        </p>
+                        <p>
+                            To ensure your full comfort and ease, all our fleet of executive sedans are driven by skilled and discreet chauffeurs ready to serve you. Whether you&apos;re attending a business conference, exploring a new city, or simply seeking a comfortable ride to the airport hassle-free, our services are tailored to your convenience.
+                        </p>
+                        <p>
+                            With seamless booking processes, you can reserve your executive sedan effortlessly, ensuring a stress-free and timely arrival. Our dedicated chauffeurs are trained in hospitality and professionalism to cater to your every need, offering a personalized ride. We pride ourselves on punctuality, ensuring you arrive at your destination refreshed, relaxed, and with executive style. <a href="#" className={styles.highlight}>Book an executive sedan today</a> and redefine your journey, where every mile is a testament to fine living.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* IMAGE GALLERY */}
+            <section className={styles.gallerySection}>
+                <img src="/tile-meeting-2.png" alt="Executive interior" className={styles.galleryImage} />
+                <img src="/tile-audi.png" alt="Black Executive Sedan" className={styles.galleryImage} />
+                <img src="/tile-driver.png" alt="Chauffeur opening door" className={styles.galleryImage} />
+            </section>
+
+            {/* RANGE OF VEHICLES */}
+            <section className={styles.rangeSection}>
+                <h2 className={styles.rangeTitle}>Our Range Of Vehicles</h2>
+                <div className={styles.rangeText}>
+                    <p>
+                        Whether you are looking for a luxury limousine or a spacious people mover. Hughes has a vehicle to suit you. With vehicle types available for any occasion, all driven by professional, experienced chauffeurs.
+                    </p>
+                    <p style={{ marginTop: '1rem', fontStyle: 'italic' }}>
+                        Not sure what vehicle suits your needs? Contact our friendly team on 1300 615 165 or <a href="mailto:res@auzzsi.com.au" style={{ color: '#1a2b4b' }}>res@auzzsi.com.au</a>.
+                    </p>
+                </div>
+                <Link href="/book" className={styles.btnBlue}>Book Now</Link>
+            </section>
+
+            {/* CONTACT SECTION */}
+            <ContactHelp />
+
+            <Footer />
+        </main>
+    );
+}

@@ -1,0 +1,227 @@
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Or min-height: 800px depending on design */
+    min-height: 700px;
+    background-image: url('/hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    /* Dark overly */
+    z-index: 1;
+}
+
+
+.content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding-top: 100px;
+    /* Space for nav */
+}
+
+.mainText {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.ctaButtons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    /* Space between buttons and stats */
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 0.9rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.btnPrimary {
+    background-color: #c5a467;
+    /* Goldish color */
+    border: 1px solid #c5a467;
+    color: white;
+}
+
+.btnPrimary:hover {
+    background-color: #b09156;
+    border-color: #b09156;
+}
+
+.btnSecondary {
+    background-color: transparent;
+    border: 1.5px solid white;
+    /* Thicker border for visibility */
+    color: white;
+}
+
+.btnSecondary:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.trackLink {
+    /* Removed or hidden if not used, but keeping just in case */
+    display: none;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: auto;
+    /* Push to bottom if flex container */
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    /* Separator line style */
+    padding-top: 2rem;
+}
+
+.stats {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.statValue {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+}
+
+.statLabel {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    max-width: 150px;
+    line-height: 1.4;
+    margin-top: 0.3rem;
+    color: #e5e5e5;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.appButtons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.appBtn {
+    /* Styles for image container */
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.appBtn:hover {
+    transform: translateY(-2px);
+    background: transparent;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        height: auto;
+        padding-top: 10px;
+        /* Spacer helps */
+    }
+
+    .content {
+        padding: 6rem 1.5rem 4rem;
+        /* Top padding clears fixed nav */
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .ctaButtons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .stats {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .statValue {
+        font-size: 2rem;
+    }
+}

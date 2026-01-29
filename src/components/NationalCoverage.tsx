@@ -1,0 +1,117 @@
+'use client';
+
+import { useState } from 'react';
+import styles from './NationalCoverage.module.css';
+
+interface City {
+    name: string;
+    link: string;
+}
+
+interface CoverageData {
+    [key: string]: City[];
+}
+
+export default function NationalCoverage() {
+    const [activeState, setActiveState] = useState('New South Wales');
+
+    const coverageData: CoverageData = {
+        'New South Wales': [
+            { name: 'Byron Bay', link: '/locations/byron-bay/ballina-byron-bay-airport-transfers' },
+            { name: 'Central Coast', link: '/locations/central-coast' },
+            { name: 'Newcastle', link: '/locations/newcastle/airport-transfers' },
+            { name: 'Sydney', link: '/locations/sydney/airport-transfers' },
+            { name: 'Wollongong', link: '/locations/wollongong' },
+        ],
+        'Victoria': [
+            { name: 'Geelong', link: '/locations/geelong' },
+            { name: 'Melbourne', link: '/locations/melbourne/airport-transfers' },
+            { name: 'Mornington Peninsula', link: '/locations/mornington-peninsula' },
+        ],
+        'Queensland': [
+            { name: 'Brisbane', link: '/locations/brisbane/airport-transfers' },
+            { name: 'Cairns', link: '/locations/cairns-port-douglas/cairns-port-douglas-airport-transfers' },
+            { name: 'Gold Coast', link: '/locations/gold-coast/airport-transfers' },
+            { name: 'Sunshine Coast', link: '/locations/sunshine-coast/airport-transfers' },
+            { name: 'Toowoomba', link: '/locations/toowoomba' },
+            { name: 'Townsville', link: '/locations/townsville' },
+        ],
+        'South Australia': [
+            { name: 'Adelaide', link: '/locations/adelaide/airport-transfers' },
+            { name: 'Barossa Valley', link: '/locations/barossa-valley' },
+        ],
+        'Western Australia': [
+            { name: 'Perth', link: '/locations/perth/airport-transfers' },
+            { name: 'Fremantle', link: '#' },
+            { name: 'Broome', link: '#' },
+        ],
+        'Tasmania': [
+            { name: 'Hobart', link: '/locations/hobart/hobart-airport-transfers' },
+            { name: 'Launceston', link: '/locations/launceston/launceston-airport-transfers' },
+        ],
+        'Northern Territory': [
+            { name: 'Darwin', link: '/locations/darwin/airport-transfers' },
+            { name: 'Alice Springs', link: '#' },
+        ],
+        'Australian Capital Territory': [
+            { name: 'Canberra', link: '/locations/canberra/airport-transfers' },
+        ]
+    };
+
+    const states = Object.keys(coverageData);
+
+    return (
+        <section className={styles.section}>
+            {/* Background Map Image */}
+            <div className={styles.mapBackground}>
+                <img src="/au-map.png" alt="Australia Map" className={styles.mapImage} />
+                {/* Decorative dots loosely positioned for visual effect */}
+                <div className={styles.mapDot} style={{ top: '65%', right: '25%' }}></div> {/* Sydneyish */}
+                <div className={styles.mapDot} style={{ top: '70%', right: '30%' }}></div> {/* Melbourneish */}
+                <div className={styles.mapDot} style={{ top: '50%', right: '20%' }}></div> {/* Brisbaneish */}
+                <div className={styles.mapDot} style={{ top: '50%', left: '20%' }}></div> {/* Perthish */}
+            </div>
+
+            <div className={styles.container}>
+                <h2 className={styles.title}>
+                    Australia&apos;s Oldest And Only Nationwide<br />
+                    Chauffeur Service
+                </h2>
+
+                <p className={styles.description}>
+                    With offices around Australia, we keep you moving across the country. Alongside our luxury airport and A to B transfers,
+                    we offer tour services to see the sights in style, using one of our suggested itineraries or choosing your own adventure.
+                    <br /><br />
+                    Find out more about our locations and the services on offer.
+                </p>
+
+                <div className={styles.contentWrapper}>
+                    <div className={styles.sidebar}>
+                        <ul className={styles.stateList}>
+                            {states.map((state) => (
+                                <li
+                                    key={state}
+                                    className={`${styles.stateItem} ${activeState === state ? styles.stateItemActive : ''}`}
+                                    onClick={() => setActiveState(state)}
+                                >
+                                    {state}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className={styles.mainContent}>
+                        <div className={styles.cityList}>
+                            {coverageData[activeState]?.map((city, index) => (
+                                <div key={index} className={styles.cityItem}>
+                                    <span className={styles.cityName}>{city.name}</span>
+                                    <a href={city.link} className={styles.readMore}>Read More</a>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}

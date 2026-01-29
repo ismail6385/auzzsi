@@ -1,0 +1,408 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-height: 800px;
+    /* Ensure fit */
+    font-family: sans-serif;
+}
+
+/* HEADER */
+.header {
+    height: 80px;
+    background-color: #1a2b4b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    flex-shrink: 0;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.loginBtn {
+    background-color: #bfa15f;
+    color: #1a2b4b;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    /* Pillow shape as per image */
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.loginBtn:hover {
+    background-color: #a3884d;
+}
+
+/* MAIN CONTENT */
+.mainLayout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.imageSide {
+    width: 40%;
+    position: relative;
+    background-color: #333;
+}
+
+.imageSide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.formSide {
+    width: 60%;
+    background: linear-gradient(135deg, #eef4f8 0%, #dbe7f0 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+}
+
+/* BOOKING FORM CONTAINER */
+.bookingForm {
+    width: 100%;
+    max-width: 700px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* TOP BLUE SECTION OF FORM */
+.locationsPanel {
+    background-color: #0d1b33;
+    /* Darker navy */
+    padding: 2.5rem;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    color: white;
+}
+
+.inputGroup {
+    margin-bottom: 2rem;
+}
+
+.labelRow {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.labelText {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.inputWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.textInput {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    font-family: inherit;
+}
+
+.textInput::placeholder {
+    color: #aaa;
+}
+
+/* ADD DESTINATION TOGGLE */
+.addDestRow {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.addDestLabel {
+    font-size: 0.9rem;
+    color: #ccc;
+    font-weight: 400;
+}
+
+.toggleSwitch {
+    width: 50px;
+    height: 26px;
+    background-color: #ccc;
+    border-radius: 13px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggleSwitch.active {
+    background-color: #bfa15f;
+}
+
+.toggleKnob {
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+.toggleSwitch.active .toggleKnob {
+    transform: translateX(24px);
+}
+
+/* BOTTOM LIGHT SECTION OF FORM (Date/Time) */
+.dateTimePanel {
+    background: linear-gradient(to bottom, #dbe9f6, #cfdef0);
+    /* Light blue gradient */
+    padding: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.panelLabel {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #1a2b4b;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.iconInput {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    padding-left: 0;
+}
+
+.inputIconBox {
+    background-color: #1a2b4b;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bfa15f;
+    /* Gold icon */
+    flex-shrink: 0;
+}
+
+.dateTimeInput {
+    border: none;
+    padding: 0 1rem;
+    height: 50px;
+    width: 100%;
+    font-size: 1rem;
+    color: #555;
+    outline: none;
+    font-family: inherit;
+}
+
+/* BOTTOM ACTION BAR */
+.actionBar {
+    background-color: #e5b567;
+    /* Goldish brown bar */
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.clearBtn {
+    background: transparent;
+    border: 1px solid #1a2b4b;
+    color: #1a2b4b;
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.clearBtn:hover {
+    background: rgba(26, 43, 75, 0.1);
+}
+
+.rightActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.continueBtn {
+    background-color: #e6e6e6;
+    color: #1a2b4b;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    transition: background 0.2s;
+}
+
+.continueBtn:hover {
+    background-color: white;
+}
+
+.priceTag {
+    background-color: #1a2b4b;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: flex-end;
+    /* Align '$' and '0.00' if needed */
+    min-width: 100px;
+    justify-content: center;
+}
+
+/* FOOTER STRIP */
+.footerStrip {
+    height: 40px;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    color: #888;
+    font-size: 0.8rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.footerLogoSmall {
+    height: 24px;
+    filter: grayscale(1);
+    opacity: 0.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .pageContainer {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .mainLayout {
+        flex-direction: column;
+    }
+
+    .imageSide {
+        width: 100%;
+        height: 200px;
+        /* Smaller image on mobile */
+    }
+
+    .formSide {
+        width: 100%;
+        padding: 1.5rem 1rem;
+        background: #f3f4f6;
+        /* Flat color is often cleaner on mobile than gradient */
+    }
+
+    .bookingForm {
+        box-shadow: none;
+        /* Simplify on mobile */
+        max-width: 100%;
+    }
+
+    .locationsPanel {
+        padding: 1.5rem;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .dateTimePanel {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+
+    .actionBar {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .rightActions {
+        width: 100%;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .continueBtn {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .priceTag {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .clearBtn {
+        width: 100%;
+    }
+
+    .header {
+        padding: 0 1rem;
+        height: 70px;
+    }
+
+    .footerStrip {
+        position: static;
+        /* Stack naturally on mobile */
+        padding: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        height: auto;
+        text-align: center;
+        background-color: #1a1a1a;
+    }
+}

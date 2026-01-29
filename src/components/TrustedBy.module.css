@@ -1,0 +1,107 @@
+.section {
+    padding: 6rem 2rem;
+    background-color: white;
+    text-align: center;
+    border-top: 1px solid #f3f4f6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ratingWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.googleLogo {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.googleG {
+    color: #4285F4;
+}
+
+.googleO1 {
+    color: #EA4335;
+}
+
+.googleO2 {
+    color: #FBBC05;
+}
+
+.googleG2 {
+    color: #4285F4;
+}
+
+.googleL {
+    color: #34A853;
+}
+
+.googleE {
+    color: #EA4335;
+}
+
+.stars {
+    color: #FBBC05;
+    display: flex;
+    gap: 2px;
+}
+
+.reviewText {
+    font-size: 0.95rem;
+    color: #4b5563;
+}
+
+.bold {
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    line-height: 1.2;
+}
+
+.logosContainer {
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0;
+}
+
+.logoImage {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    opacity: 0.8;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+    object-fit: contain;
+}
+
+.logoImage:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 3rem 1.5rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+    }
+}
