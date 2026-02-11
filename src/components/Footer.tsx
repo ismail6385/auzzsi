@@ -39,11 +39,11 @@ export default function Footer() {
                     {/* Column 1: Logo & Vision */}
                     <div className={`${styles.column} ${styles.logoColumn}`}>
                         <div className={styles.brandWrapper}>
-                            <div className={styles.logoCircle}>A</div>
-                            <div className={styles.brandText}>
-                                <span className={styles.brandName}>AUZZSI</span>
-                                <span className={styles.brandSub}>CHAUFFEUR SERVICE</span>
-                            </div>
+                            <img
+                                src="/logo/footer-logo.png"
+                                alt="Auzzsi Chauffeur"
+                                style={{ height: '119px', width: 'auto', marginBottom: '1rem' }}
+                            />
                         </div>
 
                         <p className={styles.description}>

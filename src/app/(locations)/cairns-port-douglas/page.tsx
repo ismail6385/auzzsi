@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../shared-airport.module.css";
 import Link from "next/link";
-import { Plane, Briefcase, Heart, Clock, ChevronRight, Map } from "lucide-react";
+import { Plane, Briefcase, Heart, Clock, ChevronRight, Map, Anchor, Calendar, GraduationCap } from "lucide-react";
 import type { Metadata } from 'next';
 import WeatherWidget from "@/components/WeatherWidget";
 import CityIntro from "@/components/CityIntro";
@@ -46,6 +46,24 @@ export default function CairnsPortDouglasHubPage() {
             desc: "Reef tours, Daintree Rainforest, or coastal scenic drives.",
             icon: <Clock size={32} color="#1e3a8a" />,
             link: "/cairns-port-douglas/hourly-chauffeur"
+        },
+        {
+            title: "Cruise Transfers",
+            desc: "Transfers to Cairns Cruise Terminal.",
+            icon: <Anchor size={32} color="#c5a467" />,
+            link: "/cairns-port-douglas/cruise-ship-transfers"
+        },
+        {
+            title: "Major Events",
+            desc: "Transport for Cairns Convention Centre events.",
+            icon: <Calendar size={32} color="#1e3a8a" />,
+            link: "/cairns-port-douglas/conferences-special-events"
+        },
+        {
+            title: "Student Transfers",
+            desc: "Safe arrival for JCU and CQU students.",
+            icon: <GraduationCap size={32} color="#c5a467" />,
+            link: "/cairns-port-douglas/international-student-transfers"
         }
     ];
 

@@ -32,6 +32,9 @@ export default function NationalCoverage() {
         ],
         'Tasmania': [
             { name: 'Hobart', link: '/hobart/airport-transfers' },
+        ],
+        'Western Australia': [
+            { name: 'Perth', link: '/perth/airport-transfers' },
         ]
     };
 

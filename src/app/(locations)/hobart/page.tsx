@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../shared-airport.module.css";
 import Link from "next/link";
-import { Plane, Briefcase, Heart, Clock, ChevronRight, Map } from "lucide-react";
+import { Plane, Briefcase, Heart, Clock, ChevronRight, Map, Anchor, Calendar, GraduationCap } from "lucide-react";
 import type { Metadata } from 'next';
 import WeatherWidget from "@/components/WeatherWidget";
 import CityIntro from "@/components/CityIntro";
@@ -43,9 +43,27 @@ export default function HobartHubPage() {
         },
         {
             title: "Hourly Chauffeur",
-            desc: "MONA visits, Mount Wellington tours, or city exploration.",
+            desc: "Tours of Mount Wellington, Richmond, or Port Arthur.",
             icon: <Clock size={32} color="#1e3a8a" />,
             link: "/hobart/hourly-chauffeur"
+        },
+        {
+            title: "Cruise Transfers",
+            desc: "Transfers to Macquarie Wharf Cruise Terminal.",
+            icon: <Anchor size={32} color="#c5a467" />,
+            link: "/hobart/cruise-ship-transfers"
+        },
+        {
+            title: "Major Events",
+            desc: "Transport for conferences at Grand Chancellor.",
+            icon: <Calendar size={32} color="#1e3a8a" />,
+            link: "/hobart/conferences-special-events"
+        },
+        {
+            title: "Student Transfers",
+            desc: "Safe arrival for University of Tasmania students.",
+            icon: <GraduationCap size={32} color="#c5a467" />,
+            link: "/hobart/international-student-transfers"
         }
     ];
 

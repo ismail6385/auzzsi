@@ -18,23 +18,24 @@ export default function Navbar() {
                 { name: "Gold Coast Airport", link: "/gold-coast/airport-transfers" },
                 { name: "Hobart Airport", link: "/hobart/airport-transfers" },
                 { name: "Melbourne Airport", link: "/melbourne/airport-transfers" },
+                { name: "Perth Airport", link: "/perth/airport-transfers" },
                 { name: "Sydney Airport", link: "/sydney/airport-transfers" },
                 { name: "Airport Meeting Points", link: "/services/meeting-points" },
             ]
         },
         {
             title: "Services",
-            link: "/melbourne",
+            link: "/services",
             items: [
-                { name: "Corporate Transfers", link: "/melbourne/corporate-transfers" },
-                { name: "Wedding Cars", link: "/melbourne/wedding-cars" },
-                { name: "Hourly Chauffeur", link: "/melbourne/hourly-chauffeur" },
-                { name: "All Day Hire", link: "/melbourne/all-day-hire" },
-                { name: "Luxury Tours", link: "/melbourne/luxury-tours" },
-                { name: "Airline & Cruise Crewing", link: "/melbourne/airline-cruise-crewing" },
-                { name: "Conferences & Special Events", link: "/melbourne/conferences-special-events" },
-                { name: "Cruise Ship Transfers", link: "/melbourne/cruise-ship-transfers" },
-                { name: "International Student Transfers", link: "/melbourne/international-student-transfers" },
+                { name: "Corporate Transfers", link: "/services/corporate-transfers" },
+                { name: "Wedding Cars", link: "/services/wedding-cars" },
+                { name: "Hourly Chauffeur", link: "/services/hourly-chauffeur" },
+                { name: "All Day Hire", link: "/services/all-day-hire" },
+                { name: "Luxury Tours", link: "/services/luxury-tours" },
+                { name: "Airline & Cruise Crewing", link: "/services/airline-cruise-crewing" },
+                { name: "Conferences & Special Events", link: "/services/conferences-special-events" },
+                { name: "Cruise Ship Transfers", link: "/services/cruise-ship-transfers" },
+                { name: "International Student Transfers", link: "/services/international-student-transfers" },
             ]
         },
         {
@@ -47,6 +48,7 @@ export default function Navbar() {
                 { name: "Gold Coast", link: "/gold-coast" },
                 { name: "Hobart", link: "/hobart" },
                 { name: "Melbourne", link: "/melbourne" },
+                { name: "Perth", link: "/perth" },
                 { name: "Sydney", link: "/sydney" },
             ]
         },
@@ -93,11 +95,12 @@ export default function Navbar() {
             <header className={styles.header}>
                 {/* Logo Section */}
                 <Link href="/" className={styles.brandWrapper} onClick={() => setMobileMenuOpen(false)}>
-                    <div className={styles.logoCircle}>A</div>
-                    <div className={styles.brandText}>
-                        <span className={styles.brandName}>AUZZSI</span>
-                        <span className={styles.brandSub}>CHAUFFEUR SERVICE</span>
-                    </div>
+                    <img
+                        src="/logo/header-logo.png"
+                        alt="Auzzsi Chauffeur"
+                        className={styles.logoImage}
+                        style={{ height: '119px', width: 'auto' }}
+                    />
                 </Link>
 
                 {/* Desktop Navigation */}

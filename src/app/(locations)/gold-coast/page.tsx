@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../shared-airport.module.css";
 import Link from "next/link";
-import { Plane, Briefcase, Heart, Clock, ChevronRight, Map } from "lucide-react";
+import { Plane, Briefcase, Heart, Clock, ChevronRight, Map, Anchor, Calendar, GraduationCap } from "lucide-react";
 import type { Metadata } from 'next';
 import WeatherWidget from "@/components/WeatherWidget";
 import CityIntro from "@/components/CityIntro";
@@ -43,9 +43,27 @@ export default function GoldCoastHubPage() {
         },
         {
             title: "Hourly Chauffeur",
-            desc: "Theme park visits, hinterland tours, or coastal drives.",
+            desc: "Tours of Mount Tamborine, Springbrook, or Byron Bay.",
             icon: <Clock size={32} color="#1e3a8a" />,
             link: "/gold-coast/hourly-chauffeur"
+        },
+        {
+            title: "Cruise Transfers",
+            desc: "Transfers to Brisbane Cruise Terminal from Gold Coast.",
+            icon: <Anchor size={32} color="#c5a467" />,
+            link: "/gold-coast/cruise-ship-transfers"
+        },
+        {
+            title: "Major Events",
+            desc: "Transport for GCCEC and The Star events.",
+            icon: <Calendar size={32} color="#1e3a8a" />,
+            link: "/gold-coast/conferences-special-events"
+        },
+        {
+            title: "Student Transfers",
+            desc: "Safe arrival for Bond and Griffith students.",
+            icon: <GraduationCap size={32} color="#c5a467" />,
+            link: "/gold-coast/international-student-transfers"
         }
     ];
 
