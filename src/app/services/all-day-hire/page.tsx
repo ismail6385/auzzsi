@@ -6,11 +6,14 @@ import { Clock, Briefcase, Map, Coffee, ShoppingBag, ShieldCheck } from "lucide-
 import VehicleTabs from "@/components/ServicePage/VehicleTabs";
 import FaqAccordion from "@/components/ServicePage/FaqAccordion";
 import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "All Day Chauffeur Hire | Daily Car Service Australia",
-    description: "Hire a chauffeur for the entire day. Flexible, hourly, and daily rates for business meetings, sightseeing, or special occasions across Australia.",
+    title: "All Day Chauffeur Hire | Auzzie Chauffeur | Professional Daily Driver",
+    description: "Hire a private chauffeur for the full day. Flexible daily rates for business, sightseeing, or events Australia-wide. Dedicated car & driver.",
 };
 
 export default function AllDayHirePage() {
@@ -63,9 +66,24 @@ export default function AllDayHirePage() {
         }
     ];
 
+    const breadcrumbs = [
+        { name: "Home", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "All Day Hire", url: "/services/all-day-hire" }
+    ];
+
+    const faqPairs = faqs.map(f => ({ question: f.question, answer: f.answer }));
+
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <BreadcrumbSchema items={breadcrumbs} />
+            <FAQSchema pairs={faqPairs} />
+            <ServiceSchema
+                name="All Day Chauffeur Hire Australia"
+                description="Hire a private chauffeur for the full day with flexible daily rates for business, sightseeing, or events Australia-wide."
+                url="/services/all-day-hire"
+            />
 
             <Hero
                 title="All Day Chauffeur Hire"

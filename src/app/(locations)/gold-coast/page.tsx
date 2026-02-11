@@ -9,7 +9,6 @@ import WeatherWidget from "@/components/WeatherWidget";
 import CityIntro from "@/components/CityIntro";
 import Neighborhoods from "@/components/Neighborhoods";
 import ServiceArea from "@/components/ServiceArea";
-import { generateLocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import BusinessHours from "@/components/BusinessHours";
 import ContactInfo from "@/components/ContactInfo";
@@ -17,7 +16,7 @@ import LocationFAQ from "@/components/LocationFAQ";
 import LocationTestimonials from "@/components/LocationTestimonials";
 
 export const metadata: Metadata = {
-    title: "Chauffeur Service Gold Coast | Beach Transfers & Airport",
+    title: "Chauffeur Service Gold Coast | Auzzie Chauffeur | Beach Transfers Now",
     description: "Gold Coast's premier chauffeur service. Luxury airport transfers, theme park transport, and beach-to-airport transfers along the Gold Coast.",
 };
 
@@ -79,15 +78,7 @@ export default function GoldCoastHubPage() {
 
     return (
         <main className={styles.pageWrapper}>
-            {generateLocalBusinessSchema({
-                city: "Gold Coast",
-                state: "Queensland",
-                description: "Gold Coast's premier chauffeur service. Luxury airport transfers, theme park transport, and beach-to-airport transfers along the Gold Coast.",
-                latitude: -28.0167,
-                longitude: 153.4000,
-                postalCodes: goldCoastPostcodes,
-                neighborhoods: goldCoastNeighborhoods
-            })}
+
 
             <Navbar />
             <Breadcrumbs city="Gold Coast" />
@@ -102,14 +93,15 @@ export default function GoldCoastHubPage() {
                 </div>
             </div>
 
+            {/* Gold Coast chauffeur Surfers Paradise Coolangatta airport theme parks transfers */}
             <section className={styles.contentSection} style={{ textAlign: 'center', maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
                 <h2 className={styles.sectionTitle}>The Glitter Strip</h2>
 
                 <CityIntro city="Gold Coast" />
 
                 <p className={styles.textBlock} style={{ maxWidth: '800px', margin: '0 auto 3rem' }}>
-                    From Surfers Paradise to Coolangatta, the Gold Coast deserves premium transport.
-                    Our chauffeurs provide seamless airport transfers, theme park visits, and coastal tours with style and professionalism.
+                    From Surfers Paradise to Coolangatta, the Gold Coast deserves <Link href="/the-fleet" className={styles.inlineLink}>premium transport</Link>.
+                    Our <Link href="/about-us/chauffeur-services" className={styles.inlineLink}>professional chauffeurs</Link> provide seamless <Link href="/gold-coast/airport-transfers" className={styles.inlineLink}>airport transfers</Link>, theme park visits, and <Link href="/services/luxury-tours" className={styles.inlineLink}>coastal tours</Link> with style and professionalism. Perfect for <Link href="/brisbane" className={styles.inlineLink}>Brisbane</Link> connections, <Link href="/gold-coast/corporate-transfers" className={styles.inlineLink}>business travel</Link>, or <Link href="/gold-coast/wedding-cars" className={styles.inlineLink}>beachside weddings</Link>.
                 </p>
 
                 <div style={{

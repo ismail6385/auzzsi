@@ -9,16 +9,17 @@ import WeatherWidget from "@/components/WeatherWidget";
 import CityIntro from "@/components/CityIntro";
 import Neighborhoods from "@/components/Neighborhoods";
 import ServiceArea from "@/components/ServiceArea";
-import { generateLocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import BusinessHours from "@/components/BusinessHours";
 import ContactInfo from "@/components/ContactInfo";
 import LocationFAQ from "@/components/LocationFAQ";
+
 import LocationTestimonials from "@/components/LocationTestimonials";
+import LocationCTA from "@/components/LocationCTA";
 
 export const metadata: Metadata = {
-    title: "Chauffeur Service Sydney | Luxury Car Hire & Airport Transfers",
-    description: "Sydney's premier chauffeur service. Luxury airport transfers (SYD), corporate cars, wedding hire, and private tours of the Harbour City.",
+    title: "Chauffeur Service Sydney | Auzzie Chauffeur | Book Online Now",
+    description: "Premium chauffeur service in Sydney. Fixed pricing, flight tracking & luxury fleet. Book your Sydney airport transfer or private car now.",
 };
 
 export default function SydneyHubPage() {
@@ -81,15 +82,7 @@ export default function SydneyHubPage() {
 
     return (
         <main className={styles.pageWrapper}>
-            {generateLocalBusinessSchema({
-                city: "Sydney",
-                state: "New South Wales",
-                description: "Sydney's premier chauffeur service. Luxury airport transfers (SYD), corporate cars, wedding hire, and private tours of the Harbour City.",
-                latitude: -33.8688,
-                longitude: 151.2093,
-                postalCodes: sydneyPostcodes,
-                neighborhoods: sydneyNeighborhoods
-            })}
+
 
             <Navbar />
             <Breadcrumbs city="Sydney" />
@@ -104,6 +97,16 @@ export default function SydneyHubPage() {
                 </div>
             </div>
 
+            {/* AI Overview - Quick service summary for search engines */}
+            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 1rem', borderBottom: '3px solid #c5a467' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+                    <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#1f2937', fontWeight: '500' }}>
+                        Premium <strong>chauffeur service in Sydney</strong>. <strong>Airport transfers from $120</strong>, <strong>corporate chauffeurs</strong>, and <strong>luxury tours</strong>. Servicing <strong>CBD</strong>, <strong>North Sydney</strong>, <strong>Eastern Suburbs</strong>, and all major areas. <strong>24/7 availability</strong>, <strong>flight tracking</strong>, and <strong>fixed rates</strong>. Book in 2 minutes.
+                    </p>
+                </div>
+            </section>
+
+            {/* Premium chauffeur service Sydney CBD airport transfers corporate travel */}
             <section className={styles.contentSection} style={{ textAlign: 'center', maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
                 <h2 className={styles.sectionTitle}>The Emerald City</h2>
 
@@ -111,8 +114,8 @@ export default function SydneyHubPage() {
 
                 <p className={styles.textBlock} style={{ maxWidth: '800px', margin: '0 auto 3rem' }}>
                     From the Harbour Bridge to Bondi Beach, Sydney is diverse and dynamic.
-                    Auzzsi Chauffeur helps you beat the traffic and arrive relaxed.
-                    Our professional chauffeurs provide the highest standard of service for every journey.
+                    <Link href="/" className={styles.inlineLink}>Auzzie Chauffeur</Link> helps you beat the traffic and arrive relaxed.
+                    Our <Link href="/about-us/chauffeur-services" className={styles.inlineLink}>professional chauffeurs</Link> provide the highest standard of <Link href="/services" className={styles.inlineLink}>luxury ground transport</Link> for every journey.
                 </p>
 
                 <div style={{
@@ -141,8 +144,20 @@ export default function SydneyHubPage() {
                 </div>
             </section>
 
+            {/* Sydney chauffeur services Kingsford Smith airport wedding cars hourly hire */}
             <div className="max-w-7xl mx-auto px-4">
                 <Neighborhoods location="Sydney" areas={sydneyNeighborhoods} />
+
+                <LocationCTA city="Sydney" />
+
+                <section style={{ margin: '4rem 0', textAlign: 'center' }}>
+                    <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#111827' }}>
+                        The Auzzie Chauffeur Experience in Sydney
+                    </h2>
+                    <p style={{ maxWidth: '800px', margin: '0 auto', color: '#4b5563', lineHeight: '1.8' }}>
+                        With over 15 years of operational experience in Sydney, our chauffeurs possess deep local knowledge of the CBD's one-way systems, the best routes to avoid traffic on the M1 and M5, and the hidden gems of the Eastern Suburbs. We don't just drive; we curate a seamless journey tailored to your schedule. From navigating the busy pick-up zones at Kingsford Smith Airport to ensuring a smooth arrival at the Opera House, our expertise ensures punctuality and comfort.
+                    </p>
+                </section>
 
                 <ServiceArea location="Sydney" postcodes={sydneyPostcodes} />
 

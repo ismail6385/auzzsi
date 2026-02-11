@@ -9,7 +9,6 @@ import WeatherWidget from "@/components/WeatherWidget";
 
 import Neighborhoods from "@/components/Neighborhoods";
 import ServiceArea from "@/components/ServiceArea";
-import { generateLocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import BusinessHours from "@/components/BusinessHours";
 import ContactInfo from "@/components/ContactInfo";
@@ -17,7 +16,7 @@ import LocationFAQ from "@/components/LocationFAQ";
 import LocationTestimonials from "@/components/LocationTestimonials";
 
 export const metadata: Metadata = {
-    title: "Chauffeur Service Melbourne | Airport Transfers & Corporate Cars",
+    title: "Chauffeur Service Melbourne | Auzzie Chauffeur | Book Luxury Cars",
     description: "Melbourne's premier chauffeur service. Luxury airport transfers (MEL), corporate transport, and tours of Victoria's cultural capital.",
 };
 
@@ -81,15 +80,7 @@ export default function MelbourneHubPage() {
 
     return (
         <main className={styles.pageWrapper}>
-            {generateLocalBusinessSchema({
-                city: "Melbourne",
-                state: "Victoria",
-                description: "Melbourne's premier chauffeur service. Luxury airport transfers (MEL), corporate transport, and tours of Victoria's cultural capital.",
-                latitude: -37.8136,
-                longitude: 144.9631,
-                postalCodes: melbournePostcodes,
-                neighborhoods: melbourneNeighborhoods
-            })}
+
 
             <Navbar />
             <Breadcrumbs city="Melbourne" />
@@ -104,9 +95,19 @@ export default function MelbourneHubPage() {
                 </div>
             </div>
 
+            {/* AI Overview - Quick service summary for search engines */}
+            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 1rem', borderBottom: '3px solid #c5a467' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+                    <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#1f2937', fontWeight: '500' }}>
+                        Premium <strong>chauffeur service in Melbourne</strong>. <strong>Airport transfers from $110</strong>, <strong>Yarra Valley wine tours</strong>, and <strong>corporate transport</strong>. Servicing <strong>CBD</strong>, <strong>Docklands</strong>, <strong>South Yarra</strong>, and all suburbs. <strong>24/7 availability</strong>, <strong>flight tracking</strong>, and <strong>fixed rates</strong>. Book online now.
+                    </p>
+                </div>
+            </section>
+
+            {/* Luxury chauffeur service Melbourne Tullamarine airport Yarra Valley tours */}
             <section className={styles.contentSection} style={{ textAlign: 'center', maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
                 <p className={styles.textBlock} style={{ maxWidth: '800px', margin: '0 auto 3rem', fontSize: '1.1rem' }}>
-                    Melbourne is a city where style meets convenience, and getting around in comfort has become more important than ever. That’s where chauffeur services come in. Instead of worrying about parking, traffic, or navigating unfamiliar streets, travelers and locals can simply sit back, relax, and enjoy the ride.
+                    Melbourne is a city where style meets convenience, and getting around in comfort has become more important than ever. That’s where <Link href="/" className={styles.inlineLink}>Auzzie Chauffeur Services</Link> come in. Instead of worrying about parking, traffic, or navigating unfamiliar streets, travelers and locals can simply sit back, relax, and enjoy the ride with a <Link href="/services/hourly-chauffeur" className={styles.inlineLink}>private driver</Link>.
                 </p>
 
                 <h2 className={styles.sectionTitle}>What Are Chauffeur Services?</h2>
@@ -186,6 +187,7 @@ export default function MelbourneHubPage() {
                 </p>
             </section>
 
+            {/* Melbourne chauffeur corporate travel wedding cars private driver hourly charter */}
             <div className="max-w-7xl mx-auto px-4">
                 <Neighborhoods location="Melbourne" areas={melbourneNeighborhoods} />
 

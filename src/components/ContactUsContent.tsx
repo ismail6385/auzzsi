@@ -144,7 +144,7 @@ export default function ContactUsContent() {
                                 team will be in touch within 48 hours:
                                 <br />
                                 <br />
-                                <a href="/contact-us" className={styles.link}>
+                                <a href="/feedback" className={styles.link}>
                                     auzziechauffeur.com.au/feedback
                                 </a>
                             </p>

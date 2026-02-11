@@ -9,7 +9,6 @@ import WeatherWidget from "@/components/WeatherWidget";
 import CityIntro from "@/components/CityIntro";
 import Neighborhoods from "@/components/Neighborhoods";
 import ServiceArea from "@/components/ServiceArea";
-import { generateLocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import BusinessHours from "@/components/BusinessHours";
 import ContactInfo from "@/components/ContactInfo";
@@ -17,7 +16,7 @@ import LocationFAQ from "@/components/LocationFAQ";
 import LocationTestimonials from "@/components/LocationTestimonials";
 
 export const metadata: Metadata = {
-    title: "Chauffeur Service Hobart | Tasmania Airport Transfers & Tours",
+    title: "Chauffeur Service Hobart | Auzzie Chauffeur | Trusted Airport Rides",
     description: "Hobart's premier chauffeur service. Luxury airport transfers (HBA), MONA tours, and exploration of Tasmania's capital in comfort.",
 };
 
@@ -79,15 +78,7 @@ export default function HobartHubPage() {
 
     return (
         <main className={styles.pageWrapper}>
-            {generateLocalBusinessSchema({
-                city: "Hobart",
-                state: "Tasmania",
-                description: "Hobart's premier chauffeur service. Luxury airport transfers (HBA), MONA tours, and exploration of Tasmania's capital in comfort.",
-                latitude: -42.8821,
-                longitude: 147.3272,
-                postalCodes: hobartPostcodes,
-                neighborhoods: hobartNeighborhoods
-            })}
+
 
             <Navbar />
             <Breadcrumbs city="Hobart" />
@@ -102,6 +93,7 @@ export default function HobartHubPage() {
                 </div>
             </div>
 
+            {/* Hobart chauffeur Tasmania MONA Mount Wellington airport transfers tours */}
             <section className={styles.contentSection} style={{ textAlign: 'center', maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
                 <h2 className={styles.sectionTitle}>Gateway to Tasmania</h2>
 
@@ -109,7 +101,7 @@ export default function HobartHubPage() {
 
                 <p className={styles.textBlock} style={{ maxWidth: '800px', margin: '0 auto 3rem' }}>
                     From the waterfront to Mount Wellington, Hobart offers unique experiences.
-                    Our chauffeurs provide premium transport for airport transfers, MONA visits, and tours of Tasmania's stunning landscapes.
+                    Our <Link href="/about-us/chauffeur-services" className={styles.inlineLink}>professional chauffeurs</Link> provide <Link href="/the-fleet" className={styles.inlineLink}>premium transport</Link> for <Link href="/hobart/airport-transfers" className={styles.inlineLink}>airport transfers</Link>, MONA visits, and <Link href="/services/luxury-tours" className={styles.inlineLink}>tours of Tasmania's stunning landscapes</Link>. Perfect for <Link href="/hobart/cruise-ship-transfers" className={styles.inlineLink}>cruise passengers</Link>, <Link href="/hobart/corporate-transfers" className={styles.inlineLink}>business travelers</Link>, or <Link href="/hobart/wedding-cars" className={styles.inlineLink}>special events</Link>.
                 </p>
 
                 <div style={{

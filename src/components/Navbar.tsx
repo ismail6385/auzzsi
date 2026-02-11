@@ -97,7 +97,7 @@ export default function Navbar() {
                 <Link href="/" className={styles.brandWrapper} onClick={() => setMobileMenuOpen(false)}>
                     <img
                         src="/logo/header-logo.png"
-                        alt="Auzzsi Chauffeur"
+                        alt="Auzzie Chauffeur"
                         className={styles.logoImage}
                         style={{ height: '119px', width: 'auto' }}
                     />
@@ -145,7 +145,7 @@ export default function Navbar() {
                         <div className={styles.brandWrapper}>
                             <div className={styles.logoCircle} style={{ width: 40, height: 40, fontSize: '1.4rem' }}>A</div>
                             <div className={styles.brandText}>
-                                <span className={styles.brandName} style={{ fontSize: '1.2rem' }}>AUZZSI</span>
+                                <span className={styles.brandName} style={{ fontSize: '1.2rem' }}>AUZZIE</span>
                             </div>
                         </div>
                         <button

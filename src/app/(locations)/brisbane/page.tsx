@@ -9,7 +9,6 @@ import WeatherWidget from "@/components/WeatherWidget";
 import CityIntro from "@/components/CityIntro";
 import Neighborhoods from "@/components/Neighborhoods";
 import ServiceArea from "@/components/ServiceArea";
-import { generateLocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import BusinessHours from "@/components/BusinessHours";
 import ContactInfo from "@/components/ContactInfo";
@@ -17,7 +16,7 @@ import LocationFAQ from "@/components/LocationFAQ";
 import LocationTestimonials from "@/components/LocationTestimonials";
 
 export const metadata: Metadata = {
-    title: "Chauffeur Service Brisbane | Airport Transfers & Gold Coast",
+    title: "Chauffeur Service Brisbane | Auzzie Chauffeur | Reliability Guaranteed",
     description: "Brisbane's premier chauffeur service. Luxury airport transfers (BNE), corporate transport, and transfers to the Gold Coast and Sunshine Coast.",
 };
 
@@ -80,15 +79,7 @@ export default function BrisbaneHubPage() {
 
     return (
         <main className={styles.pageWrapper}>
-            {generateLocalBusinessSchema({
-                city: "Brisbane",
-                state: "Queensland",
-                description: "Brisbane's premier chauffeur service. Luxury airport transfers (BNE), corporate transport, and transfers to the Gold Coast and Sunshine Coast.",
-                latitude: -27.4698,
-                longitude: 153.0251,
-                postalCodes: brisbanePostcodes,
-                neighborhoods: brisbaneNeighborhoods
-            })}
+
 
             <Navbar />
             <Breadcrumbs city="Brisbane" />
@@ -103,14 +94,24 @@ export default function BrisbaneHubPage() {
                 </div>
             </div>
 
+            {/* AI Overview - Quick service summary for search engines */}
+            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 1rem', borderBottom: '3px solid #c5a467' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+                    <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#1f2937', fontWeight: '500' }}>
+                        Premium <strong>chauffeur service in Brisbane</strong>. <strong>Airport transfers from $105</strong>, <strong>Gold Coast connections</strong>, and <strong>corporate transport</strong>. Servicing <strong>CBD</strong>, <strong>Fortitude Valley</strong>, <strong>South Bank</strong>, and all Brisbane suburbs. <strong>24/7 availability</strong>, <strong>flight tracking</strong>, and <strong>fixed rates</strong>. Book now.
+                    </p>
+                </div>
+            </section>
+
+            {/* Premium chauffeur service Brisbane CBD airport transfers Gold Coast corporate */}
             <section className={styles.contentSection} style={{ textAlign: 'center', maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
                 <h2 className={styles.sectionTitle}>The River City</h2>
 
                 <CityIntro city="Brisbane" />
 
                 <p className={styles.textBlock} style={{ maxWidth: '800px', margin: '0 auto 3rem' }}>
-                    From Brisbane CBD to the Gold Coast, our chauffeurs provide reliable, luxurious transport.
-                    Perfect for airport transfers, corporate events, and exploring South East Queensland in comfort.
+                    From Brisbane CBD to the <Link href="/gold-coast" className={styles.inlineLink}>Gold Coast</Link>, our <Link href="/about-us/chauffeur-services" className={styles.inlineLink}>professional chauffeurs</Link> provide reliable, <Link href="/the-fleet" className={styles.inlineLink}>luxurious transport</Link>.
+                    Perfect for <Link href="/brisbane/airport-transfers" className={styles.inlineLink}>airport transfers</Link>, <Link href="/brisbane/corporate-transfers" className={styles.inlineLink}>corporate events</Link>, and exploring South East Queensland in comfort.
                 </p>
 
                 <div style={{

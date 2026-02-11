@@ -126,6 +126,19 @@
     line-height: 1.7;
 }
 
+.inlineLink {
+    color: #1e3a8a;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid #c5a467;
+    transition: all 0.2s ease;
+}
+
+.inlineLink:hover {
+    background-color: #c5a467;
+    color: white;
+}
+
 .textBlock h3 {
     font-size: 1.2rem;
     color: #1f2937;

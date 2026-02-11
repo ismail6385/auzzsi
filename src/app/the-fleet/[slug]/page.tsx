@@ -4,6 +4,21 @@ import ContactHelp from "@/components/ContactHelp";
 import styles from "../fleet.module.css";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const resolvedParams = await params;
+    const { slug } = resolvedParams;
+    const title = slug
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+
+    return {
+        title: `${title} | Auzzie Chauffeur | Explore Our Fleet`,
+        description: `Premium ${title} chauffeur service in Australia. Luxury vehicles for airport transfers, corporate travel, and special events.`,
+    };
+}
 
 // Define the shape of our fleet data
 type FleetCategoryData = {

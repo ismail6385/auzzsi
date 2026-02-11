@@ -9,7 +9,6 @@ import WeatherWidget from "@/components/WeatherWidget";
 import CityIntro from "@/components/CityIntro";
 import Neighborhoods from "@/components/Neighborhoods";
 import ServiceArea from "@/components/ServiceArea";
-import { generateLocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import BusinessHours from "@/components/BusinessHours";
 import ContactInfo from "@/components/ContactInfo";
@@ -17,7 +16,7 @@ import LocationFAQ from "@/components/LocationFAQ";
 import LocationTestimonials from "@/components/LocationTestimonials";
 
 export const metadata: Metadata = {
-    title: "Chauffeur Service Adelaide | Barossa Tours & Transfers",
+    title: "Chauffeur Service Adelaide | Auzzie Chauffeur | Winery Tours Booking",
     description: "Experience Adelaide in comfort. Private airport transfers, corporate cars, and luxury wine tours to Barossa Valley and McLaren Vale.",
 };
 
@@ -81,15 +80,7 @@ export default function AdelaideHubPage() {
 
     return (
         <main className={styles.pageWrapper}>
-            {generateLocalBusinessSchema({
-                city: "Adelaide",
-                state: "South Australia",
-                description: "Adelaide's premier chauffeur service. Luxury airport transfers (ADL), Barossa Valley tours, and corporate transport.",
-                latitude: -34.9285,
-                longitude: 138.6007,
-                postalCodes: adelaidePostcodes,
-                neighborhoods: adelaideNeighborhoods
-            })}
+
 
             <Navbar />
             <Breadcrumbs city="Adelaide" />
@@ -104,15 +95,16 @@ export default function AdelaideHubPage() {
                 </div>
             </div>
 
+            {/* Adelaide chauffeur service Barossa Valley wine tours McLaren Vale Clare Valley */}
             <section className={styles.contentSection} style={{ textAlign: 'center', maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
                 <h2 className={styles.sectionTitle}>Adelaide & The Barossa</h2>
 
                 <CityIntro city="Adelaide" />
 
                 <p className={styles.textBlock} style={{ maxWidth: '800px', margin: '0 auto 3rem' }}>
-                    Adelaide is the gateway to some of the world's best wine regions.
-                    Auzzsi Chauffeur specializes in airport transfers and bespoke tours to the Barossa, Clare Valley, and McLaren Vale.
-                    Enjoy professional service that understands the nuances of South Australian hospitality.
+                    Adelaide is the gateway to some of the world's best <Link href="/services/luxury-tours" className={styles.inlineLink}>wine regions</Link>.
+                    <Link href="/" className={styles.inlineLink}>Auzzie Chauffeur</Link> specializes in <Link href="/adelaide/airport-transfers" className={styles.inlineLink}>airport transfers</Link> and bespoke <Link href="/services/luxury-tours" className={styles.inlineLink}>tours to the Barossa</Link>, Clare Valley, and McLaren Vale.
+                    Enjoy <Link href="/about-us/chauffeur-services" className={styles.inlineLink}>professional service</Link> that understands the nuances of South Australian hospitality. Perfect for <Link href="/adelaide/corporate-transfers" className={styles.inlineLink}>business travel</Link> or <Link href="/adelaide/wedding-cars" className={styles.inlineLink}>special occasions</Link>.
                 </p>
 
                 <div style={{

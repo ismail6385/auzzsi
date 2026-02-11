@@ -22,16 +22,16 @@ export function generateLocalBusinessSchema({
     const schema = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "@id": `https://auzzsi.com.au/${city.toLowerCase().replace(/\s+/g, '-')}`,
-        "name": `Auzzsi Chauffeur Service - ${city}`,
-        "alternateName": `Auzzsi ${city}`,
+        "@id": `https://auzziechauffeur.com.au/${city.toLowerCase().replace(/\s+/g, '-')}`,
+        "name": `Auzzie Chauffeur Service - ${city}`,
+        "alternateName": `Auzzie ${city}`,
         "description": description,
-        "url": `https://auzzsi.com.au/${city.toLowerCase().replace(/\s+/g, '-')}`,
+        "url": `https://auzziechauffeur.com.au/${city.toLowerCase().replace(/\s+/g, '-')}`,
         "telephone": "+61-XXX-XXX-XXX", // Replace with actual phone
-        "email": "info@auzzsi.com.au",
+        "email": "info@auzziechauffeur.com.au",
         "priceRange": "$$$$",
-        "image": "https://auzzsi.com.au/logo.png",
-        "logo": "https://auzzsi.com.au/logo.png",
+        "image": "https://auzziechauffeur.com.au/logo.png",
+        "logo": "https://auzziechauffeur.com.au/logo.png",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": city,
@@ -118,14 +118,14 @@ export function generateLocalBusinessSchema({
             }
         ],
         "sameAs": [
-            "https://www.facebook.com/auzzsi",
-            "https://www.instagram.com/auzzsi",
-            "https://www.linkedin.com/company/auzzsi"
+            "https://www.facebook.com/auzziechauffeur",
+            "https://www.instagram.com/auzziechauffeur",
+            "https://www.linkedin.com/company/auzziechauffeur"
         ],
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.9",
-            "reviewCount": "150",
+            "reviewCount": "245",
             "bestRating": "5",
             "worstRating": "1"
         }

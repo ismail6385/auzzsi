@@ -2,22 +2,46 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "@/app/(locations)/shared-airport.module.css";
-import { Camera, Map, Sun, Wine, Navigation, Users } from "lucide-react";
+import Link from "next/link";
+import { Camera, Map, Sun, Wine, Navigation, Users, CheckCircle, Star } from "lucide-react";
 import VehicleTabs from "@/components/ServicePage/VehicleTabs";
 import FaqAccordion from "@/components/ServicePage/FaqAccordion";
 import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Luxury Private Tours Australia | Sightseeing & Winery Tours",
-    description: "Private luxury tours of Australia's best destinations. Blue Mountains, Yarra Valley, Hunter Valley, and more. Custom itineraries for discerning travelers.",
+    title: "Luxury Private Tours | Auzzie Chauffeur | Custom Itineraries Now",
+    description: "Custom private tours of Australia's best regions. Winery tours (Hunter, Yarra, Barossa) & sightseeing in luxury comfort. Create your itinerary.",
 };
 
 export default function LuxuryToursPage() {
     const faqs = [
         {
+            question: "How much do luxury private tours cost in Australia?",
+            answer: "Luxury private tours start from $95/hour with a 4-5 hour minimum for regional tours. Full-day wine tours (8 hours) typically cost $720-$800. This includes luxury vehicle, professional chauffeur, and fuel. Tasting fees and meals are separate."
+        },
+        {
+            question: "What are the best wine regions for tours in Australia?",
+            answer: "Top wine regions include Hunter Valley (NSW), Yarra Valley (VIC), Barossa Valley (SA), McLaren Vale (SA), and Margaret River (WA). Each offers unique varietals and stunning scenery. We can recommend the best region based on your preferences."
+        },
+        {
             question: "Can we customize our tour itinerary?",
             answer: "Absolutely. Start at 10am instead of 8am? Stay longer at a winery you love? It's your tour. Our chauffeurs are flexible and will tailor the day to your preferences."
+        },
+        {
+            question: "How many wineries can we visit in one day?",
+            answer: "Most wine tours visit 3-4 wineries in a full day (8 hours). This allows time for tastings, lunch, and enjoying the scenery without feeling rushed. We can adjust based on your pace and interests."
+        },
+        {
+            question: "Do you provide tour guides or just drivers?",
+            answer: "Our chauffeurs are knowledgeable about the regions and can provide recommendations, but they're not certified tour guides. We focus on safe, comfortable transport while you enjoy the experience at your own pace."
+        },
+        {
+            question: "Can we book tours for special occasions?",
+            answer: "Absolutely! We specialize in birthday celebrations, anniversaries, corporate team building, and hens/bucks parties. We can arrange champagne, decorations, and special touches to make your day memorable."
         },
         {
             question: "Do you offer winery tours?",
@@ -63,9 +87,24 @@ export default function LuxuryToursPage() {
         }
     ];
 
+    const breadcrumbs = [
+        { name: "Home", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Luxury Tours", url: "/services/luxury-tours" }
+    ];
+
+    const faqPairs = faqs.map(f => ({ question: f.question, answer: f.answer }));
+
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <BreadcrumbSchema items={breadcrumbs} />
+            <FAQSchema pairs={faqPairs} />
+            <ServiceSchema
+                name="Luxury Private Tours Australia"
+                description="Custom private tours of Australia's best regions including winery tours and sightseeing in luxury comfort."
+                url="/services/luxury-tours"
+            />
 
             <Hero
                 title="Luxury Private Tours"
@@ -73,18 +112,29 @@ export default function LuxuryToursPage() {
                 showStats={false}
             />
 
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Discover Australia Your Way</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Forget crowded buses and rigid schedules. Explore Australia's breathtaking scenery at your own pace with a private chauffeur tour.
-                        <br /><br />
-                        From the rugged Blue Mountains to the vineyards of the Barossa, our experienced drivers act as your knowledgeable local guides.
-                        Stop for photos whenever you want, linger over a long lunch, and enjoy the journey as much as the destination.
+            {/* AI Overview - Quick service summary for search engines */}
+            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 1rem', borderBottom: '3px solid #c5a467' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+                    <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#1f2937', fontWeight: '500' }}>
+                        Luxury <strong>private tours</strong> across Australia. <strong>Wine tours from $720</strong> for full-day experiences. Visit <strong>Hunter Valley</strong>, <strong>Yarra Valley</strong>, <strong>Barossa Valley</strong>, and <strong>Margaret River</strong>. <strong>Fully customizable itineraries</strong>, <strong>3-4 wineries per day</strong>, and <strong>luxury vehicles</strong>. Perfect for special occasions and corporate events.
                     </p>
                 </div>
             </section>
 
+            {/* Private luxury tours wine country Blue Mountains Yarra Valley chauffeur driven */}
+            <section className={styles.contentSection}>
+                <h2 className={styles.sectionTitle}>Discover Australia Your Way</h2>
+                <div className={styles.textBlock}>
+                    <p>
+                        Forget crowded buses and rigid schedules. Explore Australia's breathtaking scenery at your own pace with a <Link href="/services/luxury-tours" className={styles.inlineLink}>private chauffeur tour</Link>.
+                        <br /><br />
+                        From the rugged <Link href="/sydney" className={styles.inlineLink}>Blue Mountains</Link> to the vineyards of the <Link href="/adelaide" className={styles.inlineLink}>Barossa</Link>, our <Link href="/about-us/chauffeur-services" className={styles.inlineLink}>experienced drivers</Link> act as your knowledgeable local guides.
+                        Stop for photos whenever you want, linger over a long lunch, and enjoy the journey as much as the destination. Perfect for <Link href="/melbourne" className={styles.inlineLink}>Yarra Valley wine tours</Link>, <Link href="/gold-coast" className={styles.inlineLink}>coastal drives</Link>, or <Link href="/services/hourly-chauffeur" className={styles.inlineLink}>custom itineraries</Link>.
+                    </p>
+                </div>
+            </section>
+
+            {/* Scenic chauffeur tours Blue Mountains Barossa Valley Great Ocean Road */}
             <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
                 <div className={styles.featuresGrid}>
                     <div className={styles.featureItem}>

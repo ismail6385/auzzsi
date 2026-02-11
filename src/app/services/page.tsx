@@ -8,11 +8,12 @@ import {
     Plane, Briefcase, Heart, Clock, Anchor,
     Calendar, GraduationCap, Map, Users, ChevronRight, Sun
 } from "lucide-react";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Luxury Chauffeur Services Australia | Airport, Corporate & Events",
-    description: "Comprehensive luxury transport solutions nationwide. From airport transfers and corporate roadshows to wedding cars and private tours.",
+    title: "Chauffeur Services Australia | Auzzie Chauffeur | Book Luxury Transport",
+    description: "Premium chauffeur services for airport transfers, corporate travel & weddings. 4.9★ rated drivers nationwide. Book your luxury ride today.",
 };
 
 export default function ServicesPage() {
@@ -79,9 +80,15 @@ export default function ServicesPage() {
         }
     ];
 
+    const breadcrumbs = [
+        { name: "Home", url: "/" },
+        { name: "Services", url: "/services" }
+    ];
+
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <BreadcrumbSchema items={breadcrumbs} />
             <Hero
                 title="Our Premium Services"
                 subtitle="More than just a ride. Experience the Auzzsi difference across a complete range of luxury transport solutions."

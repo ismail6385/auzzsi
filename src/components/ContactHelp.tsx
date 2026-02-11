@@ -65,7 +65,7 @@ export default function ContactHelp() {
                         </div>
                         <h3 style={{ fontSize: '1.8rem', color: '#1f2937', marginBottom: '1rem' }}>Message Sent!</h3>
                         <p style={{ color: '#4b5563', fontSize: '1rem', lineHeight: '1.6', maxWidth: '450px' }}>
-                            Thank you for contacting Auzzsi Chauffeur. Your message has been successfully sent to our support team. We generally respond to all enquiries within 2-4 hours.
+                            Thank you for contacting Auzzie Chauffeur. Your message has been successfully sent to our support team. We generally respond to all enquiries within 2-4 hours.
                         </p>
                     </div>
                 ) : (

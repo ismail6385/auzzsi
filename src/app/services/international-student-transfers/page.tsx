@@ -3,13 +3,17 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "@/app/(locations)/shared-airport.module.css";
 import Link from "next/link";
-import { GraduationCap, Heart, ShieldCheck, UserCheck, ChevronRight } from "lucide-react";
-import type { Metadata } from 'next';
+import { GraduationCap, Heart, ShieldCheck, UserCheck, ChevronRight, CheckCircle, Star } from "lucide-react";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import FaqAccordion from "@/components/ServicePage/FaqAccordion";
+import FAQSchema from "@/components/FAQSchema";
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "International Student Transfers Australia | Safe Airport Pickup",
-    description: "Safe and reliable airport transfers for international students across Australia. Meet & greet service for university arrivals.",
+    title: "International Student Transfers | Auzzie Chauffeur | Safe Airport Pickup",
+    description: "Safe and reliable airport transfers for international students Australia-wide. Meet & greet inside terminal. Transport to university accommodation.",
 };
 
 export default function StudentServicesPage() {
@@ -24,9 +28,48 @@ export default function StudentServicesPage() {
         { city: "Cairns", link: "/cairns-port-douglas/international-student-transfers", desc: "JCU & CQU Cairns" },
     ];
 
+    const faqs = [
+        {
+            question: "How much do student airport transfers cost in Australia?",
+            answer: "Student airport transfers cost $90-$150 depending on the city and university location. Sydney transfers start from $120, Melbourne from $110, and Brisbane from $105. We offer student discounts for group bookings."
+        },
+        {
+            question: "Do you provide meet and greet for international students?",
+            answer: "Yes, we provide full meet & greet service inside the arrivals terminal. Your chauffeur will hold a name sign and assist with luggage. We'll send you their photo and contact details before arrival."
+        },
+        {
+            question: "Can you take students directly to university accommodation?",
+            answer: "Absolutely. We transport students directly to university accommodation, student housing, or homestay addresses. We're familiar with all major universities and student areas across Australia."
+        },
+        {
+            question: "Is it safe for students traveling alone?",
+            answer: "Yes, safety is our priority. All chauffeurs are professionally licensed, background-checked, and experienced with international student transfers. Parents can track the journey and receive confirmation of safe arrival."
+        },
+        {
+            question: "Do you offer group discounts for students?",
+            answer: "Yes, we offer discounts for group bookings when multiple students are traveling together. Contact us for custom quotes for orientation groups or university cohorts."
+        },
+        {
+            question: "Can parents book transfers for their children?",
+            answer: "Absolutely. Parents can book and pay for transfers in advance. We'll send confirmation and driver details to both parent and student, with real-time updates during the journey."
+        }
+    ];
+
+    const breadcrumbs = [
+        { name: "Home", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Student Transfers", url: "/services/international-student-transfers" }
+    ];
+
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <BreadcrumbSchema items={breadcrumbs} />
+            <ServiceSchema
+                name="International Student Airport Transfers"
+                description="Safe and reliable airport transfers for international students across Australia with meet and greet service."
+                url="/services/international-student-transfers"
+            />
 
             <Hero
                 title="International Student Transfers"
@@ -34,6 +77,16 @@ export default function StudentServicesPage() {
                 showStats={false}
             />
 
+            {/* AI Overview - Quick service summary for search engines */}
+            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 1rem', borderBottom: '3px solid #c5a467' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+                    <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#1f2937', fontWeight: '500' }}>
+                        Safe <strong>international student airport transfers</strong> across Australia. <strong>From $90</strong> with <strong>meet & greet service</strong>, <strong>luggage assistance</strong>, and <strong>direct transport to university accommodation</strong>. Servicing all major universities including <strong>USYD</strong>, <strong>UNSW</strong>, <strong>UniMelb</strong>, <strong>UQ</strong>, and more. <strong>Group discounts available</strong>.
+                    </p>
+                </div>
+            </section>
+
+            {/* International student airport transfers university pickup safe reliable chauffeur */}
             <section className={styles.contentSection}>
                 <h2 className={styles.sectionTitle}>Welcome to Australia</h2>
                 <div className={styles.textBlock}>
@@ -108,6 +161,18 @@ export default function StudentServicesPage() {
                     </>}
                     detailsLabel="Arrival Details (Flight, Uni, Address)"
                 />
+            </section>
+
+            {/* FAQs Section */}
+            <FAQSchema pairs={faqs} />
+            <section className={styles.faqSection}>
+                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
+                <div className={styles.faqContainer}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                        Student Transfer FAQs
+                    </h2>
+                    <FaqAccordion faqs={faqs} />
+                </div>
             </section>
 
             <Footer />

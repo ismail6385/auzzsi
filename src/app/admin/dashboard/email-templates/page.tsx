@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, Plus, Edit, Eye, Copy, Send, X, Save, Code, FileText } from 'lucide-react';
 import { supabase } from '@/lib/supabaseClient';
 
@@ -21,6 +21,10 @@ export default function EmailTemplatesPage() {
         variables: [] as string[],
         is_active: true
     });
+    // ... (lines 25-555 skipped for brevity in prompt, but I need to be careful with replace_file_content)
+
+    // Actually, I should use multi_replace for this file as I need to touch the top and the middle.
+
 
     useEffect(() => {
         fetchTemplates();
@@ -549,10 +553,9 @@ export default function EmailTemplatesPage() {
 <body>
     <center class="wrapper">
         <table class="main-table">
-            <!-- Header -->
             <tr>
                 <td class="header">
-                    <a href="#" class="logo-text">Auzzsi Chauffeur</a>
+                    <a href="#" class="logo-text">Auzzie Chauffeur</a>
                 </td>
             </tr>
 
@@ -610,17 +613,17 @@ export default function EmailTemplatesPage() {
             <tr>
                 <td class="footer">
                     <div style="margin-bottom: 20px;">
-                        <span style="display: block; color: #ffffff; font-weight: bold; margin-bottom: 5px;">Auzzsi Chauffeur</span>
+                        <span style="display: block; color: #ffffff; font-weight: bold; margin-bottom: 5px;">Auzzie Chauffeur</span>
                         <span>Luxury Travel Redefined</span>
                     </div>
                     
                     <p>
                         123 Luxury Lane, Sydney NSW 2000<br>
-                        Contact: support@auzzsichauffeur.com.au | +61 400 000 000
+                        Contact: support@auzziechauffeur.com.au | +61 400 000 000
                     </p>
 
                     <div class="copyright">
-                        &copy; 2026 Auzzsi Chauffeur. All rights reserved.<br>
+                        &copy; 2026 Auzzie Chauffeur. All rights reserved.<br>
                         <a href="#" class="footer-link">Privacy Policy</a> | <a href="#" class="footer-link">Terms of Service</a>
                     </div>
                 </td>

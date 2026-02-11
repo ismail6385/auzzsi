@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import styles from './NationalCoverage.module.css';
+import Link from 'next/link';
 
 interface City {
     name: string;
@@ -17,24 +18,24 @@ export default function NationalCoverage() {
 
     const coverageData: CoverageData = {
         'New South Wales': [
-            { name: 'Sydney', link: '/sydney/airport-transfers' },
+            { name: 'Sydney', link: '/sydney' },
         ],
         'Victoria': [
-            { name: 'Melbourne', link: '/melbourne/airport-transfers' },
+            { name: 'Melbourne', link: '/melbourne' },
         ],
         'Queensland': [
-            { name: 'Brisbane', link: '/brisbane/airport-transfers' },
-            { name: 'Cairns', link: '/cairns-port-douglas/airport-transfers' },
-            { name: 'Gold Coast', link: '/gold-coast/airport-transfers' },
+            { name: 'Brisbane', link: '/brisbane' },
+            { name: 'Cairns', link: '/cairns-port-douglas' },
+            { name: 'Gold Coast', link: '/gold-coast' },
         ],
         'South Australia': [
-            { name: 'Adelaide', link: '/adelaide/airport-transfers' },
+            { name: 'Adelaide', link: '/adelaide' },
         ],
         'Tasmania': [
-            { name: 'Hobart', link: '/hobart/airport-transfers' },
+            { name: 'Hobart', link: '/hobart' },
         ],
         'Western Australia': [
-            { name: 'Perth', link: '/perth/airport-transfers' },
+            { name: 'Perth', link: '/perth' },
         ]
     };
 
@@ -44,7 +45,7 @@ export default function NationalCoverage() {
         <section className={styles.section}>
             {/* Background Map Image */}
             <div className={styles.mapBackground}>
-                <img src="/au-map.png" alt="Australia Map" className={styles.mapImage} />
+                <img src="/au-map.png" alt="Auzzie Chauffeur National Coverage Map Australia" className={styles.mapImage} />
                 {/* Decorative dots loosely positioned for visual effect */}
                 <div className={styles.mapDot} style={{ top: '65%', right: '25%' }}></div> {/* Sydneyish */}
                 <div className={styles.mapDot} style={{ top: '70%', right: '30%' }}></div> {/* Melbourneish */}
@@ -59,10 +60,10 @@ export default function NationalCoverage() {
                 </h2>
 
                 <p className={styles.description}>
-                    With offices around Australia, we keep you moving across the country. Alongside our luxury airport and A to B transfers,
-                    we offer tour services to see the sights in style, using one of our suggested itineraries or choosing your own adventure.
+                    With offices around Australia, we keep you moving across the country. Alongside our <Link href="/services/airport-transfers" style={{ color: 'inherit' }}>luxury airport</Link> and <Link href="/services/corporate-transfers" style={{ color: 'inherit' }}>A to B transfers</Link>,
+                    we offer <Link href="/services/luxury-tours" style={{ color: 'inherit' }}>tour services</Link> to see the sights in style, using one of our <Link href="/city-guides" style={{ color: 'inherit' }}>suggested itineraries</Link> or choosing your own adventure.
                     <br /><br />
-                    Find out more about our locations and the services on offer.
+                    Find out more about our <Link href="/locations" style={{ color: 'inherit' }}>locations</Link> and the services on offer.
                 </p>
 
                 <div className={styles.contentWrapper}>

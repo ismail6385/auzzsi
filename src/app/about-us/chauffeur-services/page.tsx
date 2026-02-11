@@ -3,6 +3,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "./service.module.css";
 import Link from "next/link";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Professional Chauffeur Services | Auzzie Chauffeur | Quality & Standard",
+    description: "Discover the high standards of Auzzie Chauffeurs. Handpicked professionals, uniform standards, and rigorous training for a deiscrete travel experience.",
+};
 
 export default function ChauffeurServicesPage() {
     return (

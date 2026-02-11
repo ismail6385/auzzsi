@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
+import { supabase } from '@/lib/supabaseClient';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = 'https://www.auzziechauffeur.com.au';
 
     // Base routes
@@ -14,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/privacy-policy',
         '/terms-conditions',
         '/news',
+        '/feedback',
+        '/reviews',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
@@ -21,8 +24,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: route === '' ? 1 : 0.9,
     }));
 
-    // You can fetch dynamic routes (locations) here from a DB in the future
-    // For now, we'll add the main location hubs manually if they exist as pages
+    // Fetch dynamic news posts
+    const { data: posts } = await supabase
+        .from('posts')
+        .select('slug, updated_at, created_at');
+
+    const newsRoutes = (posts || []).map((post) => ({
+        url: `${baseUrl}/news/${post.slug}`,
+        lastModified: new Date(post.updated_at || post.created_at),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+    }));
+
+    // Location Hubs
     const locationRoutes = [
         '/sydney',
         '/melbourne',
@@ -76,5 +90,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.5,
     }));
 
-    return [...routes, ...locationRoutes, ...serviceRoutes, ...policyRoutes];
+    return [...routes, ...newsRoutes, ...locationRoutes, ...serviceRoutes, ...policyRoutes];
 }

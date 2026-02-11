@@ -9,8 +9,8 @@ interface HeroProps {
 }
 
 export default function Hero({
-  title = "Auzzsi Chauffeur Service",
-  subtitle = "Experience the Auzzsi difference with premium transfers, tours and event transport.",
+  title = "Auzzie Chauffeur Service",
+  subtitle = "Experience the Auzzie difference with premium transfers, tours and event transport.",
   showStats = true,
   bgImage
 }: HeroProps) {

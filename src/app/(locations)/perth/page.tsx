@@ -9,7 +9,6 @@ import WeatherWidget from "@/components/WeatherWidget";
 import CityIntro from "@/components/CityIntro";
 import Neighborhoods from "@/components/Neighborhoods";
 import ServiceArea from "@/components/ServiceArea";
-import { generateLocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import BusinessHours from "@/components/BusinessHours";
 import ContactInfo from "@/components/ContactInfo";
@@ -17,7 +16,7 @@ import LocationFAQ from "@/components/LocationFAQ";
 import LocationTestimonials from "@/components/LocationTestimonials";
 
 export const metadata: Metadata = {
-    title: "Chauffeur Service Perth | Private Drivers Western Australia",
+    title: "Chauffeur Service Perth | Auzzie Chauffeur | Safe Private Drivers",
     description: "Perth's premier chauffeur service. Luxury airport transfers, corporate cars, and private tours of Fremantle, Swan Valley, and Cottesloe.",
 };
 
@@ -79,15 +78,7 @@ export default function PerthHubPage() {
 
     return (
         <main className={styles.pageWrapper}>
-            {generateLocalBusinessSchema({
-                city: "Perth",
-                state: "Western Australia",
-                description: "Perth's premier chauffeur service. Luxury airport transfers, corporate cars, and private tours of Fremantle, Swan Valley, and Cottesloe.",
-                latitude: -31.9505,
-                longitude: 115.8605,
-                postalCodes: perthPostcodes,
-                neighborhoods: perthNeighborhoods
-            })}
+
 
             <Navbar />
             <Breadcrumbs city="Perth" />
@@ -102,14 +93,15 @@ export default function PerthHubPage() {
                 </div>
             </div>
 
+            {/* Perth chauffeur Swan Valley Cottesloe Fremantle airport transfers wine tours */}
             <section className={styles.contentSection} style={{ textAlign: 'center', maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
                 <h2 className={styles.sectionTitle}>West Coast Luxury</h2>
 
                 <CityIntro city="Perth" />
 
                 <p className={styles.textBlock} style={{ maxWidth: '800px', margin: '0 auto 3rem' }}>
-                    From the pristine beaches of Cottesloe to the wineries of the Swan Valley, Perth is a city of diverse beauty.
-                    Auzzsi Chauffeur provides the premium transport solution that connects the Golden Triangle, Fremantle, and the CBD with ease.
+                    From the pristine beaches of Cottesloe to the wineries of the <Link href="/services/luxury-tours" className={styles.inlineLink}>Swan Valley</Link>, Perth is a city of diverse beauty.
+                    <Link href="/" className={styles.inlineLink}>Auzzie Chauffeur</Link> provides the <Link href="/the-fleet" className={styles.inlineLink}>premium transport solution</Link> that connects the Golden Triangle, Fremantle, and the CBD with ease. Perfect for <Link href="/perth/airport-transfers" className={styles.inlineLink}>airport transfers</Link>, <Link href="/perth/corporate-transfers" className={styles.inlineLink}>business travel</Link>, <Link href="/perth/wedding-cars" className={styles.inlineLink}>special events</Link>, or <Link href="/services/hourly-chauffeur" className={styles.inlineLink}>wine tours</Link>.
                 </p>
 
                 <div style={{

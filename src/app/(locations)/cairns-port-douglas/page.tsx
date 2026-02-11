@@ -9,7 +9,6 @@ import WeatherWidget from "@/components/WeatherWidget";
 import CityIntro from "@/components/CityIntro";
 import Neighborhoods from "@/components/Neighborhoods";
 import ServiceArea from "@/components/ServiceArea";
-import { generateLocalBusinessSchema } from "@/components/LocalBusinessSchema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import BusinessHours from "@/components/BusinessHours";
 import ContactInfo from "@/components/ContactInfo";
@@ -17,7 +16,7 @@ import LocationFAQ from "@/components/LocationFAQ";
 import LocationTestimonials from "@/components/LocationTestimonials";
 
 export const metadata: Metadata = {
-    title: "Chauffeur Service Cairns & Port Douglas | Reef Transfers",
+    title: "Chauffeur Service Cairns | Auzzie Chauffeur | Tropical Reef Transfers",
     description: "Cairns and Port Douglas premier chauffeur service. Luxury airport transfers (CNS), reef tours, and Daintree Rainforest exploration.",
 };
 
@@ -78,15 +77,7 @@ export default function CairnsPortDouglasHubPage() {
 
     return (
         <main className={styles.pageWrapper}>
-            {generateLocalBusinessSchema({
-                city: "Cairns & Port Douglas",
-                state: "Queensland",
-                description: "Cairns and Port Douglas premier chauffeur service. Luxury airport transfers (CNS), reef tours, and Daintree Rainforest exploration.",
-                latitude: -16.9186,
-                longitude: 145.7781,
-                postalCodes: cairnsPostcodes,
-                neighborhoods: cairnsNeighborhoods
-            })}
+
 
             <Navbar />
             <Breadcrumbs city="Cairns & Port Douglas" />
@@ -101,14 +92,15 @@ export default function CairnsPortDouglasHubPage() {
                 </div>
             </div>
 
+            {/* Cairns Port Douglas chauffeur Great Barrier Reef Daintree rainforest tours */}
             <section className={styles.contentSection} style={{ textAlign: 'center', maxWidth: '1200px', margin: '0 auto', padding: '0 1rem' }}>
                 <h2 className={styles.sectionTitle}>Gateway to the Reef</h2>
 
                 <CityIntro city="Cairns & Port Douglas" />
 
                 <p className={styles.textBlock} style={{ maxWidth: '800px', margin: '0 auto 3rem' }}>
-                    From Cairns to Port Douglas and the Daintree, Tropical North Queensland deserves premium transport.
-                    Our chauffeurs provide seamless transfers for reef tours, rainforest adventures, and airport connections.
+                    From Cairns to Port Douglas and the Daintree, Tropical North Queensland deserves <Link href="/the-fleet" className={styles.inlineLink}>premium transport</Link>.
+                    Our <Link href="/about-us/chauffeur-services" className={styles.inlineLink}>professional chauffeurs</Link> provide seamless transfers for <Link href="/services/luxury-tours" className={styles.inlineLink}>reef tours</Link>, rainforest adventures, and <Link href="/cairns-port-douglas/airport-transfers" className={styles.inlineLink}>airport connections</Link>. Perfect for <Link href="/cairns-port-douglas/cruise-ship-transfers" className={styles.inlineLink}>cruise passengers</Link>, <Link href="/cairns-port-douglas/wedding-cars" className={styles.inlineLink}>tropical weddings</Link>, or <Link href="/services/hourly-chauffeur" className={styles.inlineLink}>custom itineraries</Link>.
                 </p>
 
                 <div style={{

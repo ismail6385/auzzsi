@@ -4,6 +4,12 @@ import ImageTiles from "@/components/ImageTiles";
 import ServiceGallery from "@/components/ServiceGallery";
 import BookingCTA from "@/components/BookingCTA";
 import Footer from "@/components/Footer";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Luxury Car Fleet | Auzzie Chauffeur | Explore Our Vehicles",
+    description: "Explore our premium fleet of late-model European sedans, SUVs, and luxury minibuses. Pefect for any occasion across Australia.",
+};
 
 export default function FleetPage() {
     return (

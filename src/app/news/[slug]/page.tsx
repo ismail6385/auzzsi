@@ -1,49 +1,38 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "../news.module.css";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { supabase } from "@/lib/supabaseClient";
 import { Calendar, User, Clock } from "lucide-react";
+import AuthorBio from "@/components/AuthorBio";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import ArticleSchema from "@/components/ArticleSchema";
+import type { Metadata } from 'next';
 
-export default function SinglePostPage() {
-    const { slug } = useParams();
-    const [post, setPost] = useState<any>(null);
-    const [loading, setLoading] = useState(true);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params;
+    const { data: post } = await supabase
+        .from('posts')
+        .select('title, content')
+        .eq('slug', slug)
+        .single();
 
-    useEffect(() => {
-        async function fetchPost() {
-            setLoading(true);
-            if (slug) {
-                const { data, error } = await supabase
-                    .from('posts')
-                    .select('*')
-                    .eq('slug', slug)
-                    .single();
+    if (!post) return { title: "Post Not Found | Auzzie Chauffeur" };
 
-                if (data) {
-                    setPost(data);
-                }
-            }
-            setLoading(false);
-        }
-        fetchPost();
-    }, [slug]);
+    return {
+        title: `${post.title} | Auzzie Chauffeur | Latest News`,
+        description: post.content.substring(0, 160)
+    };
+}
 
-    if (loading) {
-        return (
-            <main className={styles.pageWrapper}>
-                <Navbar />
-                <div style={{ minHeight: '60vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    Loading...
-                </div>
-                <Footer />
-            </main>
-        );
-    }
+export default async function SinglePostPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+
+    const { data: post } = await supabase
+        .from('posts')
+        .select('*')
+        .eq('slug', slug)
+        .single();
 
     if (!post) {
         return (
@@ -58,9 +47,24 @@ export default function SinglePostPage() {
         );
     }
 
+    const breadcrumbs = [
+        { name: "Home", url: "/" },
+        { name: "News", url: "/news" },
+        { name: post.title, url: `/news/${post.slug}` }
+    ];
+
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <BreadcrumbSchema items={breadcrumbs} />
+            <ArticleSchema
+                headline={post.title}
+                image={post.image_url ? [post.image_url] : []}
+                datePublished={post.created_at}
+                dateModified={post.updated_at || post.created_at}
+                authorName="James Sterling"
+                description={post.content.substring(0, 160)}
+            />
 
             {/* Hero Section */}
             <section className={styles.hero} style={{ minHeight: '300px' }}>
@@ -99,11 +103,19 @@ export default function SinglePostPage() {
                         )}
 
                         {/* Content */}
-                        <div style={{ lineHeight: '1.8', color: '#333', fontSize: '1.1rem' }}>
+                        <div style={{ lineHeight: '1.8', color: '#333', fontSize: '1.1rem', marginBottom: '3rem' }}>
                             {post.content.split('\n').map((paragraph: string, idx: number) => (
                                 <p key={idx} style={{ marginBottom: '1.5rem' }}>{paragraph}</p>
                             ))}
                         </div>
+
+                        {/* Author Bio for EEAT */}
+                        <AuthorBio author={{
+                            name: "James Sterling",
+                            role: "Senior Chauffeur & Travel Coordinator",
+                            description: "James has been driving for Auzzie Chauffeur for over 12 years. He specializes in high-profile corporate logistics and knows every back lane in Sydney and Melbourne.",
+                            imageUrl: "/tile-driver.png"
+                        }} />
 
                     </div>
 

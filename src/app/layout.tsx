@@ -4,35 +4,35 @@ import SchemaMarkup from "@/components/SchemaMarkup";
 import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.auzziechauffeur.com.au'),
+  metadataBase: new URL('https://www.auzziechauffeur.com.au/'),
   title: {
-    default: "Auzzsi Chauffeur Service | Premium Airport Transfers Australia",
-    template: "%s | Auzzsi Chauffeur Service"
+    default: "Airport Transfers | Auzzie Chauffeur | Book in 2 Mins",
+    template: "%s"
   },
-  description: "Australia's leading national chauffeur service. Premium airport transfers, corporate travel, and private drivers in Sydney, Melbourne, Brisbane, Adelaide, Gold Coast, and Hobart. Book your luxury ride today.",
-  keywords: ["Chauffeur Service Australia", "Airport Transfers Sydney", "Corporate Transfers", "Private Driver Melbourne", "Luxury Car Hire Australia", "Auzzsi Chauffeur"],
-  authors: [{ name: "Auzzsi Chauffeur Service" }],
-  creator: "Auzzsi Chauffeur Service",
-  publisher: "Auzzsi Chauffeur Service",
+  description: "Reliable chauffeur service in Australia. Flight mapping, fixed rates, and 4.9★ rated drivers. Book your luxury airport transfer online today.",
+  keywords: ["Chauffeur Service Australia", "Airport Transfers Sydney", "Corporate Transfers", "Private Driver Melbourne", "Luxury Car Hire Australia", "Auzzie Chauffeur"],
+  authors: [{ name: "Auzzie Chauffeur Service" }],
+  creator: "Auzzie Chauffeur Service",
+  publisher: "Auzzie Chauffeur Service",
   openGraph: {
     type: "website",
     locale: "en_AU",
-    url: "https://www.auzziechauffeur.com.au",
-    title: "Auzzsi Chauffeur Service | Premium Airport Transfers Australia",
+    url: "https://www.auzziechauffeur.com.au/",
+    title: "Auzzie Chauffeur Service | Premium Airport Transfers Australia",
     description: "Experience premium chauffeur services across Australia. Reliable airport transfers, corporate travel, and luxury private tours.",
-    siteName: "Auzzsi Chauffeur Service",
+    siteName: "Auzzie Chauffeur Service",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Auzzsi Chauffeur Service Fleet",
+        alt: "Auzzie Chauffeur Service Fleet",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Auzzsi Chauffeur Service",
+    title: "Auzzie Chauffeur Service",
     description: "Australia's #1 National Chauffeur Service. Book now for premium airport transfers.",
     images: ["/og-image.jpg"],
   },
@@ -50,6 +50,9 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-icon.png',
+  },
+  alternates: {
+    canonical: '/',
   },
 };
 

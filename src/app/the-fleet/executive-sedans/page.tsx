@@ -3,6 +3,12 @@ import Footer from "@/components/Footer";
 import ContactHelp from "@/components/ContactHelp";
 import styles from "./sedans.module.css";
 import Link from "next/link";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Executive Sedan Rental | Auzzie Chauffeur | Book Luxury Sedan",
+    description: "Hire a premium executive sedan for your next transfer. Late-model Mercedes, BMW, and Audi vehicles with professional chauffeurs nationwide.",
+};
 
 export default function ExecutiveSedansPage() {
     return (
@@ -27,7 +33,7 @@ export default function ExecutiveSedansPage() {
                 </div>
             </section>
 
-            {/* INTRO CONTENT */}
+            {/* Executive sedan hire Mercedes BMW Audi business travel corporate transfers */}
             <section className={styles.introSection}>
                 <div className={styles.twoColumnLayout}>
                     <h2 className={styles.introHeading}>
@@ -35,13 +41,13 @@ export default function ExecutiveSedansPage() {
                     </h2>
                     <div className={styles.introText}>
                         <p>
-                            Experience the epitome of refined elegance with our fleet of executive sedans, available to hire anytime and anywhere. Our meticulously selected sedans are designed to elevate your travel experience, whether it&apos;s for business or pleasure. Step into the world of serene comfort as you sink into plush leather seats, surrounded by premium amenities and classic interior.
+                            Experience the epitome of refined elegance with our fleet of <Link href="/the-fleet/executive-sedans" className={styles.highlight}>executive sedans</Link>, available to hire anytime and anywhere. Our meticulously selected sedans are designed to elevate your travel experience, whether it's for <Link href="/services/corporate-transfers" className={styles.highlight}>business</Link> or pleasure. Step into the world of serene comfort as you sink into plush leather seats, surrounded by premium amenities and classic interior.
                         </p>
                         <p>
-                            To ensure your full comfort and ease, all our fleet of executive sedans are driven by skilled and discreet chauffeurs ready to serve you. Whether you&apos;re attending a business conference, exploring a new city, or simply seeking a comfortable ride to the airport hassle-free, our services are tailored to your convenience.
+                            To ensure your full comfort and ease, all our fleet of executive sedans are driven by skilled and <Link href="/about-us/chauffeur-services" className={styles.highlight}>discreet chauffeurs</Link> ready to serve you. Whether you're attending a <Link href="/services/conferences-special-events" className={styles.highlight}>business conference</Link>, exploring a new city, or simply seeking a comfortable ride to the <Link href="/services/airport-transfers" className={styles.highlight}>airport hassle-free</Link>, our services are tailored to your convenience.
                         </p>
                         <p>
-                            With seamless booking processes, you can reserve your executive sedan effortlessly, ensuring a stress-free and timely arrival. Our dedicated chauffeurs are trained in hospitality and professionalism to cater to your every need, offering a personalized ride. We pride ourselves on punctuality, ensuring you arrive at your destination refreshed, relaxed, and with executive style. <a href="#" className={styles.highlight}>Book an executive sedan today</a> and redefine your journey, where every mile is a testament to fine living.
+                            With seamless booking processes, you can reserve your executive sedan effortlessly, ensuring a stress-free and timely arrival. Our dedicated chauffeurs are trained in hospitality and professionalism to cater to your every need, offering a personalized ride. We pride ourselves on punctuality, ensuring you arrive at your destination refreshed, relaxed, and with executive style. <Link href="/book" className={styles.highlight}>Book an executive sedan today</Link> and redefine your journey, where every mile is a testament to fine living.
                         </p>
                     </div>
                 </div>

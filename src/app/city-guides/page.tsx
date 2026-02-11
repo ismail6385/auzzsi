@@ -1,5 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Australia City Guides | Auzzie Chauffeur | Local Travel Tips",
+    description: "Download our exclusive city guides for Melbourne, Brisbane, and the Gold Coast. Expert travel tips from your local chauffeur team.",
+};
 import styles from "./city-guides.module.css";
 import Link from "next/link";
 

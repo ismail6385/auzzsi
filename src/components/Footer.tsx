@@ -16,7 +16,8 @@ export default function Footer() {
         { name: "Cruise Ship Transfers", href: "/services" },
         { name: "Private Driver", href: "/services" },
         { name: "Airline & Cruise Crewing", href: "/services" },
-        { name: "Luxury Private Tours", href: "/the-fleet" } // Assuming tours relate to fleet
+        { name: "Luxury Private Tours", href: "/the-fleet" },
+        { name: "Customer Reviews", href: "/reviews" }
     ];
 
     const services = [
@@ -41,13 +42,13 @@ export default function Footer() {
                         <div className={styles.brandWrapper}>
                             <img
                                 src="/logo/footer-logo.png"
-                                alt="Auzzsi Chauffeur"
+                                alt="Auzzie Chauffeur"
                                 style={{ height: '119px', width: 'auto', marginBottom: '1rem' }}
                             />
                         </div>
 
                         <p className={styles.description}>
-                            Auzzsi is Australia&apos;s only fully national chauffeur service, providing premium airport transfers, private drivers, and chauffeurs in major cities, including Sydney, Melbourne, Brisbane, Adelaide, Gold Coast, and more. With a network of first-class drivers, Auzzsi ensures unparalleled service nationwide.
+                            Auzzie is Australia&apos;s only fully national chauffeur service, providing premium airport transfers, private drivers, and chauffeurs in major cities, including Sydney, Melbourne, Brisbane, Adelaide, Gold Coast, and more. With a network of first-class drivers, Auzzie ensures unparalleled service nationwide.
                         </p>
 
 

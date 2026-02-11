@@ -3,13 +3,17 @@ import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "@/app/(locations)/shared-airport.module.css";
 import Link from "next/link";
-import { Calendar, Users, Briefcase, Star, ChevronRight, MapPin } from "lucide-react";
-import type { Metadata } from 'next';
+import { Calendar, Users, Briefcase, Star, ChevronRight, MapPin, CheckCircle } from "lucide-react";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import FaqAccordion from "@/components/ServicePage/FaqAccordion";
+import FAQSchema from "@/components/FAQSchema";
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Conference Transport Australia | Corporate Event Transfers",
-    description: "Professional transport for major conferences & events in Sydney, Melbourne, Brisbane, Perth & more. Reliable logistics for delegates.",
+    title: "Conference & Event Transport | Auzzie Chauffeur | Group Logistics Quote",
+    description: "Professional transport for major conferences & events in Sydney, Melbourne, Brisbane & Perth. Reliable logistics for delegate transfers.",
 };
 
 export default function ConferenceServicesPage() {
@@ -24,9 +28,48 @@ export default function ConferenceServicesPage() {
         { city: "Cairns", link: "/cairns-port-douglas/conferences-special-events", desc: "Cairns Convention Centre" },
     ];
 
+    const faqs = [
+        {
+            question: "How much does conference transport cost?",
+            answer: "Conference transport pricing varies based on group size and duration. Hourly rates start from $95/hour for executive sedans. For large conferences, we offer custom packages with volume discounts and dedicated account management."
+        },
+        {
+            question: "Can you handle transport for large conferences?",
+            answer: "Yes, we specialize in large-scale event logistics. We can coordinate multiple vehicles, manage complex schedules, and provide dedicated event coordinators for conferences with 50+ delegates."
+        },
+        {
+            question: "Do you provide airport transfers for conference delegates?",
+            answer: "Absolutely. We offer group airport transfers for conference delegates with meet & greet service, luggage assistance, and direct transport to conference venues or hotels."
+        },
+        {
+            question: "What types of events do you service?",
+            answer: "We service corporate conferences, trade shows, gala dinners, award ceremonies, product launches, team building events, and VIP hospitality. Available for events of all sizes across Australia."
+        },
+        {
+            question: "Can you provide on-site event coordination?",
+            answer: "Yes, for large events we can provide dedicated coordinators who manage vehicle schedules, communicate with your event team, and ensure seamless transport logistics throughout your event."
+        },
+        {
+            question: "Do you offer multi-day event packages?",
+            answer: "Absolutely. We offer multi-day packages for conferences and events with preferential rates, guaranteed vehicle availability, and consolidated billing for easy expense management."
+        }
+    ];
+
+    const breadcrumbs = [
+        { name: "Home", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Conferences & Events", url: "/services/conferences-special-events" }
+    ];
+
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <BreadcrumbSchema items={breadcrumbs} />
+            <ServiceSchema
+                name="Conference & Event Transport"
+                description="Professional transport and logistics for major conferences and events across Australia."
+                url="/services/conferences-special-events"
+            />
 
             <Hero
                 title="Conference & Event Transport"
@@ -34,6 +77,16 @@ export default function ConferenceServicesPage() {
                 showStats={false}
             />
 
+            {/* AI Overview - Quick service summary for search engines */}
+            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 1rem', borderBottom: '3px solid #c5a467' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+                    <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#1f2937', fontWeight: '500' }}>
+                        Professional <strong>conference and event transport</strong> across Australia. <strong>From $95/hour</strong> with <strong>dedicated event coordinators</strong>, <strong>multi-vehicle coordination</strong>, and <strong>volume discounts</strong>. Perfect for <strong>corporate conferences</strong>, <strong>trade shows</strong>, <strong>gala dinners</strong>, and <strong>VIP hospitality</strong>. Multi-day packages available.
+                    </p>
+                </div>
+            </section>
+
+            {/* Conference event chauffeur service ICC Sydney Melbourne Convention Centre corporate */}
             <section className={styles.contentSection}>
                 <h2 className={styles.sectionTitle}>Event Logistics Made Simple</h2>
                 <div className={styles.textBlock}>
@@ -108,6 +161,18 @@ export default function ConferenceServicesPage() {
                     </>}
                     detailsLabel="Event Details (Date, City, Pax)"
                 />
+            </section>
+
+            {/* FAQs Section */}
+            <FAQSchema pairs={faqs} />
+            <section className={styles.faqSection}>
+                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
+                <div className={styles.faqContainer}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
+                        Conference & Event FAQs
+                    </h2>
+                    <FaqAccordion faqs={faqs} />
+                </div>
             </section>
 
             <Footer />

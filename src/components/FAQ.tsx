@@ -17,15 +17,15 @@ export default function FAQ() {
             answer: "Our fleet ranges from luxury sedans seating up to 3 passengers, to SUVs for 4, People Movers for 7, and minibuses/coaches for larger groups. Please check our Fleet page for specific vehicle details."
         },
         {
-            question: "How Can I Pay For A Chauffeured Car From Auzzsi?",
+            question: "How Can I Pay For A Chauffeured Car From Auzzie?",
             answer: "We accept all major credit cards including Visa, MasterCard, and American Express. Corporate accounts can also be set up for regular business travelers with monthly invoicing options."
         },
         {
-            question: "Does Auzzsi Charge Cancellation Fees?",
+            question: "Does Auzzie Charge Cancellation Fees?",
             answer: "Cancellation fees may apply depending on how close to the booking time the cancellation occurs. Generally, cancellations made more than 24 hours in advance incur no fee. Please refer to our Terms & Conditions for full details."
         },
         {
-            question: "How Far In Advance Can I Book With Auzzsi?",
+            question: "How Far In Advance Can I Book With Auzzie?",
             answer: "You can book as far in advance as you like. We recommend booking at least 24 hours in advance to ensure vehicle availability, especially during peak travel times or for special events."
         }
     ];

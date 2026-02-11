@@ -2,19 +2,47 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "@/app/(locations)/shared-airport.module.css";
-import { Heart, Camera, Clock, Award, Gift, Star, MapPin } from "lucide-react";
+import Link from "next/link";
+import { Heart, Star, Camera, Clock, Award, ShieldCheck, MapPin, Gift, CheckCircle, XCircle, DollarSign, Lock } from "lucide-react";
 import VehicleTabs from "@/components/ServicePage/VehicleTabs";
 import FaqAccordion from "@/components/ServicePage/FaqAccordion";
 import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Luxury Wedding Cars Australia | Nationwide Chauffeur Hire",
-    description: "Premium wedding car hire across Australia. Sydney, Melbourne, Brisbane, Perth & more. European luxury sedans and limousines for your special day.",
+    title: "Luxury Wedding Cars | Auzzie Chauffeur | Book Your Dream Ride",
+    description: "Premium wedding car hire in Sydney, Melbourne & Nationwide. European luxury sedans, white ribbons & red carpet service. Request a quote.",
 };
 
 export default function WeddingServicesPage() {
     const faqs = [
+        {
+            question: "How much does wedding car hire cost in Australia?",
+            answer: "Wedding car hire in Australia starts from $450 for a 4-hour package. This includes luxury vehicle, professional chauffeur, red carpet service, and champagne on ice. Full-day packages (8+ hours) are also available."
+        },
+        {
+            question: "How far in advance should I book wedding cars?",
+            answer: "We recommend booking 6-12 months in advance, especially for peak wedding season (September-May). However, we can accommodate last-minute bookings subject to availability. Book early for peace of mind."
+        },
+        {
+            question: "What's included in wedding car hire?",
+            answer: "Our wedding packages include luxury vehicle, professional chauffeur in formal attire, red carpet service, white ribbons, champagne on ice, and unlimited photos with the vehicle. We also provide complimentary water and mints."
+        },
+        {
+            question: "Can we have the car for the whole day?",
+            answer: "Yes! We offer full-day wedding packages (8+ hours) for couples who want the vehicle available throughout their special day. This includes ceremony, photos, reception, and departure."
+        },
+        {
+            question: "Do you provide cars for bridal parties?",
+            answer: "Absolutely. We can provide Mercedes V-Class people movers for bridal parties and guests, along with a luxury S-Class for the bride and groom. We specialize in coordinating multiple vehicles for weddings."
+        },
+        {
+            question: "What happens if the ceremony runs late?",
+            answer: "We build flexibility into our wedding packages. Minor delays are included at no extra charge. For significant extensions, we charge a reasonable hourly rate. Your chauffeur will stay as long as needed."
+        },
         {
             question: "Which Cities Do You Service?",
             answer: "We offer wedding car hire in all major Australian cities including Sydney, Melbourne, Brisbane, Adelaide, Hobart, Gold Coast, and Cairns."
@@ -63,9 +91,24 @@ export default function WeddingServicesPage() {
         }
     ];
 
+    const breadcrumbs = [
+        { name: "Home", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Wedding Cars", url: "/services/wedding-cars" }
+    ];
+
+    const faqPairs = faqs.map(f => ({ question: f.question, answer: f.answer }));
+
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <BreadcrumbSchema items={breadcrumbs} />
+            <FAQSchema pairs={faqPairs} />
+            <ServiceSchema
+                name="Luxury Wedding Cars Australia"
+                description="Premium wedding car hire with European luxury sedans, white ribbons and red carpet service across Australia."
+                url="/services/wedding-cars"
+            />
 
             {/* HERO SECTION */}
             <Hero
@@ -74,19 +117,29 @@ export default function WeddingServicesPage() {
                 showStats={false}
             />
 
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Your Perfect Day Deserves The Perfect Journey</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        At Auzzsi Chauffeur, we understand that your wedding day is one of the most significant moments of your life.
-                        Our nationwide fleet of immaculate luxury vehicles ensures that you arrive at your ceremony and reception with grace, elegance, and peace of mind.
-                        <br /><br />
-                        From the iconic Harbour Bridge in Sydney to the vineyards of the Yarra Valley, our professional chauffeurs provide a seamless experience, allowing you to focus on the moments that matter.
+            {/* AI Overview - Quick service summary for search engines */}
+            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 1rem', borderBottom: '3px solid #c5a467' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
+                    <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#1f2937', fontWeight: '500' }}>
+                        Luxury <strong>wedding car hire</strong> across Australia. <strong>Packages from $450</strong> including <strong>Mercedes-Benz S-Class</strong>, <strong>red carpet service</strong>, <strong>champagne on ice</strong>, and <strong>white ribbons</strong>. Available in Sydney, Melbourne, Brisbane, and all major cities. <strong>Book 6-12 months ahead</strong> for peak season.
                     </p>
                 </div>
             </section>
 
+            {/* Luxury wedding car hire chauffeur service bridal transport Australia */}
+            <section className={styles.contentSection}>
+                <h2 className={styles.sectionTitle}>Your Perfect Day Deserves The Perfect Journey</h2>
+                <div className={styles.textBlock}>
+                    <p>
+                        At <Link href="/" className={styles.inlineLink}>Auzzie Chauffeur</Link>, we understand that your <Link href="/services/wedding-cars" className={styles.inlineLink}>wedding day</Link> is one of the most significant moments of your life.
+                        Our nationwide fleet of immaculate <Link href="/the-fleet" className={styles.inlineLink}>luxury vehicles</Link> ensures that you arrive at your ceremony and reception with grace, elegance, and peace of mind.
+                        <br /><br />
+                        From the iconic Harbour Bridge in <Link href="/sydney/wedding-cars" className={styles.inlineLink}>Sydney</Link> to the vineyards of the <Link href="/melbourne/wedding-cars" className={styles.inlineLink}>Yarra Valley</Link>, our <Link href="/about-us/chauffeur-services" className={styles.inlineLink}>professional chauffeurs</Link> provide a seamless experience, allowing you to focus on the moments that matter. Whether you need a <Link href="/the-fleet/executive-sedans" className={styles.inlineLink}>luxury sedan</Link> or <Link href="/the-fleet/luxury-suvs" className={styles.inlineLink}>premium SUV</Link>, we have the perfect vehicle for your special day.
+                    </p>
+                </div>
+            </section>
+
+            {/* Wedding chauffeur Sydney Melbourne Brisbane Adelaide Gold Coast nationwide */}
             <div style={{
                 maxWidth: '1200px',
                 margin: '0 auto',

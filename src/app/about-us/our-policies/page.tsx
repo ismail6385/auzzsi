@@ -3,6 +3,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "./policies.module.css";
 import Link from "next/link";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Company Policies | Auzzie Chauffeur | Our Standards",
+    description: "Read about Auzzie Chauffeur's company policies, including safety, conduct, and environmental standards. We are committed to excellence and transparency.",
+};
 
 export default function OurPoliciesPage() {
     const policies = [

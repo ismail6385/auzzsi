@@ -23,6 +23,19 @@
     font-size: 1.05rem;
 }
 
+.inlineLink {
+    color: #1a2b4b;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid #c5a467;
+    transition: all 0.2s ease;
+}
+
+.inlineLink:hover {
+    background-color: #c5a467;
+    color: white;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);

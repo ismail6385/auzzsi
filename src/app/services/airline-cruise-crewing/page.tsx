@@ -6,11 +6,14 @@ import { Plane, Anchor, Clock, Users, ShieldCheck, FileText } from "lucide-react
 import VehicleTabs from "@/components/ServicePage/VehicleTabs";
 import FaqAccordion from "@/components/ServicePage/FaqAccordion";
 import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
+import FAQSchema from "@/components/FAQSchema";
+import ServiceSchema from "@/components/ServiceSchema";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Airline & Cruise Crew Transfers | Logistics Transport Australia",
-    description: "Specialized transport for airline flight crew and cruise ship staff. Reliable, punctual, and secure transfers between airports, ports, and hotels.",
+    title: "Airline & Cruise Crew transfers | Auzzie Chauffeur | Crew Logistics Services",
+    description: "Specialized transport for airline flight crew and cruise ship staff. Reliable, on-time airport & port transfers. Contract rates available.",
 };
 
 export default function CrewingServicesPage() {
@@ -63,9 +66,24 @@ export default function CrewingServicesPage() {
         }
     ];
 
+    const breadcrumbs = [
+        { name: "Home", url: "/" },
+        { name: "Services", url: "/services" },
+        { name: "Airline & Cruise Crewing", url: "/services/airline-cruise-crewing" }
+    ];
+
+    const faqPairs = faqs.map(f => ({ question: f.question, answer: f.answer }));
+
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <BreadcrumbSchema items={breadcrumbs} />
+            <FAQSchema pairs={faqPairs} />
+            <ServiceSchema
+                name="Airline & Cruise Crew Transfers"
+                description="Specialized transport for airline flight crew and cruise ship staff with reliable on-time airport and port transfers."
+                url="/services/airline-cruise-crewing"
+            />
 
             <Hero
                 title="Airline & Cruise Crew Logistics"

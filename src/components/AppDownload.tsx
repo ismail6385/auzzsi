@@ -6,7 +6,7 @@ export default function AppDownload() {
         <section className={styles.section}>
             <div className={styles.container}>
                 <div className={styles.content}>
-                    <h2 className={styles.title}>Download The Auzzsi App</h2>
+                    <h2 className={styles.title}>Download The Auzzie App</h2>
                     <p className={styles.subtitle}>Premium transfers at your fingertips</p>
 
                     <div className={styles.storeButtons}>
@@ -33,7 +33,7 @@ export default function AppDownload() {
                 <div className={styles.imageWrapper}>
                     <img
                         src="/app-mockup.png"
-                        alt="Auzzsi App on iPhone"
+                        alt="Auzzie App on iPhone"
                         className={styles.phoneImage}
                     />
                 </div>
