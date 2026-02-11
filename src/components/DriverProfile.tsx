@@ -20,16 +20,16 @@ export default function DriverProfile() {
 
             <div className={styles.imageGrid}>
                 <div className={styles.gridItem}>
-                    <img src="/tile-driver.png" alt="Professional Driver" />
+                    <img src="/tile-driver.png" alt="Professional Driver" width={600} height={400} />
                 </div>
                 <div className={styles.gridItem}>
-                    <img src="/tile-meeting-1.png" alt="Opening Door" />
+                    <img src="/tile-meeting-1.png" alt="Opening Door" width={600} height={400} />
                 </div>
                 <div className={styles.gridItem}>
-                    <img src="/tile-woman-phone.png" alt="Passenger Service" />
+                    <img src="/tile-woman-phone.png" alt="Passenger Service" width={600} height={400} />
                 </div>
                 <div className={styles.gridItem}>
-                    <img src="/tile-audi.png" alt="Luxury Fleet" />
+                    <img src="/tile-audi.png" alt="Luxury Fleet" width={600} height={400} />
                 </div>
             </div>
         </section>

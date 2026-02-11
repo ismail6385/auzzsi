@@ -40,6 +40,8 @@ export default function ImageTiles() {
                     <img
                         src={tile.image}
                         alt={tile.title}
+                        width={800}
+                        height={600}
                         className={styles.image}
                     />
                     <div className={styles.content}>

@@ -16,6 +16,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: "Top-Rated Chauffeur Service Australia | Auzzie Chauffeur",
   description: "Looking for a reliable chauffeur? Book premium airport transfers, corporate cars, & luxury tours in Sydney, Melbourne, Brisbane & Perth. 24/7 Service. Get a Quote Now.",
+  alternates: {
+    canonical: 'https://www.auzziechauffeur.com.au/',
+  },
 };
 
 export default function Home() {

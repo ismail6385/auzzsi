@@ -138,8 +138,8 @@ export default function PerthCorporatePage() {
                 <div style={{ marginTop: '4rem', textAlign: 'center' }}>
                     <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Set Up Your Account:</p>
                     <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
-                        See our <Link href="/the-fleet" className={styles.inlineLink}>luxury fleet</Link>.
-                        Contact our accounts team <Link href="/contact-us" className={styles.inlineLink}>here</Link>.
+                        See our <Link href="/the-fleet" className={styles.inlineLink}>luxury fleet options for executives</Link>.
+                        Contact our accounts team via our <Link href="/contact-us" className={styles.inlineLink}>corporate contact form</Link>.
                     </p>
                 </div>
 

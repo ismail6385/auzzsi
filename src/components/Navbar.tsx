@@ -99,6 +99,8 @@ export default function Navbar() {
                         src="/logo/header-logo.png"
                         alt="Auzzie Chauffeur"
                         className={styles.logoImage}
+                        width={200}
+                        height={119}
                         style={{ height: '119px', width: 'auto' }}
                     />
                 </Link>
