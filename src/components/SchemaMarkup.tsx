@@ -10,10 +10,10 @@ export default function SchemaMarkup() {
         "description": "Australia's leading national chauffeur service providing premium airport transfers and corporate travel options.",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "6 Alexandra Parade",
-            "addressLocality": "Fitzroy",
+            "streetAddress": "Tullamarine",
+            "addressLocality": "Melbourne",
             "addressRegion": "VIC",
-            "postalCode": "3065",
+            "postalCode": "3043",
             "addressCountry": "AU"
         },
         "sameAs": [
@@ -31,10 +31,10 @@ export default function SchemaMarkup() {
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "6 Alexandra Parade",
-            "addressLocality": "Fitzroy",
+            "streetAddress": "Tullamarine",
+            "addressLocality": "Melbourne",
             "addressRegion": "VIC",
-            "postalCode": "3065",
+            "postalCode": "3043",
             "addressCountry": "AU"
         },
         "openingHoursSpecification": {
