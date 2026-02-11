@@ -1,5 +1,5 @@
 import styles from './ServiceFeatures.module.css';
-import { Plane, Briefcase, Calendar, Wine, Heart, Star, Globe } from 'lucide-react';
+import { Plane, Briefcase, Calendar, Wine, Heart, Star, Globe, Ship } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ServiceFeatures() {
@@ -33,6 +33,11 @@ export default function ServiceFeatures() {
             icon: <Star size={32} />,
             text: "Hourly Charter",
             link: "/services/hourly-chauffeur"
+        },
+        {
+            icon: <Ship size={32} />,
+            text: "Cruise Transfers",
+            link: "/services/cruise-ship-transfers"
         }
     ];
 

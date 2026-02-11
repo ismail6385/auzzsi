@@ -4,10 +4,12 @@ import styles from "./components.module.css";
 
 interface BreadcrumbsProps {
     city: string;
+    service?: string;
 }
 
-export default function Breadcrumbs({ city }: BreadcrumbsProps) {
-    const citySlug = city.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '');
+export default function Breadcrumbs({ city, service }: BreadcrumbsProps) {
+    const citySlug = city.toLowerCase().replace(/\s+/g, '-').replace(/&/g, '').replace(/-+/g, '-');
+    const serviceSlug = service ? service.toLowerCase().replace(/\s+/g, '-') : '';
 
     return (
         <nav aria-label="Breadcrumb" className={styles.breadcrumbsContainer}>
@@ -27,27 +29,30 @@ export default function Breadcrumbs({ city }: BreadcrumbsProps) {
 
                 <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem" style={{ display: 'flex', alignItems: 'center' }}>
                     <Link
-                        href="/locations"
-                        className={styles.breadcrumbsLink}
+                        href={`/${citySlug}`}
+                        className={service ? styles.breadcrumbsLink : styles.breadcrumbsActive}
                         itemProp="item"
                     >
-                        <span itemProp="name">Locations</span>
+                        <span itemProp="name">{city}</span>
                     </Link>
                     <meta itemProp="position" content="2" />
                 </li>
 
-                <ChevronRight size={14} color="#9ca3af" style={{ flexShrink: 0 }} />
-
-                <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                    <span
-                        className={styles.breadcrumbsActive}
-                        itemProp="name"
-                    >
-                        {city}
-                    </span>
-                    <meta itemProp="position" content="3" />
-                    <link itemProp="item" href={`https://www.auzziechauffeur.com.au/${citySlug}`} />
-                </li>
+                {service && (
+                    <>
+                        <ChevronRight size={14} color="#9ca3af" style={{ flexShrink: 0 }} />
+                        <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+                            <span
+                                className={styles.breadcrumbsActive}
+                                itemProp="name"
+                            >
+                                {service}
+                            </span>
+                            <meta itemProp="position" content="3" />
+                            <link itemProp="item" href={`https://www.auzziechauffeur.com.au/${citySlug}/${serviceSlug}`} />
+                        </li>
+                    </>
+                )}
             </ol>
         </nav>
     );

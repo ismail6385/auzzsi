@@ -2,152 +2,140 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
-import { Calendar, Users, Calculator, MapPin, Clock, Award, ShieldCheck, Briefcase } from "lucide-react";
-import VehicleTabs from "@/components/ServicePage/VehicleTabs";
-import FaqAccordion from "@/components/ServicePage/FaqAccordion";
-import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import Link from "next/link";
+import { Users, Calendar, MapPin, Clock, Award, Briefcase, CheckCircle, Car } from "lucide-react";
 import type { Metadata } from 'next';
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
 
 export const metadata: Metadata = {
-    title: "Conference Transport Brisbane | BCEC & Corporate Events",
-    description: "Executive chauffeur services for conferences at Brisbane Convention & Exhibition Centre (BCEC). Professional transport for delegates and VIPs.",
+    title: "Conference Transfers Brisbane | BCEC & Queen's Wharf Events | Auzzie Chauffeur",
+    description: "Group transport for Brisbane Convention Centre (BCEC) and Queen's Wharf. Reliable event chauffeurs for corporate roadshows and exhibitions.",
 };
 
 export default function BrisbaneEventsPage() {
-    const faqs = [
-        {
-            question: "Where Do You Drop Off at BCEC?",
-            answer: "We drop off at the main entrance of the Brisbane Convention & Exhibition Centre on Glenelg Street or the Grey Street entrance, depending on your event's location within the complex."
-        },
-        {
-            question: "Can You Transport Groups to Howard Smith Wharves?",
-            answer: "Yes, Howard Smith Wharves is a popular event precinct. We can arrange multiple vehicles to transfer corporate groups from the CBD or hotels to the wharves for dinners and functions."
-        },
-        {
-            question: "Do You Service Events on the Gold Coast?",
-            answer: "Yes, we often transfer conference delegates from Brisbane Airport to the Gold Coast Convention Centre or hotels in Surfers Paradise."
-        },
-        {
-            question: "Is Hourly Charters Available for Roadshows?",
-            answer: "Absolutely. If you have a busy schedule of meetings across Brisbane, hiring a chauffeur by the hour ensures your car is always waiting for you."
-        }
-    ];
-
-    const vehicles = [
-        {
-            category: 'Classic',
-            name: 'Executive Sedan',
-            desc: 'Stylish arrival for conference speakers and VIPs.',
-            passengers: 4,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Luxury SUV',
-            name: 'Audi Q7 / Similar',
-            desc: 'Comfortable workspace on wheels for small teams.',
-            passengers: 4,
-            luggage: 4,
-            bags: 4,
-            image: '/tile-driver.png'
-        },
-        {
-            category: 'People Mover',
-            name: 'Mercedes V-Class',
-            desc: 'Efficient shuttle for corporate delegates.',
-            passengers: 7,
-            luggage: 6,
-            bags: 6,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Brisbane" service="Conferences & Special Events" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="Conference Transport Brisbane"
-                subtitle="Professional logistics for BCEC and Brisbane corporate events."
-                showStats={false}
-            />
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Brisbane Conference Transfers"
+                    subtitle="Reliable transport for the Brisbane Convention & Exhibition Centre (BCEC) and major corporate events."
+                    showStats={false}
+                />
+            </div>
 
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Brisbane Event Logistics</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Brisbane is a thriving hub for business events, centered around the world-class Brisbane Convention & Exhibition Centre (BCEC)
-                        at South Bank. Auzzsi Chauffeur provides reliable executive transport for speakers, delegates, and corporate groups.
-                        <br /><br />
-                        Ensure your team arrives refreshed and on time. We also cover events at the Royal International Convention Centre, Howard Smith Wharves,
-                        and major hotels across the city.
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#eff6ff', padding: '3rem 1rem', borderBottom: '3px solid #3b82f6' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#dbeafe', padding: '1rem', borderRadius: '50%', color: '#3b82f6', flexShrink: 0 }}>
+                        <Calendar size={32} />
+                    </div>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '0.5rem' }}>
+                            How much for event transport in Brisbane?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#1e3a8a' }}>
+                            <strong>Event transfer rates in Brisbane</strong> are highly competitive. Our <strong>luxury people movers (7 pax)</strong> are available from <strong>$105 per hour</strong> for shuttle services. Transfers from <strong>Brisbane Airport to BCEC</strong> start from approximately <strong>$110</strong> for a sedan or <strong>$135</strong> for a van.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#60a5fa', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *Queen's Wharf and South Bank access included.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
+
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>Brisbane Event Logistics</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "South Bank Specialists", desc: "Intimate knowledge of the South Bank precinct, aiding quick drop-offs at BCEC.", icon: <MapPin size={28} color="#3b82f6" /> },
+                            { title: "Airport Coordination", desc: "We track all incoming flights for your delegates to ensure no one is left waiting.", icon: <Clock size={28} color="#3b82f6" /> },
+                            { title: "VIP Fleet", desc: "Immaculate executive sedans for keynote speakers and C-suite executives.", icon: <Award size={28} color="#3b82f6" /> },
+                            { title: "Team Shuttles", desc: "Efficient movement of staff between CBD hotels and event venues.", icon: <Users size={28} color="#3b82f6" /> },
+                            { title: "On-Demand", desc: "Flexible booking options for last-minute changes during your event.", icon: <Briefcase size={28} color="#3b82f6" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #e0f2fe', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#1e3a8a' }}>{item.title}</h3>
+                                    <p style={{ color: '#475569', fontSize: '0.95rem' }}>{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Popular Venues Table */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Brisbane Event Routes</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#1e40af', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Route / Venue</th>
+                                    <th style={{ padding: '1rem' }}>Vehicle</th>
+                                    <th style={{ padding: '1rem' }}>Capacity</th>
+                                    <th style={{ padding: '1rem' }}>Est. Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { route: "Brisbane Airport -> BCEC", veh: "Mercedes V-Class", cap: "7 Pax", price: "$135 - $155" },
+                                    { route: "CBD Hotel -> Queen's Wharf", veh: "Luxury Sedan", cap: "4 Pax", price: "$60 - $80" },
+                                    { route: "Hourly Hire (Delegate Shuttle)", veh: "People Mover", cap: "7 Pax", price: "$105 / hour" },
+                                    { route: "Airport -> RICC (Showgrounds)", veh: "Executive Sedan", cap: "4 Pax", price: "$90 - $110" },
+                                    { route: "Gala Dinner Transfer", veh: "Premium SUV", cap: "4 Pax", price: "Custom Quote" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#1e3a8a' }}>{row.route}</td>
+                                        <td style={{ padding: '1.25rem', color: '#475569' }}>{row.veh}</td>
+                                        <td style={{ padding: '1.25rem', color: '#475569' }}>{row.cap}</td>
+                                        <td style={{ padding: '1.25rem', color: '#3b82f6', fontWeight: 'bold' }}>{row.price}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Venue Info */}
+                <div style={{ marginBottom: '5rem', background: '#f0f9ff', padding: '3rem', borderRadius: '16px' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Key Event Precincts</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#1e40af', marginBottom: '1rem' }}>BCEC (South Bank)</h3>
+                            <p style={{ color: '#475569' }}>Located in the heart of South Bank. Traffic can be dense, but our drivers are experts at the Grey St and Merivale St entrances.</p>
+                        </div>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#1e40af', marginBottom: '1rem' }}>Queen's Wharf</h3>
+                            <p style={{ color: '#475569' }}>Brisbane's newest entertainment district. We provide seamless transfers to all hotels and event spaces within the precinct.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Brisbane Event FAQs</h2>
+                    <LocationFAQ city="Brisbane" />
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Start Planning:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        Check out our <Link href="/the-fleet" className={styles.inlineLink}>transport options</Link>.
+                        Email us for a <Link href="/contact-us" className={styles.inlineLink}>detailed quote</Link>.
                     </p>
                 </div>
-            </section>
 
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Calendar size={28} /></div>
-                        <span className={styles.featureLabel}>BCEC<br />Transfers</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Users size={28} /></div>
-                        <span className={styles.featureLabel}>Group<br />Travel</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Clock size={28} /></div>
-                        <span className={styles.featureLabel}>On<br />Time</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Award size={28} /></div>
-                        <span className={styles.featureLabel}>Corporate<br />Image</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Corporate Event Fleet</h2>
-                <VehicleTabs vehicles={vehicles} />
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        Event Transport FAQs
-                    </h2>
-                    <FaqAccordion faqs={faqs} />
-                </div>
-            </section>
-
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
-                </div>
-                <ServiceContactForm
-                    title="Get a Corporate Quote"
-                    subtitle={<>
-                        Contact us for Brisbane event transport solutions.
-                        <br />
-                        <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
-                    </>}
-                    detailsLabel="Event Details (Date, Venue, Pax)"
-                />
             </section>
 
             <Footer />

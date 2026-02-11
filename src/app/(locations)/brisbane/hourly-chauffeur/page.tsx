@@ -2,178 +2,140 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
-import { Navigation, PauseCircle, ShoppingBag, Utensils, Award, ShieldCheck, Users, Briefcase } from "lucide-react";
-import VehicleTabs from "@/components/ServicePage/VehicleTabs";
-import FaqAccordion from "@/components/ServicePage/FaqAccordion";
-import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import Link from "next/link";
+import { Clock, MapPin, Camera, Coffee, Star, Shield, Car, Navigation } from "lucide-react";
 import type { Metadata } from 'next';
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
 
 export const metadata: Metadata = {
-    title: "Hourly Chauffeur Service Brisbane | Private Car Hire QLD",
-    description: "Flexible hourly chauffeur service in Brisbane. 'As Directed' private car hire for meetings, shopping, tours, and events.",
+    title: "Hourly Chauffeur Brisbane | Private Driver Hire | Sunshine Coast & Gold Coast Tours",
+    description: "Book an hourly chauffeur in Brisbane. Flexible private driver service for Sunshine Coast, Gold Coast, Mt Tamborine tours and city sightseeing.",
 };
 
 export default function BrisbaneHourlyPage() {
-    const faqs = [
-        {
-            question: "What Is The Minimum Hire Time For Hourly Service?",
-            answer: "Our minimum hire period for hourly 'As Directed' service in Brisbane is typically 2 hours. This provides flexibility for quick meetings or a dinner transfer with waiting time included."
-        },
-        {
-            question: "Can I Travel To The Gold Coast On An Hourly Rate?",
-            answer: "Yes, you can use hourly hire for travel between Brisbane, the Gold Coast, and the Sunshine Coast. However, for direct A-to-B transfers, our fixed-price transfer service might be more cost-effective. Hourly is best if you need the car to wait or make stops."
-        },
-        {
-            question: "Does The Hourly Rate Include Waiting Time?",
-            answer: "Yes. Your chauffeur and vehicle are exclusively yours. Whether you are in a meeting at 1 William Street, dining at Eagle Street Pier, or shopping on James Street, we wait for you."
-        },
-        {
-            question: "Are Tolls And Parking Included In The Hourly Rate?",
-            answer: "Hourly rates cover the vehicle and driver. Tolls (e.g. Gateway Bridge) and parking fees incurred at your request are generally charged as extras."
-        },
-        {
-            question: "Can I Extend My Booking On The Day?",
-            answer: "In most cases, yes. If you wish to extend your hire, simply inform your chauffeur. We will extend the booking in 15 or 30-minute increments, subject to vehicle availability."
-        }
-    ];
-
-    const vehicles = [
-        {
-            category: 'Executive Sedans',
-            name: 'Executive Sedan',
-            desc: 'Cost-effective luxury. Perfect for multiple CBD meetings or day trips to Mt Coot-tha.',
-            passengers: 4,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Premium Sedans',
-            name: 'European Premium Sedan',
-            desc: 'Elevate your experience. Ideal for special date nights, theatre transfers to QPAC, or VIP guests.',
-            passengers: 3,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'People Movers',
-            name: 'Mercedes V-Class',
-            desc: 'Group outings made easy. Keep your party together for Sunshine Coast tours or stadium event transport.',
-            passengers: 7,
-            luggage: 6,
-            bags: 6,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Brisbane" service="Hourly Chauffeur" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="Hourly Chauffeur Service Brisbane"
-                subtitle="Complete flexibility with our 'As Directed' service. Your private car and driver in Brisbane, ready when you are."
-                showStats={false}
-            />
-
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Your Car, Your Schedule</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Explore Brisbane on your own terms. Our hourly chauffeur service gives you the freedom
-                        to travel at your own pace without the hassle of re-booking taxis or waiting for rideshares in the heat.
-                        <br /><br />
-                        Whether you are hopping between business meetings in the CBD and Fortitude Valley, exploring South Bank,
-                        or enjoying a day of shopping on James Street, your chauffeur waits for you.
-                        Leave your shopping bags in the safe hands of your driver and enjoy true convenience.
-                    </p>
-                    <h3 style={{ marginTop: '2rem' }}>Ideal For</h3>
-                    <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
-                        <li><strong>Business Meetings:</strong> Multiple stops across Brisbanes business hubs.</li>
-                        <li><strong>Day Tours:</strong> Visit Lone Pine Koala Sanctuary or Mt Coot-tha at your leisure.</li>
-                        <li><strong>Shopping Trips:</strong> Visit Queen Street Mall or James Street boutiques comfortably.</li>
-                        <li><strong>Special Events:</strong> Dinner and a show at QPAC without parking stress.</li>
-                    </ul>
-                </div>
-            </section>
-
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Navigation size={28} /></div>
-                        <span className={styles.featureLabel}>As Directed<br />Service</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><PauseCircle size={28} /></div>
-                        <span className={styles.featureLabel}>Waiting<br />Included</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShoppingBag size={28} /></div>
-                        <span className={styles.featureLabel}>Secure<br />Storage</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Utensils size={28} /></div>
-                        <span className={styles.featureLabel}>Dinner<br />Transfers</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Award size={28} /></div>
-                        <span className={styles.featureLabel}>Local<br />Knowledge</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShieldCheck size={28} /></div>
-                        <span className={styles.featureLabel}>Fixed<br />Hourly Rates</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Flexible Fleet Options</h2>
-                <p style={{ maxWidth: '700px', margin: '0 auto', color: '#666', marginBottom: '2rem' }}>
-                    Choose the vehicle that fits your day. All come with complimentary water and climate control.
-                </p>
-                <VehicleTabs vehicles={vehicles} />
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        Hourly Charter FAQs
-                    </h2>
-                    <FaqAccordion faqs={faqs} />
-                </div>
-            </section>
-
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
-                </div>
-                <ServiceContactForm
-                    title="Plan Your Day"
-                    subtitle={<>
-                        Get a quote for an hourly booking or a day tour in Brisbane.
-                        <br />
-                        <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span> or <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
-                    </>}
-                    dateLabel="Duration Needed"
-                    emailLabel="Email Address*"
-                    detailsLabel="Itinerary Details"
-                    btnText="Get Hourly Quote"
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Brisbane Private Driver Service"
+                    subtitle="Your personal chauffeur for the day. Explore Mt Tamborine, the Sunshine Coast, or navigate Brisbane City in comfort."
+                    showStats={false}
                 />
+            </div>
+
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#fffbeb', padding: '3rem 1rem', borderBottom: '3px solid #f59e0b' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#fef3c7', padding: '1rem', borderRadius: '50%', color: '#d97706', flexShrink: 0 }}>
+                        <Clock size={32} />
+                    </div>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#78350f', marginBottom: '0.5rem' }}>
+                            Hourly chauffeur rates in Brisbane?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#78350f' }}>
+                            Hire a <strong>private driver in Brisbane</strong> from <strong>$90 - $110 per hour</strong> (minimum 3 hours). Popular day trips include <strong>Australia Zoo</strong> (Sunshine Coast) or a winery tour to <strong>Mt Coot-tha and Mt Tamborine</strong>. Full-day disposal (8 hours) packages are available from <strong>$750</strong> for a luxury sedan.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#b45309', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *Custom itineraries to Byron Bay also available.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
+
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>Freedom to Explore</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Mt Tamborine", desc: "Visit the Glow Worm Caves and local distilleries on a relaxed mountain drive.", icon: <Camera size={28} color="#f59e0b" /> },
+                            { title: "Australia Zoo", desc: "A great family day out to the Sunshine Coast. Your driver waits while you explore.", icon: <Star size={28} color="#f59e0b" /> },
+                            { title: "City Meetings", desc: "Multiple stops in the CBD, Fortitude Valley, and South Bank? Keep your car on standby.", icon: <Navigation size={28} color="#f59e0b" /> },
+                            { title: "Byron Bay", desc: "A scenic 2-hour drive south. Spend the day at the beach and return to Brisbane in comfort.", icon: <Car size={28} color="#f59e0b" /> },
+                            { title: "Local Drivers", desc: "We know the best routes to avoid the M1 traffic congestion.", icon: <Shield size={28} color="#f59e0b" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #fef3c7', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#78350f' }}>{item.title}</h3>
+                                    <p style={{ color: '#4b5563', fontSize: '0.95rem' }}>{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Popular Itineraries Table */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Brisbane Hourly Rates</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#1f2937', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Hire Type / Destination</th>
+                                    <th style={{ padding: '1rem' }}>Vehicle</th>
+                                    <th style={{ padding: '1rem' }}>Duration</th>
+                                    <th style={{ padding: '1rem' }}>Est. Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { route: "Hourly As Directed (Brisbane)", veh: "Luxury Sedan", cap: "Min 3 Hours", price: "$90 - $110 / hr" },
+                                    { route: "Sunshine Coast (Australia Zoo)", veh: "People Mover", cap: "6-8 Hours", price: "$650 - $850" },
+                                    { route: "Mt Tamborine Winery Tour", veh: "Mercedes V-Class", cap: "6 Hours", price: "$650 - $750" },
+                                    { route: "Byron Bay Day Trip", veh: "Luxury SUV", cap: "9-10 Hours", price: "$900 - $1100" },
+                                    { route: "Gold Coast Theme Parks (Wait & Return)", veh: "Van / SUV", cap: "8 Hours", price: "$750 - $900" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#1f2937' }}>{row.route}</td>
+                                        <td style={{ padding: '1.25rem', color: '#4b5563' }}>{row.veh}</td>
+                                        <td style={{ padding: '1.25rem', color: '#4b5563' }}>{row.cap}</td>
+                                        <td style={{ padding: '1.25rem', color: '#d97706', fontWeight: 'bold' }}>{row.price}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Venue Info */}
+                <div style={{ marginBottom: '5rem', background: '#fffbeb', padding: '3rem', borderRadius: '16px' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Popular Day Trips</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#92400e', marginBottom: '1rem' }}>Sunshine Coast</h3>
+                            <p style={{ color: '#4b5563' }}>Visit Noosa, Mooloolaba, or the famous Australia Zoo. Approximately 90 mins north of Brisbane.</p>
+                        </div>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#92400e', marginBottom: '1rem' }}>Mt Tamborine</h3>
+                            <p style={{ color: '#4b5563' }}>A lush rainforest retreat with boutique wineries, distilleries, and the Skywalk. Perfect for a relaxing day out.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Hire Service FAQs</h2>
+                    <LocationFAQ city="Brisbane" />
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Reserve Your Driver:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        Check <Link href="/the-fleet" className={styles.inlineLink}>vehicle availability</Link>.
+                        Send us your details for a <Link href="/contact-us" className={styles.inlineLink}>quick quote</Link>.
+                    </p>
+                </div>
+
             </section>
 
             <Footer />

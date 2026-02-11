@@ -2,175 +2,149 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
-import { Users, Calendar, ShieldCheck, Clock, Award, Mic, MapPin, Bus } from "lucide-react";
-import VehicleTabs from "@/components/ServicePage/VehicleTabs";
-import FaqAccordion from "@/components/ServicePage/FaqAccordion";
-import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import Link from "next/link";
+import { Users, Calendar, MapPin, Clock, Award, Briefcase, CheckCircle, Car } from "lucide-react";
 import type { Metadata } from 'next';
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
 
 export const metadata: Metadata = {
-    title: "Conference & Event Transfers Melbourne | Corporate Group Transport",
-    description: "Coordinate your Melbourne event transport with Auzzsi. Shuttle services for MCEC conferences, gala dinners, and special events.",
+    title: "Melbourne Conference Chauffeur | MCEC & Marvel Stadium Events | Auzzie Chauffeur",
+    description: "Group transfers for Melbourne Convention Centre (MCEC). Chauffeur services for Spring Racing Carnival, F1 Grand Prix, and corporate events.",
 };
 
 export default function MelbourneEventsPage() {
-    const faqs = [
-        {
-            question: "Can You Coordinate Transport For Large Conferences?",
-            answer: "Yes, we specialize in logistics for large events. We can coordinate a fleet of sedans for VIP speakers and People Movers or Coaches for majestic attendee transfers to and from the Melbourne Convention and Exhibition Centre (MCEC) or hotels."
-        },
-        {
-            question: "Do You Offer On-Site Coordinators?",
-            answer: "For major events requiring multiple vehicles and complex schedules, we can provide an on-site transport coordinator to manage vehicle flow and ensure all guests board the correct vehicles efficiently."
-        },
-        {
-            question: "Can We Brand The Vehicles For Our Event?",
-            answer: "We can accommodate magnetic branding on certain vehicles or place branded signage/water inside the vehicles upon request and with sufficient lead time. Please discuss your branding needs with our events team."
-        },
-        {
-            question: "What Happens If An Event Runs Over Time?",
-            answer: "Our chauffeurs are flexible. We understand events often run late. We bill based on the final time or agreed daily rate, ensuring transport is available whenever the event concludes."
-        },
-        {
-            question: "Do You Service Major Sporting Events like the Australian Open?",
-            answer: "Yes, we provide transfers to all major Melbourne events including the Australian Open, the Grand Prix, and the Spring Racing Carnival. We recommend booking well in advance for these high-demand periods."
-        }
-    ];
-
-    const vehicles = [
-        {
-            category: 'VIP Transfer',
-            name: 'Mercedes S-Class',
-            desc: 'For keynote speakers and VIP guests.',
-            passengers: 3,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Group Mover',
-            name: 'Mercedes V-Class',
-            desc: 'Efficient shuttle for teams and delegates.',
-            passengers: 7,
-            luggage: 6,
-            bags: 5,
-            image: '/tile-driver.png'
-        },
-        {
-            category: 'Coach',
-            name: 'Luxury Coach',
-            desc: 'High capacity transport for large attendee groups (Upon Request).',
-            passengers: 50,
-            luggage: 50,
-            bags: 50,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Melbourne" service="Conferences & Special Events" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="Conference & Special Events Melbourne"
-                subtitle="Seamless event logistics. From VIP transfers involving one car to multi-vehicle fleet coordination."
-                showStats={false}
-            />
-
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Event Transport Made Simple</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Organizing a conference, gala, or special event in Melbourne involves a thousand details.
-                        Let Auzzsi Chauffeur handle the transport logistics. We have extensive experience working with
-                        event planners to move people efficiently between airports, hotels, and venues like the MCEC,
-                        Marvel Stadium, or the MCG.
-                        <br /><br />
-                        Our team provides a centralized point of contact for all your booking needs, ensuring consistent
-                        service standards for every guest, whether they are a keynote speaker or a general attendee.
-                    </p>
-                    <h3 style={{ marginTop: '2rem' }}>Spring Racing & Major Festivals</h3>
-                    <p>
-                        Melbourne is the events capital of Australia. Arrive at the Flemington Racecourse for the
-                        Melbourne Cup or the Albert Park Grand Prix in comfort and style. Avoid the crowds and queueing
-                        for taxis with a pre-booked chauffeur waiting for you at a designated pickup zone.
-                    </p>
-                </div>
-            </section>
-
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Calendar size={28} /></div>
-                        <span className={styles.featureLabel}>Event<br />Planning</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Users size={28} /></div>
-                        <span className={styles.featureLabel}>Group<br />Logistics</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShieldCheck size={28} /></div>
-                        <span className={styles.featureLabel}>Reliable<br />Service</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Clock size={28} /></div>
-                        <span className={styles.featureLabel}>Flexible<br />Wait Time</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Award size={28} /></div>
-                        <span className={styles.featureLabel}>VIP<br />Treatment</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Mic size={28} /></div>
-                        <span className={styles.featureLabel}>Speaker<br />Transfers</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Event Fleet</h2>
-                <p style={{ maxWidth: '700px', margin: '0 auto', color: '#666', marginBottom: '2rem' }}>
-                    A scalable fleet to match your event size.
-                </p>
-                <VehicleTabs vehicles={vehicles} />
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        Event Transport FAQs
-                    </h2>
-                    <FaqAccordion faqs={faqs} />
-                </div>
-            </section>
-
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
-                </div>
-                <ServiceContactForm
-                    title="Get An Event Proposal"
-                    subtitle={<>
-                        Contact our events team for a detailed transport proposal.
-                        <br />
-                        <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
-                    </>}
-                    detailsLabel="Event Details (Dates, Pax, Venues)"
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Melbourne Event Chauffeur"
+                    subtitle="Premium transport for the Melbourne Convention Centre, F1 Grand Prix, and major corporate functions."
+                    showStats={false}
                 />
+            </div>
+
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#eff6ff', padding: '3rem 1rem', borderBottom: '3px solid #3b82f6' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#dbeafe', padding: '1rem', borderRadius: '50%', color: '#3b82f6', flexShrink: 0 }}>
+                        <Calendar size={32} />
+                    </div>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '0.5rem' }}>
+                            What is the cost for event transfers in Melbourne?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#1e3a8a' }}>
+                            We offer competitive rates for <strong>corporate event transfers</strong>. A <strong>Mercedes V-Class people mover</strong> starts from <strong>$110 per hour</strong> (min 3 hours), perfect for moving small teams. Executive sedan transfers between Melbourne Airport and MCEC or CBD hotels range from <strong>$100 - $135</strong>.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#60a5fa', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *Special packages available for Spring Racing Carnival & F1.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
+
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>Melbourne's Event Experts</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Major Events", desc: "Expert navigation during high-traffic periods like the Australian Open and Grand Prix.", icon: <Calendar size={28} color="#3b82f6" /> },
+                            { title: "Group Logistics", desc: "Coordinate arrivals for 10 to 100+ delegates with our scalable fleet.", icon: <Users size={28} color="#3b82f6" /> },
+                            { title: "MCEC Access", desc: "Direct drop-off at the Convention Centre doors, avoiding public transport hassels.", icon: <MapPin size={28} color="#3b82f6" /> },
+                            { title: "Corporate Accounts", desc: "Streamlined billing and reporting for event organizers.", icon: <Briefcase size={28} color="#3b82f6" /> },
+                            { title: "Hourly Hire", desc: "Flexible standby service for dinner transfers and after-parties.", icon: <Clock size={28} color="#3b82f6" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #e0f2fe', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#1e3a8a' }}>{item.title}</h3>
+                                    <p style={{ color: '#475569', fontSize: '0.95rem' }}>{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Popular Venues Table */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Common Event Routes</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#1e40af', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Route / Destination</th>
+                                    <th style={{ padding: '1rem' }}>Vehicle</th>
+                                    <th style={{ padding: '1rem' }}>Capacity</th>
+                                    <th style={{ padding: '1rem' }}>Est. Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { route: "Tullamarine -> MCEC (South Wharf)", veh: "Mercedes V-Class", cap: "7 Pax", price: "$130 - $150" },
+                                    { route: "CBD Hotel -> Flemington (Races)", veh: "Luxury Sedan", cap: "4 Pax", price: "$95 - $120" },
+                                    { route: "Hourly Standby (Events)", veh: "Executive Sedan", cap: "4 Pax", price: "$95 / hour" },
+                                    { route: "Airport -> Albert Park (F1)", veh: "Premium SUV", cap: "4 Pax + Luggage", price: "$140 - $180" },
+                                    { route: "Full Day Delegate Move", veh: "Multiple Vans", cap: "10-50 Pax", price: "Custom Quote" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#1e3a8a' }}>{row.route}</td>
+                                        <td style={{ padding: '1.25rem', color: '#475569' }}>{row.veh}</td>
+                                        <td style={{ padding: '1.25rem', color: '#475569' }}>{row.cap}</td>
+                                        <td style={{ padding: '1.25rem', color: '#3b82f6', fontWeight: 'bold' }}>{row.price}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Venue Info */}
+                <div style={{ marginBottom: '5rem', background: '#f0f9ff', padding: '3rem', borderRadius: '16px' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Key Melbourne Venues</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#1e40af', marginBottom: '1rem' }}>MCEC</h3>
+                            <p style={{ color: '#475569' }}>The Melbourne Convention and Exhibition Centre is Australia's largest. We use the Clarendon St entrance for conventions and the Exhibition Centre loading zones for trade shows.</p>
+                        </div>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#1e40af', marginBottom: '1rem' }}>Flemington Racecourse</h3>
+                            <p style={{ color: '#475569' }}>During the Melbourne Cup Carnival, access is restricted. Book early to secure accredited vehicles that can access the member drop-off points.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Corporate Event FAQs</h2>
+                    <LocationFAQ city="Melbourne" />
+                </div>
+
+                {/* Testimonials */}
+                <div style={{ background: '#eff6ff', padding: '4rem 2rem', borderRadius: '16px', textAlign: 'center' }}>
+                    <h2 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '2rem' }}>Client Praise</h2>
+                    <blockquote style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.25rem', fontStyle: 'italic', color: '#1e40af' }}>
+                        “Handled our international board members impeccably during the Grand Prix week. The drivers knew all the back roads to avoid traffic.”
+                    </blockquote>
+                    <cite style={{ display: 'block', marginTop: '1rem', fontWeight: 'bold', color: '#3b82f6' }}>— James P., Global Director</cite>
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Secure Your Transport:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        View our <Link href="/the-fleet" className={styles.inlineLink}>executive vehicles</Link>.
+                        Request a quote via <Link href="/contact-us" className={styles.inlineLink}>our form</Link>.
+                    </p>
+                </div>
+
             </section>
 
             <Footer />

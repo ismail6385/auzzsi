@@ -2,174 +2,149 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
-import { Heart, Camera, Clock, Award, Gift, Star, Users, Briefcase } from "lucide-react";
-import VehicleTabs from "@/components/ServicePage/VehicleTabs";
-import FaqAccordion from "@/components/ServicePage/FaqAccordion";
-import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import Link from "next/link";
+import { Heart, Camera, Clock, Gift, Map, Shield, CheckCircle, Calculator, UserCheck, Calendar, Gem } from "lucide-react";
 import type { Metadata } from 'next';
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
 
 export const metadata: Metadata = {
-    title: "Wedding Cars Hobart | Luxury Bridal Transport & Winery Weddings",
-    description: "Make your special day unforgettable with Hobart's premium chauffeur-driven wedding fleet. Elegant service for city, Coal River Valley, and waterfront weddings.",
+    title: "Wedding Cars Hobart | Luxury Tasmanian Bridal Hire | Auzzie Chauffeur",
+    description: "Premium wedding car hire in Hobart. Arrive at MONA, Frogmore Creek, or Glen Albyn Estate in style with our luxury chauffeur service.",
 };
 
 export default function HobartWeddingPage() {
-    const faqs = [
-        {
-            question: "How Far In Advance Should I Book My Wedding Cars?",
-            answer: "For summer weddings in Hobart (especially January-February), we recommend booking 9-12 months in advance due to high demand and limited luxury vehicle availability in Tasmania."
-        },
-        {
-            question: "Do You Travel To Wineries In The Coal River Valley?",
-            answer: "Yes, we frequently service weddings at Frogmore Creek, Puddleduck, and other venues in the Coal River Valley and Richmond area."
-        },
-        {
-            question: "Is There A Minimum Hire Time For Wedding Cars?",
-            answer: "Yes, generally there is a minimum hire period of 3 hours for wedding bookings in Hobart. This ensures a relaxed pace for photos at Mt Wellington or the Botanical Gardens."
-        },
-        {
-            question: "Can You Provide Transport For Guests?",
-            answer: "Absolutely. We can arrange Mercedes V-Class people movers or larger buses to transport guests from Hobart CBD to your venue and back safely."
-        },
-        {
-            question: "Do You Provide Wedding Ribbons?",
-            answer: "Yes, all our wedding packages include complimentary white satin ribbons and tulle. We can also accommodate custom colors to match your theme."
-        }
-    ];
-
-    const vehicles = [
-        {
-            category: 'Bridal Cars',
-            name: 'Mercedes-Benz S-Class',
-            desc: 'The ultimate wedding car. Spacious, elegant, and timeless. Features a long wheelbase for accommodating bridal gowns with ease.',
-            passengers: 3,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Groomsmen',
-            name: 'Audi A8L',
-            desc: 'Sleek and sophisticated. The perfect ride for the groom and his party to arrive in style.',
-            passengers: 4,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Guest Transfer',
-            name: 'Mercedes V-Class',
-            desc: 'Luxury transport for family and guests. Ensure your loved ones arrive on time and comfortable.',
-            passengers: 7,
-            luggage: 4,
-            bags: 4,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Hobart" service="Wedding Cars" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="Luxury Wedding Cars Hobart"
-                subtitle="Make your special day unforgettable with Hobart's premium chauffeur-driven wedding fleet. Elegant service for city, winery, and waterfront weddings."
-                showStats={false}
-            />
-
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Timeless Elegance In Tasmania</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Hobart offers some of the most romantic wedding settings in Australia, from historic sandstone venues to waterfront wineries.
-                        Auzzsi Chauffeur provides impeccable wedding car services to match the beauty of Tasmania.
-                        From the moment we pick you up to your final getaway, we ensure a seamless, stress-free, and luxurious experience.
-                        <br /><br />
-                        Our professional chauffeurs know Hobart intimately and can guide you to the best photo locations,
-                        whether it's the heights of Kunanyi / Mt Wellington or the heritage streets of Battery Point.
-                    </p>
-                    <h3 style={{ marginTop: '2rem' }}>Tailored Wedding Packages</h3>
-                    <p>
-                        We understand that every wedding is unique. Whether you need a single car for the bride or a full fleet
-                        for the entire bridal party and guests, we can tailor a package to suit your specific vision and budget.
-                        All packages include a uniformed chauffeur, ribbons, and refreshments so you can toast to your future.
-                    </p>
-                </div>
-            </section>
-
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Heart size={28} /></div>
-                        <span className={styles.featureLabel}>White<br />Ribbons</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Star size={28} /></div>
-                        <span className={styles.featureLabel}>Red Carpet<br />Service</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Camera size={28} /></div>
-                        <span className={styles.featureLabel}>Photo<br />Assist</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Clock size={28} /></div>
-                        <span className={styles.featureLabel}>On Time<br />Guarantee</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Award size={28} /></div>
-                        <span className={styles.featureLabel}>Immaculate<br />Vehicles</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Gift size={28} /></div>
-                        <span className={styles.featureLabel}>Champagne<br />Option</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Our Wedding Fleet</h2>
-                <p style={{ maxWidth: '700px', margin: '0 auto', color: '#666', marginBottom: '2rem' }}>
-                    Select from our range of pristine European luxury vehicles to complement your wedding style.
-                </p>
-                <VehicleTabs vehicles={vehicles} />
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        Wedding Car FAQs
-                    </h2>
-                    <FaqAccordion faqs={faqs} />
-                </div>
-            </section>
-
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
-                </div>
-                <ServiceContactForm
-                    title="Get A Wedding Quote"
-                    subtitle={<>
-                        Tell us about your Hobart wedding and we will provide a custom package.
-                        <br />
-                        <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
-                    </>}
-                    detailsLabel="Wedding Details (Venues, Times, Car Preference)"
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Hobart Wedding Car Hire"
+                    subtitle="Arrive in Tasmanian elegance. Luxury chauffeur cars for weddings in Hobart, Richmond, and the Coal River Valley."
+                    showStats={false}
                 />
+            </div>
+
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#fff1f2', padding: '3rem 1rem', borderBottom: '3px solid #e11d48' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#ffe4e6', padding: '1rem', borderRadius: '50%', color: '#e11d48', flexShrink: 0 }}>
+                        <Calculator size={32} />
+                    </div>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#881337', marginBottom: '0.5rem' }}>
+                            How much is wedding car hire in Hobart?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#4c0519' }}>
+                            Wedding car hire in Hobart typically ranges from <strong>$300 - $450</strong> for a standard 3-hour booking. For weddings in the <strong>Coal River Valley</strong> or <strong>Huon Valley</strong>, packages generally start from <strong>$750 - $1,000</strong> to accommodate travel time and potential photo stops at historic sites.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#9f1239', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *Includes white ribbons, red carpet arrival, and chauffeur assistance.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
+
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>Tasmanian Wedding Excellence</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Red Carpet", desc: "A royal arrival for your ceremony at Hobart's historic churches.", icon: <Gem size={28} color="#e11d48" /> },
+                            { title: "Scenic Routes", desc: "Drivers know the most picturesque routes through Richmond and Cambridge.", icon: <Map size={28} color="#e11d48" /> },
+                            { title: "Climate Control", desc: "Warm and cozy cars for winter weddings, cool for summer.", icon: <Shield size={28} color="#e11d48" /> },
+                            { title: "Traditional Ribbons", desc: "Classic white satin ribbons to decorate your bridal car.", icon: <Heart size={28} color="#e11d48" /> },
+                            { title: "Bridal Party", desc: "Spacious vans available for transporting groomsmen and bridesmaids.", icon: <UserCheck size={28} color="#e11d48" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #f3f4f6', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#1f2937' }}>{item.title}</h3>
+                                    <p style={{ color: '#6b7280', fontSize: '0.95rem' }}>{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Popular Wedding Packages */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Hobart Wedding Packages</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#1e3a8a', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Package</th>
+                                    <th style={{ padding: '1rem' }}>Duration</th>
+                                    <th style={{ padding: '1rem' }}>Includes</th>
+                                    <th style={{ padding: '1rem' }}>Est. Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { name: "City Church", time: "2 Hours", desc: "Transfer to St David's + Wait.", price: "$300 - $420" },
+                                    { name: "Vineyard Lover", time: "5 Hours", desc: "Ceremony + Photos in Richmond.", price: "$750 - $950" },
+                                    { name: "MONA Art", time: "6 Hours", desc: "Transport to/from Berriedale.", price: "$800 - $1,100" },
+                                    { name: "Late Escape", time: "1 Hour", desc: "Reception to Hotel.", price: "$140 - $200" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#1f2937' }}>{row.name}</td>
+                                        <td style={{ padding: '1.25rem', color: '#4b5563' }}>{row.time}</td>
+                                        <td style={{ padding: '1.25rem', color: '#4b5563' }}>{row.desc}</td>
+                                        <td style={{ padding: '1.25rem', color: '#e11d48', fontWeight: 'bold' }}>{row.price}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Popular Venues */}
+                <div style={{ marginBottom: '5rem', background: '#f8fafc', padding: '3rem', borderRadius: '16px' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Venues We Know & Love</h2>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
+                        {[
+                            "MONA", "Frogmore Creek", "Glen Albyn Estate",
+                            "Peppermint Bay Hotel", "Wrest Point", "Royal Tasmanian Botanical Gardens",
+                            "Puddleduck Vineyard", "Villa Howden", "Henry Jones Art Hotel"
+                        ].map((venue, idx) => (
+                            <span key={idx} style={{ background: 'white', border: '1px solid #cbd5e1', padding: '0.5rem 1rem', borderRadius: '999px', color: '#334155', fontWeight: '500' }}>
+                                📍 {venue}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Tasmanian Wedding FAQs</h2>
+                    <LocationFAQ city="Hobart" />
+                </div>
+
+                {/* Testimonials */}
+                <div style={{ background: '#fff1f2', padding: '4rem 2rem', borderRadius: '16px', textAlign: 'center' }}>
+                    <h2 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#881337', marginBottom: '2rem' }}>Tassie Romance</h2>
+                    <blockquote style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.25rem', fontStyle: 'italic', color: '#4c0519' }}>
+                        “Thank you for the warm cars and blankets during our winter wedding photo shoot. It made all the difference!”
+                    </blockquote>
+                    <cite style={{ display: 'block', marginTop: '1rem', fontWeight: 'bold', color: '#e11d48' }}>— Grace & Oliver, married at Frogmore Creek</cite>
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Book Your Date:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        Browse our <Link href="/the-fleet" className={styles.inlineLink}>bridal cars</Link>.
+                        Book via our <Link href="/contact-us" className={styles.inlineLink}>online form</Link>.
+                    </p>
+                </div>
+
             </section>
 
             <Footer />

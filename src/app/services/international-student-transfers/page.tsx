@@ -99,6 +99,59 @@ export default function StudentServicesPage() {
                     </p>
                 </div>
 
+                {/* Student Pricing Table */}
+                <section style={{ maxWidth: '1000px', margin: '4rem auto', padding: '0 1rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '1rem' }}>Student Transfer Rates</h2>
+                    <p style={{ textAlign: 'center', color: '#666', marginBottom: '2rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
+                        Affordable fixed-price transfers for students. Prices are per vehicle, not per person—share with friends to save!
+                    </p>
+
+                    <div style={{ overflowX: 'auto' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', backgroundColor: 'white', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', borderRadius: '8px', overflow: 'hidden' }}>
+                            <thead>
+                                <tr style={{ backgroundColor: '#14532d', color: 'white' }}>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>City / Route</th>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Vehicle</th>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Capacity</th>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>From Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Sydney Airport to USYD / UTS (City)</strong></td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Sedan</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>3 Pax</td>
+                                    <td style={{ padding: '1rem', color: '#16a34a', fontWeight: 'bold', fontSize: '1.1rem' }}>$85</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb', backgroundColor: '#f0fdf4' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Melbourne Airport to UniMelb (Parkville)</strong></td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Sedan</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>3 Pax</td>
+                                    <td style={{ padding: '1rem', color: '#16a34a', fontWeight: 'bold', fontSize: '1.1rem' }}>$90</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Brisbane Airport to UQ (St Lucia)</strong></td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Sedan</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>3 Pax</td>
+                                    <td style={{ padding: '1rem', color: '#16a34a', fontWeight: 'bold', fontSize: '1.1rem' }}>$85</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb', backgroundColor: '#f0fdf4' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Perth Airport to UWA (Crawley)</strong></td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Sedan</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>3 Pax</td>
+                                    <td style={{ padding: '1rem', color: '#16a34a', fontWeight: 'bold', fontSize: '1.1rem' }}>$80</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Adelaide Airport to North Terrace</strong></td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Sedan</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>3 Pax</td>
+                                    <td style={{ padding: '1rem', color: '#16a34a', fontWeight: 'bold', fontSize: '1.1rem' }}>$60</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',

@@ -2,152 +2,145 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
-import { Anchor, Calendar, ShieldCheck, Clock, Award, Users, MapPin, Bus } from "lucide-react";
-import VehicleTabs from "@/components/ServicePage/VehicleTabs";
-import FaqAccordion from "@/components/ServicePage/FaqAccordion";
-import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import Link from "next/link";
+import { Ship, Clock, MapPin, Luggage, Users, Anchor, CheckCircle, Car } from "lucide-react";
 import type { Metadata } from 'next';
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
 
 export const metadata: Metadata = {
-    title: "Cruise Transfers Gold Coast | To Brisbane Cruise Terminal",
-    description: "Cruising from Brisbane? We provide reliable private transfers from the Gold Coast to Brisbane International Cruise Terminal.",
+    title: "Cruise Ship Transfers Gold Coast | To Brisbane Cruise Terminal | Auzzie Chauffeur",
+    description: "Reliable transfers from Gold Coast to Brisbane International Cruise Terminal. Private chauffeur service from Surfers Paradise, Broadbeach, or Coolangatta.",
 };
 
 export default function GoldCoastCruisePage() {
-    const faqs = [
-        {
-            question: "Do You Transfer to Brisbane Cruise Terminal?",
-            answer: "Yes, this is one of our most popular services. We pick you up from your Gold Coast home or hotel and drive you directly to the Brisbane International Cruise Terminal at Luggage Point."
-        },
-        {
-            question: "How Long Does the Transfer Take?",
-            answer: "The drive from the Gold Coast (e.g., Surfers Paradise) to the Brisbane Cruise Terminal generally takes about 60-90 minutes, depending on traffic on the M1."
-        },
-        {
-            question: "Do You Offer Transfers to The Spit?",
-            answer: "Yes, for smaller vessels or private charters departing from The Spit or Marina Mirage on the Gold Coast, we provide local transfers."
-        },
-        {
-            question: "Can You Pick Us Up When We Return?",
-            answer: "Absolutely. We can monitor your ship's arrival in Brisbane and have a chauffeur waiting to bring you back to the Gold Coast."
-        }
-    ];
-
-    const vehicles = [
-        {
-            category: 'Classic',
-            name: 'Executive Sedan',
-            desc: 'Comfortable transfer for couples.',
-            passengers: 4,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Luxury SUV',
-            name: 'Audi Q7 / Similar',
-            desc: 'Ideal for families with cruise luggage.',
-            passengers: 4,
-            luggage: 4,
-            bags: 4,
-            image: '/tile-driver.png'
-        },
-        {
-            category: 'People Mover',
-            name: 'Mercedes V-Class',
-            desc: 'Spacious van for groups transferring to the port.',
-            passengers: 7,
-            luggage: 6,
-            bags: 6,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Gold Coast" service="Cruise Ship Transfers" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="Cruise Transfers Gold Coast"
-                subtitle="Reliable connections to Brisbane International Cruise Terminal."
-                showStats={false}
-            />
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Gold Coast Cruise Transfers"
+                    subtitle="Seamless connection to Brisbane International Cruise Terminal. Door-to-terminal service for you and your luggage."
+                    showStats={false}
+                />
+            </div>
 
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Gold Coast to Cruise Terminal</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Most international cruises for Queensland depart from the Brisbane International Cruise Terminal.
-                        Auzzsi Chauffeur specializes in connecting Gold Coast residents and visitors to their ship in comfort.
-                        <br /><br />
-                        Start your holiday the moment you leave your door. Relax in our premium vehicles while we navigate
-                        the M1 traffic, dropping you right at the terminal bag-drop.
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#eff6ff', padding: '3rem 1rem', borderBottom: '3px solid #3b82f6' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#dbeafe', padding: '1rem', borderRadius: '50%', color: '#3b82f6', flexShrink: 0 }}>
+                        <Anchor size={32} />
+                    </div>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '0.5rem' }}>
+                            How much is a transfer from Gold Coast to Brisbane Cruise Terminal?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#1e3a8a' }}>
+                            A private transfer from <strong>Surfers Paradise to Brisbane International Cruise Terminal (Luggage Point)</strong> typically costs between <strong>$220 - $260</strong> for a luxury sedan. For families needing a <strong>Mercedes V-Class van</strong> (up to 7 passengers + luggage), the rate is generally <strong>$280 - $320</strong>. The journey takes approximately 75-90 minutes.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#60a5fa', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *We also service transfers from Byron Bay to the Brisbane Cruise Terminal.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
+
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>The Stress-Free Start</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Direct Service", desc: "No trains, no shuttle buses. We pick you up from your front door and drop you at the ship.", icon: <MapPin size={28} color="#3b82f6" /> },
+                            { title: "Luggage Capacity", desc: "Cruise holidays mean big bags. Our vans have ample space for all your suitcases.", icon: <Luggage size={28} color="#3b82f6" /> },
+                            { title: "Fixed Price", desc: "The cost is locked in. No ticking meter while you sit in M1 traffic.", icon: <CheckCircle size={28} color="#3b82f6" /> },
+                            { title: "Family Friendly", desc: "Child seats available on request for the drive up the highway.", icon: <Users size={28} color="#3b82f6" /> },
+                            { title: "Reliability", desc: "We know the M1 conditions and plan departure times to ensure you board safely.", icon: <Clock size={28} color="#3b82f6" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #e0f2fe', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#1e3a8a' }}>{item.title}</h3>
+                                    <p style={{ color: '#475569', fontSize: '0.95rem' }}>{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Popular Routes Table */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Cruise Transfer Rates</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#1e40af', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Pickup Location</th>
+                                    <th style={{ padding: '1rem' }}>Destination</th>
+                                    <th style={{ padding: '1rem' }}>Vehicle</th>
+                                    <th style={{ padding: '1rem' }}>Est. Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { loc: "Surfers Paradise / Broadbeach", dest: "Brisbane Cruise Terminal", veh: "Sedan / Van", price: "$220 - $320" },
+                                    { loc: "Southport / Hope Island", dest: "Brisbane Cruise Terminal", veh: "Sedan / Van", price: "$190 - $280" },
+                                    { loc: "Burleigh Heads / Palm Beach", dest: "Brisbane Cruise Terminal", veh: "Sedan / Van", price: "$240 - $340" },
+                                    { loc: "Coolangatta Airport (OOL)", dest: "Brisbane Cruise Terminal", veh: "Van / SUV", price: "$260 - $360" },
+                                    { loc: "Byron Bay", dest: "Brisbane Cruise Terminal", veh: "Luxury Sedan", price: "$350 - $450" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#1e3a8a' }}>{row.loc}</td>
+                                        <td style={{ padding: '1.25rem', color: '#475569' }}>{row.dest}</td>
+                                        <td style={{ padding: '1.25rem', color: '#475569' }}>{row.veh}</td>
+                                        <td style={{ padding: '1.25rem', color: '#3b82f6', fontWeight: 'bold' }}>{row.price}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Terminals Info */}
+                <div style={{ marginBottom: '5rem', background: '#f0f9ff', padding: '3rem', borderRadius: '16px' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Terminal Information</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#1e40af', marginBottom: '1rem' }}>Brisbane International Cruise Terminal</h3>
+                            <p style={{ color: '#475569', maxWidth: '600px', margin: '0 auto' }}>Located at Luggage Point (Pinkenba), this is the primary port for large ships (Royal Caribbean, Carnival, Disney). It is approximately 80km north of the Gold Coast.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Gold Coast Transfers FAQs</h2>
+                    <LocationFAQ city="Gold Coast" />
+                </div>
+
+                {/* Testimonials */}
+                <div style={{ background: '#eff6ff', padding: '4rem 2rem', borderRadius: '16px', textAlign: 'center' }}>
+                    <h2 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '2rem' }}>Holiday Mode: On</h2>
+                    <blockquote style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.25rem', fontStyle: 'italic', color: '#1e40af' }}>
+                        “Taking the family van from our home in Robina to the ship was so much easier than the shuttle. We stopped for coffee on the way and arrived relaxed.”
+                    </blockquote>
+                    <cite style={{ display: 'block', marginTop: '1rem', fontWeight: 'bold', color: '#3b82f6' }}>— The Anderson Family</cite>
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Start Your Cruise:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        Select your <Link href="/the-fleet" className={styles.inlineLink}>transfer vehicle</Link>.
+                        Get a quote via our <Link href="/contact-us" className={styles.inlineLink}>contact form</Link>.
                     </p>
                 </div>
-            </section>
 
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Anchor size={28} /></div>
-                        <span className={styles.featureLabel}>Brisbane<br />Port Connection</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Bus size={28} /></div>
-                        <span className={styles.featureLabel}>Group<br />Transfers</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShieldCheck size={28} /></div>
-                        <span className={styles.featureLabel}>Fixed<br />Price</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Clock size={28} /></div>
-                        <span className={styles.featureLabel}>Timely<br />Travel</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Cruise Transfer Fleet</h2>
-                <VehicleTabs vehicles={vehicles} />
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        Cruise Transfer FAQs
-                    </h2>
-                    <FaqAccordion faqs={faqs} />
-                </div>
-            </section>
-
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
-                </div>
-                <ServiceContactForm
-                    title="Get a Cruise Transfer Quote"
-                    subtitle={<>
-                        Transfers from Gold Coast to Brisbane Cruise Terminal.
-                        <br />
-                        <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
-                    </>}
-                    detailsLabel="Travel Details (Date, Pickup Suburb, Ship)"
-                />
             </section>
 
             <Footer />

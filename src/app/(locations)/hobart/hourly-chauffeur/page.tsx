@@ -2,178 +2,140 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
-import { Navigation, PauseCircle, ShoppingBag, Utensils, Award, ShieldCheck, Users, Briefcase } from "lucide-react";
-import VehicleTabs from "@/components/ServicePage/VehicleTabs";
-import FaqAccordion from "@/components/ServicePage/FaqAccordion";
-import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import Link from "next/link";
+import { Clock, MapPin, Camera, Coffee, Star, Shield, Car, Navigation } from "lucide-react";
 import type { Metadata } from 'next';
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
 
 export const metadata: Metadata = {
-    title: "Hourly Chauffeur Service Hobart | Private Car Hire",
-    description: "Flexible hourly chauffeur service in Hobart. 'As Directed' private car hire for Port Arthur tours, city meetings, and winery visits.",
+    title: "Hourly Chauffeur Hobart | Private Tours Port Arthur & MONA",
+    description: "Hire a private driver in Tasmania. Hourly chauffeur service for day trips to Port Arthur, MONA, Richmond, and Mount Wellington.",
 };
 
 export default function HobartHourlyPage() {
-    const faqs = [
-        {
-            question: "What Is The Minimum Hire Time For Hourly Service?",
-            answer: "Our minimum hire period for hourly 'As Directed' service in Hobart is typically 2 hours. This provides flexibility for business meetings or a short scenic drive."
-        },
-        {
-            question: "Can I Use This Service For Port Arthur Day Trips?",
-            answer: "Yes! Hourly hire is the best way to visit Port Arthur or Richmond. You create your own itinerary, stay as long as you like at each site, and your chauffeur will handle the driving."
-        },
-        {
-            question: "Does The Hourly Rate Include Waiting Time?",
-            answer: "Yes. Your chauffeur and vehicle are exclusively yours. Whether you are browsing Salamanca Market, visiting MONA, or dining on the waterfront, we wait for you."
-        },
-        {
-            question: "Are Tolls And Parking Included In The Hourly Rate?",
-            answer: "Hourly rates cover the vehicle and driver. Tasmania is toll-free, but parking fees (e.g. at hotels or tourist sites) incurred at your request are charged as extras."
-        },
-        {
-            question: "Can I Extend My Booking On The Day?",
-            answer: "In most cases, yes. If you wish to extend your hire, simply inform your chauffeur. We will extend the booking in 15 or 30-minute increments, subject to vehicle availability."
-        }
-    ];
-
-    const vehicles = [
-        {
-            category: 'Executive Sedans',
-            name: 'Executive Sedan',
-            desc: 'Cost-effective luxury. Perfect for CBD meetings or trips to MONA.',
-            passengers: 4,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Premium Sedans',
-            name: 'European Premium Sedan',
-            desc: 'Elevate your experience. Ideal for special dinners at The Tasman or VIP guests.',
-            passengers: 3,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'People Movers',
-            name: 'Mercedes V-Class',
-            desc: 'Group outings made easy. Keep your party together for wine tours or Port Arthur trips.',
-            passengers: 7,
-            luggage: 6,
-            bags: 6,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Hobart" service="Hourly Chauffeur" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="Hourly Chauffeur Service Hobart"
-                subtitle="Complete flexibility with our 'As Directed' service. Your private car and driver in Tasmania, ready when you are."
-                showStats={false}
-            />
-
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Your Car, Your Schedule</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Explore Hobart and its stunning surrounds on your own terms. Our hourly chauffeur service gives you the freedom
-                        to travel at your own pace without the hassle of navigating unfamiliar roads or waiting for taxis.
-                        <br /><br />
-                        Whether you are hopping between meetings in the CBD, enjoying a wine tour in the Coal River Valley,
-                        or taking a scenic drive up Mt Wellington, your chauffeur waits for you.
-                        Leave your purchases in the car and enjoy true convenience.
-                    </p>
-                    <h3 style={{ marginTop: '2rem' }}>Ideal For</h3>
-                    <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
-                        <li><strong>Business Meetings:</strong> Seamless travel across Hobart CBD and suburbs.</li>
-                        <li><strong>Day Tours:</strong> Visit Port Arthur, Richmond, or Bonorong Wildlife Sanctuary.</li>
-                        <li><strong>Art & Culture:</strong> Private transfers to MONA with waiting time included.</li>
-                        <li><strong>Dining:</strong> Reliable transport for dinner reservations on the waterfront.</li>
-                    </ul>
-                </div>
-            </section>
-
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Navigation size={28} /></div>
-                        <span className={styles.featureLabel}>As Directed<br />Service</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><PauseCircle size={28} /></div>
-                        <span className={styles.featureLabel}>Waiting<br />Included</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShoppingBag size={28} /></div>
-                        <span className={styles.featureLabel}>Secure<br />Storage</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Utensils size={28} /></div>
-                        <span className={styles.featureLabel}>Dinner<br />Transfers</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Award size={28} /></div>
-                        <span className={styles.featureLabel}>Local<br />Knowledge</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShieldCheck size={28} /></div>
-                        <span className={styles.featureLabel}>Fixed<br />Hourly Rates</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Flexible Fleet Options</h2>
-                <p style={{ maxWidth: '700px', margin: '0 auto', color: '#666', marginBottom: '2rem' }}>
-                    Choose the vehicle that fits your day. All come with complimentary water and climate control.
-                </p>
-                <VehicleTabs vehicles={vehicles} />
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        Hourly Charter FAQs
-                    </h2>
-                    <FaqAccordion faqs={faqs} />
-                </div>
-            </section>
-
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
-                </div>
-                <ServiceContactForm
-                    title="Plan Your Day"
-                    subtitle={<>
-                        Get a quote for an hourly booking or a custom tour itinerary in Hobart.
-                        <br />
-                        <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span> or <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
-                    </>}
-                    dateLabel="Duration Needed"
-                    emailLabel="Email Address*"
-                    detailsLabel="Itinerary Details"
-                    btnText="Get Hourly Quote"
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Hobart Private Driver & Sightseeing"
+                    subtitle="Discover Tasmania's history and natural beauty. From Port Arthur to Mt Wellington, explore in comfort."
+                    showStats={false}
                 />
+            </div>
+
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#fffbeb', padding: '3rem 1rem', borderBottom: '3px solid #f59e0b' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#fef3c7', padding: '1rem', borderRadius: '50%', color: '#d97706', flexShrink: 0 }}>
+                        <Clock size={32} />
+                    </div>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#78350f', marginBottom: '0.5rem' }}>
+                            Cost for a private tour in Hobart?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#78350f' }}>
+                            <strong>Hourly chauffeur hire in Hobart</strong> starts from <strong>$85 - $100 per hour</strong>. A full-day return trip to the historic <strong>Port Arthur</strong> site (approx 8 hours) typically costs between <strong>$650 - $850</strong>. Short trips to <strong>MONA</strong> or the summit of <strong>Mount Wellington</strong> are available on an hourly basis (min 2-3 hours).
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#b45309', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *We can also arrange transfers to Bruny Island ferry (Kettering).
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
+
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>Tasmanian Highlights</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Port Arthur", desc: "A scenic 90-minute drive to Australia's most significant convict site.", icon: <Star size={28} color="#f59e0b" /> },
+                            { title: "MONA", desc: "Visit the Museum of Old and New Art in Berriedale. We offer door-to-door service.", icon: <Camera size={28} color="#f59e0b" /> },
+                            { title: "Richmond", desc: "See Australia's oldest bridge and explore the quaint village of Richmond.", icon: <Coffee size={28} color="#f59e0b" /> },
+                            { title: "Mt Wellington", desc: "Drive to the summit of kunanyi / Mount Wellington for panoramic views of Hobart.", icon: <MapPin size={28} color="#f59e0b" /> },
+                            { title: "Salamanca", desc: "Drop-off right at the market on Saturdays or for dinner at the waterfront.", icon: <Navigation size={28} color="#f59e0b" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #fef3c7', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#78350f' }}>{item.title}</h3>
+                                    <p style={{ color: '#4b5563', fontSize: '0.95rem' }}>{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Popular Itineraries Table */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Hobart Tour Rates</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#1f2937', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Hire Type / Tour</th>
+                                    <th style={{ padding: '1rem' }}>Vehicle</th>
+                                    <th style={{ padding: '1rem' }}>Duration</th>
+                                    <th style={{ padding: '1rem' }}>Est. Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { route: "Hourly As Directed (Hobart)", veh: "Exec Sedan", cap: "Min 2 Hours", price: "$85 - $100 / hr" },
+                                    { route: "Port Arthur Day Trip", veh: "Mercedes V-Class", cap: "8 Hours", price: "$750 - $850" },
+                                    { route: "Richmond & Bonorong Wildlife", veh: "Luxury Sedan", cap: "4 Hours", price: "$400 - $500" },
+                                    { route: "Mt Wellington Summit (Quick)", veh: "SUV", cap: "2 Hours", price: "$200 - $250" },
+                                    { route: "MONA Transfer (Wait & Return)", veh: "People Mover", cap: "4 Hours", price: "$350 - $450" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#1f2937' }}>{row.route}</td>
+                                        <td style={{ padding: '1.25rem', color: '#4b5563' }}>{row.veh}</td>
+                                        <td style={{ padding: '1.25rem', color: '#4b5563' }}>{row.cap}</td>
+                                        <td style={{ padding: '1.25rem', color: '#d97706', fontWeight: 'bold' }}>{row.price}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Venue Info */}
+                <div style={{ marginBottom: '5rem', background: '#fffbeb', padding: '3rem', borderRadius: '16px' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>History & Art</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#92400e', marginBottom: '1rem' }}>Port Arthur</h3>
+                            <p style={{ color: '#4b5563' }}>Walk amongst the ruins of the penal settlement. A sombre but essential Tasmanian experience.</p>
+                        </div>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#92400e', marginBottom: '1rem' }}>MONA</h3>
+                            <p style={{ color: '#4b5563' }}>David Walsh's subterranean museum. Expect the unexpected. We drop you right at the entrance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Tasmania Tour FAQs</h2>
+                    <LocationFAQ city="Hobart" />
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Start Exploring:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        Check our <Link href="/the-fleet" className={styles.inlineLink}>vehicle rates</Link>.
+                        Contact us for a <Link href="/contact-us" className={styles.inlineLink}>custom proposal</Link>.
+                    </p>
+                </div>
+
             </section>
 
             <Footer />

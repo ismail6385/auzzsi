@@ -1,0 +1,204 @@
+.pageWrapper {
+    background-color: #ffffff;
+    font-family: var(--font-inter), sans-serif;
+    color: #333;
+}
+
+/* Sections General */
+.section {
+    padding: 5rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sectionAlt {
+    background-color: #f9fafb;
+    padding: 5rem 1.5rem;
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    color: #1e3a8a;
+    margin-bottom: 2rem;
+    font-weight: 800;
+    text-align: center;
+    position: relative;
+}
+
+.sectionTitle::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #c5a467;
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.introText {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #4b5563;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+/* Intro / AI Overview */
+.aiContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    border: 1px solid #e5e7eb;
+}
+
+.aiIcon {
+    background: #e0f2fe;
+    padding: 1rem;
+    border-radius: 50%;
+    color: #0284c7;
+    flex-shrink: 0;
+}
+
+/* Comparison Table */
+.comparisonWrapper {
+    overflow-x: auto;
+    margin-top: 3rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.comparisonTable {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.comparisonTable th,
+.comparisonTable td {
+    padding: 1.25rem;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.comparisonTable th {
+    background: #1e293b;
+    color: white;
+    font-weight: 600;
+}
+
+.checkIcon {
+    color: #16a34a;
+}
+
+.xIcon {
+    color: #ef4444;
+}
+
+/* Process Steps */
+.processGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.stepNumber {
+    width: 60px;
+    height: 60px;
+    background: #c5a467;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 15px rgba(197, 164, 103, 0.4);
+}
+
+/* EEAT Block */
+.eeatSection {
+    background: #111827;
+    color: white;
+    padding: 6rem 1.5rem;
+}
+
+.eeatGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.statBox {
+    text-align: center;
+}
+
+.statNumber {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #c5a467;
+    margin-bottom: 0.5rem;
+}
+
+.statLabel {
+    color: #9ca3af;
+    font-size: 1.1rem;
+}
+
+/* CTA */
+.ctaBox {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    text-align: center;
+    margin: 4rem auto;
+    max-width: 1000px;
+    box-shadow: 0 20px 40px rgba(30, 58, 138, 0.2);
+}
+
+.ctaBtn {
+    background: #c5a467;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 2rem;
+}
+
+.ctaBtn:hover {
+    background: #bfa15f;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .sectionTitle {
+        font-size: 2rem;
+    }
+
+    .aiContainer {
+        flex-direction: column;
+    }
+
+    .eeatGrid {
+        gap: 2rem;
+    }
+}

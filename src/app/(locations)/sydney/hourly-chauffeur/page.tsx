@@ -2,178 +2,140 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
-import { Navigation, PauseCircle, ShoppingBag, Utensils, Award, ShieldCheck, Users, Briefcase } from "lucide-react";
-import VehicleTabs from "@/components/ServicePage/VehicleTabs";
-import FaqAccordion from "@/components/ServicePage/FaqAccordion";
-import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import Link from "next/link";
+import { Clock, MapPin, Camera, Coffee, Star, Shield, Car, Navigation } from "lucide-react";
 import type { Metadata } from 'next';
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
 
 export const metadata: Metadata = {
-    title: "Hourly Chauffeur Service Sydney | Private Car Hire",
-    description: "Flexible hourly chauffeur service in Sydney. 'As Directed' private car hire for business meetings, sightseeing, and Hunter Valley wine tours.",
+    title: "Hourly Chauffeur Sydney | Private Tours Blue Mountains & Hunter Valley",
+    description: "Hire a private driver in Sydney by the hour. Luxury cars for sightseeing tours to Blue Mountains, Hunter Valley, and Bondi Beach. Flexible itinerary.",
 };
 
 export default function SydneyHourlyPage() {
-    const faqs = [
-        {
-            question: "What Is The Minimum Hire Time For Hourly Service?",
-            answer: "Our minimum hire period for hourly 'As Directed' service in Sydney is typically 2 hours for sedans and 3 hours for larger vehicles."
-        },
-        {
-            question: "Can I Change My Destination During The Trip?",
-            answer: "Yes, absolutely. The main benefit of hourly hire is flexibility. You can direct your chauffeur to any destination within Sydney or the greater NSW region. Just let them know where you need to go."
-        },
-        {
-            question: "Does The Hourly Rate Include Waiting Time?",
-            answer: "Yes. Your chauffeur and vehicle are exclusively yours for the duration of the booking. Whether you are in a meeting at Barangaroo, visiting the Opera House, or shopping at the QVB, we wait for you."
-        },
-        {
-            question: "Are Tolls And Parking Included In The Hourly Rate?",
-            answer: "Hourly rates cover the vehicle and driver. Tolls and parking fees incurred at your request are generally charged as extras. We recommend discussing your itinerary with us if you expect significant toll usage."
-        },
-        {
-            question: "Can I Extend My Booking On The Day?",
-            answer: "In most cases, yes. If you wish to extend your time enjoying Sydney, simply inform your chauffeur. We will extend the booking in 15 or 30-minute increments, subject to availability."
-        }
-    ];
-
-    const vehicles = [
-        {
-            category: 'Executive Sedans',
-            name: 'Executive Sedan',
-            desc: 'Cost-effective luxury. Perfect for multiple meetings in the CBD or day tours to beaches.',
-            passengers: 4,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Premium Sedans',
-            name: 'European Premium Sedan',
-            desc: 'Elevate your experience. Ideal for special date nights at the harbour, theatre trips, or VIP guests.',
-            passengers: 3,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'People Movers',
-            name: 'Mercedes V-Class',
-            desc: 'Group outings made easy. Keep your party together for Blue Mountains tours, sightseeing, or event transport.',
-            passengers: 7,
-            luggage: 6,
-            bags: 6,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Sydney" service="Hourly Chauffeur" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="Hourly Chauffeur Service Sydney"
-                subtitle="Complete flexibility with our 'As Directed' service. Your private car and driver in Sydney, ready when you are."
-                showStats={false}
-            />
-
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Your Car, Your Schedule</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Explore Sydney on your own terms. Our hourly chauffeur service gives you the freedom
-                        to travel at your own pace without the hassle of re-booking taxis or waiting for rideshares.
-                        <br /><br />
-                        Whether you are hopping between business meetings in the CBD and North Sydney, exploring Bondi and
-                        Watsons Bay, or enjoying a day of shopping at the Queen Victoria Building and Westfield, your chauffeur waits for you.
-                        Leave your bags in the car, change your plans on the fly, and enjoy true convenience.
-                    </p>
-                    <h3 style={{ marginTop: '2rem' }}>Ideal For</h3>
-                    <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
-                        <li><strong>Business Roadshows:</strong> Multiple meetings across the CBD, North Sydney, and Macquarie Park.</li>
-                        <li><strong>Sydney Sightseeing:</strong> Create your own itinerary: Opera House, The Rocks, Bondi Beach.</li>
-                        <li><strong>Day Tours:</strong> Private tours to the Blue Mountains or Hunter Valley wine region.</li>
-                        <li><strong>Shopping & Dining:</strong> Visit Pitt Street Mall or dine at the Quay with a ride waiting outside.</li>
-                    </ul>
-                </div>
-            </section>
-
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Navigation size={28} /></div>
-                        <span className={styles.featureLabel}>As Directed<br />Service</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><PauseCircle size={28} /></div>
-                        <span className={styles.featureLabel}>Waiting<br />Included</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShoppingBag size={28} /></div>
-                        <span className={styles.featureLabel}>Secure<br />Storage</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Utensils size={28} /></div>
-                        <span className={styles.featureLabel}>Dinner<br />Transfers</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Award size={28} /></div>
-                        <span className={styles.featureLabel}>Local<br />Knowledge</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShieldCheck size={28} /></div>
-                        <span className={styles.featureLabel}>Fixed<br />Hourly Rates</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Flexible Fleet Options</h2>
-                <p style={{ maxWidth: '700px', margin: '0 auto', color: '#666', marginBottom: '2rem' }}>
-                    Choose the vehicle that fits your day. All come with complimentary water and charging ports.
-                </p>
-                <VehicleTabs vehicles={vehicles} />
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        Hourly Charter FAQs
-                    </h2>
-                    <FaqAccordion faqs={faqs} />
-                </div>
-            </section>
-
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
-                </div>
-                <ServiceContactForm
-                    title="Plan Your Day"
-                    subtitle={<>
-                        Get a quote for an hourly booking or a custom tour itinerary.
-                        <br />
-                        <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
-                    </>}
-                    dateLabel="Duration Needed"
-                    emailLabel="Email Address*"
-                    detailsLabel="Itinerary Details"
-                    btnText="Get Hourly Quote"
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Sydney Hourly Chauffeur & Private Tours"
+                    subtitle="Explore Sydney at your own pace. From the Opera House to the Blue Mountains, enjoy the freedom of a personal driver."
+                    showStats={false}
                 />
+            </div>
+
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#fffbeb', padding: '3rem 1rem', borderBottom: '3px solid #f59e0b' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#fef3c7', padding: '1rem', borderRadius: '50%', color: '#d97706', flexShrink: 0 }}>
+                        <Clock size={32} />
+                    </div>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#78350f', marginBottom: '0.5rem' }}>
+                            How much does it cost to hire a driver in Sydney?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#78350f' }}>
+                            <strong>Hourly chauffeur rates in Sydney</strong> typically start from <strong>$95 - $110 per hour</strong> for a luxury sedan (minimum hire applies). For <strong>private day tours</strong> to the Blue Mountains or Hunter Valley, full-day packages (8-10 hours) offer formatted pricing from approx <strong>$800 - $1100</strong> depending on the vehicle.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#b45309', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *Rates include fuel, tolls, and waiting time.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
+
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>Your Private Driver Experience</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Total Flexibility", desc: "Change your itinerary on the fly. Stay longer at Bondi or leave early for dinner.", icon: <Navigation size={28} color="#f59e0b" /> },
+                            { title: "Blue Mountains", desc: "Expert navigation to Scenic World and the Three Sisters, avoiding the tourist bus crowds.", icon: <Camera size={28} color="#f59e0b" /> },
+                            { title: "Wine Tours", desc: "Relaxed day trips to the Hunter Valley wineries. No need for a designated driver.", icon: <Coffee size={28} color="#f59e0b" /> },
+                            { title: "Luxury Fleet", desc: "Travel in climate-controlled comfort with leather seating and complimentary water.", icon: <Car size={28} color="#f59e0b" /> },
+                            { title: "Fixed Hourly Rate", desc: "Clear pricing with no hidden meter fees. You know exactly what you're paying.", icon: <Shield size={28} color="#f59e0b" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #fef3c7', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#78350f' }}>{item.title}</h3>
+                                    <p style={{ color: '#4b5563', fontSize: '0.95rem' }}>{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Popular Itineraries Table */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Sydney Usage Rates</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#1f2937', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Hire Type / Destination</th>
+                                    <th style={{ padding: '1rem' }}>Vehicle</th>
+                                    <th style={{ padding: '1rem' }}>Duration</th>
+                                    <th style={{ padding: '1rem' }}>Est. Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { route: "Hourly As Directed (City)", veh: "Luxury Sedan", cap: "Min 3 Hours", price: "$95 - $110 / hr" },
+                                    { route: "Hourly As Directed (Group)", veh: "Mercedes V-Class", cap: "Min 4 Hours", price: "$110 - $130 / hr" },
+                                    { route: "Blue Mountains Day Tour", veh: "SUV or Van", cap: "8-10 Hours", price: "$950 - $1200" },
+                                    { route: "Hunter Valley Wine Tour", veh: "Mercedes V-Class", cap: "10-12 Hours", price: "$1200 - $1500" },
+                                    { route: "Dinner Transfer (Wait & Return)", veh: "Premium Sedan", cap: "4 Hours", price: "$400 - $500" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#1f2937' }}>{row.route}</td>
+                                        <td style={{ padding: '1.25rem', color: '#4b5563' }}>{row.veh}</td>
+                                        <td style={{ padding: '1.25rem', color: '#4b5563' }}>{row.cap}</td>
+                                        <td style={{ padding: '1.25rem', color: '#d97706', fontWeight: 'bold' }}>{row.price}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Venue Info */}
+                <div style={{ marginBottom: '5rem', background: '#fffbeb', padding: '3rem', borderRadius: '16px' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Popular Sightseeing Stops</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#92400e', marginBottom: '1rem' }}>Blue Mountains</h3>
+                            <p style={{ color: '#4b5563' }}>See the Three Sisters at Echo Point. Visit Scenic World. Stop at Leura village for lunch.</p>
+                        </div>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#92400e', marginBottom: '1rem' }}>Bondi & Beaches</h3>
+                            <p style={{ color: '#4b5563' }}>Cruise past Bondi Beach, Watsons Bay, and stop at The Gap for photos. A classic Sydney coastal drive.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Hourly Hire FAQs</h2>
+                    <LocationFAQ city="Sydney" />
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Book Your Driver:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        Select your <Link href="/the-fleet" className={styles.inlineLink}>luxury car</Link>.
+                        Email us to <Link href="/contact-us" className={styles.inlineLink}>plan your tour</Link>.
+                    </p>
+                </div>
+
             </section>
 
             <Footer />

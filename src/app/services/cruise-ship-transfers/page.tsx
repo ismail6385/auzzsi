@@ -98,6 +98,59 @@ export default function CruiseServicesPage() {
                     </p>
                 </div>
 
+                {/* Cruise Pricing Table */}
+                <section style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 1rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '1rem' }}>Cruise Transfer Pricing</h2>
+                    <p style={{ textAlign: 'center', color: '#666', marginBottom: '2rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
+                        Fixed pricing to all major cruise terminals. Includes meet & greet and luggage assistance.
+                    </p>
+
+                    <div style={{ overflowX: 'auto' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', backgroundColor: 'white', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', borderRadius: '8px', overflow: 'hidden' }}>
+                            <thead>
+                                <tr style={{ backgroundColor: '#1f2937', color: 'white' }}>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Route Example</th>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>From Price</th>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Vehicle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Sydney Airport &#8594; Circular Quay</strong></td>
+                                    <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$120</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Luxury Sedan</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb', backgroundColor: '#f9fafb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Sydney CBD &#8594; White Bay</strong></td>
+                                    <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$95</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Luxury Sedan</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Melbourne Airport &#8594; Station Pier</strong></td>
+                                    <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$110</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Luxury Sedan</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb', backgroundColor: '#f9fafb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Brisbane Airport &#8594; Cruise Terminal</strong></td>
+                                    <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$105</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Luxury Sedan</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Perth Airport &#8594; Fremantle</strong></td>
+                                    <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$135</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Luxury Sedan</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb', backgroundColor: '#f9fafb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Group Transfer (7 Pax + Luggage)</strong></td>
+                                    <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>+$20-40</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Mercedes V-Class</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',

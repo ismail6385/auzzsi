@@ -1,269 +1,231 @@
-"use client";
-
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
 import Link from "next/link";
-import { useState } from "react";
-import {
-    Clock,
-    DollarSign,
-    ShieldCheck,
-    Plane,
-    Award,
-    Users,
-    Briefcase,
-    ChevronDown,
-    ChevronUp,
-} from "lucide-react";
+import { Plane, Briefcase, Heart, Clock, ChevronRight, Map, Anchor, Shield, CheckCircle, Calculator, UserCheck, Calendar } from "lucide-react";
+import type { Metadata } from 'next';
+import WeatherWidget from "@/components/WeatherWidget";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
+import LocationTestimonials from "@/components/LocationTestimonials";
+
+export const metadata: Metadata = {
+    title: "Sydney Airport Transfers | SYD to City Chauffeur | Auzzie Chauffeur",
+    description: "Reliable airport transfers from Sydney Kingsford Smith (SYD) to CBD, Bondi, and North Shore. Flight monitoring, fixed price luxury cars.",
+};
 
 export default function SydneyAirportPage() {
-    // FAQ State
-    const [openFaq, setOpenFaq] = useState<number | null>(0);
-
-    const toggleFaq = (index: number) => {
-        setOpenFaq(openFaq === index ? null : index);
-    };
-
-    const faqs = [
-        {
-            question: "How Long Is The Trip From Sydney Airport To Sydney CBD?",
-            answer: "The travel time from Sydney Kingsford Smith Airport (SYD) to the CBD (Circular Quay / Wynyard) varies significantly with traffic. In normal conditions, it takes approximately 20-30 minutes. During peak hours (morning 8-10am and evening 5-7pm), please allow 45-60 minutes."
-        },
-        {
-            question: "Where Will My Chauffeur Meet Me At Sydney Airport?",
-            answer: "For International Arrivals (T1), your chauffeur will meet you inside the Arrival Hall at Meeting Point A or B, holding a sign with your name. For Domestic Arrivals (T2/T3), the meeting point is usually at the baggage carousel designated for your flight."
-        },
-        {
-            question: "How Much Does A Sydney Airport Transfer Cost?",
-            answer: "Our fixed-price airport transfers start from $120 for a luxury sedan to the Sydney CBD. Prices vary based on vehicle type and exact drop-off location. Use our Instant Quote tool above for a precise fare with no hidden costs."
-        },
-        {
-            question: "How Much Luggage Can My Car Accommodate?",
-            answer: "Our Executive Sedans accommodate up to 2 large suitcases and 4 passengers. For larger groups or excess luggage, we recommend our Mercedes V-Class People Movers, which can handle up to 7 passengers and 6 large bags."
-        },
-        {
-            question: "Will My Chauffeur Wait If My Flight Is Delayed?",
-            answer: "Yes. We monitor all incoming flights in real-time. If your flight is delayed, your pickup time is automatically adjusted, and your chauffeur will be there when you land at no extra waiting cost."
-        },
-        {
-            question: "Planning Ahead: Airport To Hotel, Hotel To Airport, And More",
-            answer: "We recommend booking your transfer at least 24 hours in advance to ensure vehicle availability, especially during peak travel seasons. However, we can often accommodate last-minute bookings depending on fleet location."
-        },
-        {
-            question: "Popular Destinations - Sydney Airport Transfers",
-            answer: "Besides the CBD, we frequently drive guests to Parramatta, North Sydney, Manly, Bondi Beach, and the Blue Mountains. We cover the entire Greater Sydney region."
-        }
-    ];
-
-    // Vehicle Tabs State
-    const [activeVehicle, setActiveVehicle] = useState('Executive Sedans');
-
-    const vehicles = [
-        {
-            category: 'Executive Sedans',
-            name: 'Executive Sedan',
-            desc: 'Ideal for up to 4 passengers with light luggage. Features leather seating, climate control, and a smooth quiet ride for corporate transfers.',
-            passengers: 4,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Premium Sedans',
-            name: 'European Premium Sedan',
-            desc: 'Top-tier luxury from Mercedes-Benz or Audi. Perfect for VIPs requiring maximum comfort, style and prestige.',
-            passengers: 3,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Premium SUVs',
-            name: 'Luxury SUV',
-            desc: 'Spacious and commanding presence. Audi Q7 or similar, offering extra legroom and luggage capacity for families or groups.',
-            passengers: 4,
-            luggage: 4,
-            bags: 3,
-            image: '/tile-driver.png'
-        },
-        {
-            category: 'People Movers',
-            name: 'Mercedes V-Class',
-            desc: 'The gold standard for group travel. Seats up to 7 people in absolute luxury with conference style seating options.',
-            passengers: 7,
-            luggage: 6,
-            bags: 6,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Sydney" service="Airport Transfers" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="Airport Transfers Sydney"
-                subtitle="Premium chauffeur service to and from Sydney Kingsford Smith Airport. Reliable, luxurious, and always on time."
-                showStats={false}
-            />
-
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Reliable Sydney Airport Transfers</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Avoid the stress of Sydney traffic and taxi queues. Auzzsi Chauffeur provides a seamless
-                        transfer experience from Sydney Airport (SYD) to the CBD, North Shore, Western Suburbs, and beyond.
-                        <br /><br />
-                        Whether you are arriving at Terminal 1 (International) or Terminals 2 & 3 (Domestic),
-                        your professional chauffeur will track your flight and meet you inside the terminal with a name sign.
-                    </p>
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Sydney Airport (SYD) Chauffeur Service"
+                    subtitle="Seamless luxury transfers from Kingsford Smith to Sydney CBD, Bondi Beach, and Parramatta. Avoid the taxi queue."
+                    showStats={false}
+                />
+                <div className={styles.weatherWidgetWrapper}>
+                    <WeatherWidget location="Sydney" />
                 </div>
-            </section>
+            </div>
 
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><DollarSign size={28} /></div>
-                        <span className={styles.featureLabel}>Fixed Price<br />No Toll Extra</span>
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#f9fafb', padding: '3rem 1rem', borderBottom: '3px solid #c5a467' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#e0f2fe', padding: '1rem', borderRadius: '50%', color: '#0284c7', flexShrink: 0 }}>
+                        <Calculator size={32} />
                     </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Users size={28} /></div>
-                        <span className={styles.featureLabel}>Meet & Greet<br />Inside Terminal</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Plane size={28} /></div>
-                        <span className={styles.featureLabel}>Flight Tracking<br />Global</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Clock size={28} /></div>
-                        <span className={styles.featureLabel}>60 Mins Free<br />Waiting Time</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Award size={28} /></div>
-                        <span className={styles.featureLabel}>Top Rated<br />Service</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShieldCheck size={28} /></div>
-                        <span className={styles.featureLabel}>Licensed &<br />Accredited</span>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '0.5rem' }}>
+                            How much is a chauffeur from Sydney Airport to City?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#374151' }}>
+                            A private chauffeur transfer from <strong>Sydney Airport (SYD)</strong> to the <strong>CBD</strong> typically costs between <strong>$95 - $130</strong>. Transfers to <strong>Bondi Beach</strong> or the <strong>North Shore</strong> generally range from <strong>$110 - $150</strong>. We provide fixed-rate quotes including all tolls and airport parking fees.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#6b7280', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *Prices vary by car class (Sedan/SUV/Van) and time of day.
+                        </p>
                     </div>
                 </div>
             </section>
 
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Our Sydney Fleet</h2>
-                <div className={styles.fleetTabs}>
-                    {vehicles.map((v) => (
-                        <button
-                            key={v.category}
-                            className={`${styles.tabBtn} ${activeVehicle === v.category ? styles.active : ''}`}
-                            onClick={() => setActiveVehicle(v.category)}
-                        >
-                            {v.category}
-                        </button>
-                    ))}
-                </div>
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
 
-                <div className={styles.vehicleCard}>
-                    {vehicles.filter(v => v.category === activeVehicle).map((v) => (
-                        <div key={v.category} style={{ display: 'flex', width: '100%', flexWrap: 'wrap' }}>
-                            <div className={styles.vehicleImage}>
-                                <img src={v.image} alt={v.name} />
-                            </div>
-                            <div className={styles.vehicleInfo}>
-                                <h3 className={styles.vehicleTitle}>{v.name}</h3>
-                                <p className={styles.vehicleDesc}>{v.desc}</p>
-
-                                <div className={styles.vehicleStats}>
-                                    <div className={styles.stat}><Users size={18} /> {v.passengers} Passengers</div>
-                                    <div className={styles.stat}><Briefcase size={18} /> {v.luggage} Suitcases</div>
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>Why Choose Auzzie Chauffeur SYD?</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Real-Time Tracking", desc: "We monitor QF, VA, and international flights into SYD to adjust pickup times for delays.", icon: <Plane size={28} color="#1e3a8a" /> },
+                            { title: "Inside Meet & Greet", desc: "Driver awaits you in the arrivals hall with a name board – no searching for Ubers.", icon: <UserCheck size={28} color="#c5a467" /> },
+                            { title: "Fixed Pricing", desc: "Know exactly what you pay. No surge pricing, even during peak hour M1 traffic.", icon: <Calculator size={28} color="#1e3a8a" /> },
+                            { title: "Complimentary Wait", desc: "60 minutes free waiting time for international arrivals at T1.", icon: <Clock size={28} color="#c5a467" /> },
+                            { title: "Premium Vehicles", desc: "Immaculate Mercedes, BMW, and Audi sedans designed for executive comfort.", icon: <Shield size={28} color="#1e3a8a" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #f3f4f6', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#1f2937' }}>{item.title}</h3>
+                                    <p style={{ color: '#6b7280', fontSize: '0.95rem' }}>{item.desc}</p>
                                 </div>
-
-                                <Link href="/book">
-                                    <button className={styles.btnGold} style={{ fontSize: '0.8rem', padding: '0.6rem 1.5rem' }}>
-                                        Book Now
-                                    </button>
-                                </Link>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        FAQs: Sydney Airport Transfers
-                    </h2>
-
-                    <div className={styles.accordion}>
-                        {faqs.map((faq, idx) => (
-                            <div key={idx} className={styles.accordionItem}>
-                                <button className={styles.accordionHeader} onClick={() => toggleFaq(idx)}>
-                                    {faq.question}
-                                    {openFaq === idx ? <ChevronUp size={20} color="#c5a467" /> : <ChevronDown size={20} color="#9ca3af" />}
-                                </button>
-                                {openFaq === idx && (
-                                    <div className={styles.accordionContent}>
-                                        <p>{faq.answer}</p>
-                                    </div>
-                                )}
                             </div>
                         ))}
                     </div>
                 </div>
-            </section>
 
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
+                {/* Common Problems */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Skip The Terminal Stress</h2>
+                    <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1.5rem' }}>
+                        {[
+                            "Bypass the chaotic taxi ranks at T1 International and T2/T3 Domestic.",
+                            "Avoid expensive last-minute rideshare surges.",
+                            "No need to drag luggage to the Priority Pickup zone.",
+                            "Relax in climate-controlled comfort immediately after landing.",
+                            "Navigate Sydney traffic efficiently with experienced local drivers.",
+                            "Child seats pre-installed for families upon request."
+                        ].map((item, idx) => (
+                            <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', background: '#f8fafc', borderRadius: '0.5rem', textAlign: 'left' }}>
+                                <CheckCircle size={20} color="#16a34a" style={{ flexShrink: 0 }} />
+                                <span style={{ color: '#334155' }}>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
-                <div className={styles.contactFormWrapper}>
-                    <h2 className={styles.helpTitle}>Contact Sydney Support</h2>
-                    <p className={styles.helpSubtitle}>
-                        Need help with your booking? Contact us 24/7.<br /><span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
+
+                {/* Pricing Guide */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Sydney Airport Pricing Guide</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#1e3a8a', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Destination (from SYD)</th>
+                                    <th style={{ padding: '1rem' }}>Sedan Price</th>
+                                    <th style={{ padding: '1rem' }}>Van Price (7 Pax)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { route: "Sydney CBD", sedan: "$95 - $130", van: "$140 - $180" },
+                                    { route: "Bondi Beach", sedan: "$110 - $145", van: "$150 - $190" },
+                                    { route: "North Sydney / Chatswood", sedan: "$120 - $160", van: "$170 - $210" },
+                                    { route: "Parramatta", sedan: "$130 - $170", van: "$190 - $240" },
+                                    { route: "Manly / Northern Beaches", sedan: "$160 - $210", van: "$220 - $280" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#1f2937' }}>{row.route}</td>
+                                        <td style={{ padding: '1.25rem', color: '#c5a467', fontWeight: 'bold' }}>{row.sedan}</td>
+                                        <td style={{ padding: '1.25rem', color: '#1e3a8a', fontWeight: 'bold' }}>{row.van}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style={{ fontSize: '0.9rem', color: '#6b7280', marginTop: '1rem', textAlign: 'center', fontStyle: 'italic' }}>
+                        (Note: Estimates include tolls. Price confirmed at booking.)
                     </p>
-
-                    <form className={styles.contactGrid} onSubmit={(e) => e.preventDefault()}>
-                        <div className={styles.inputGroup}>
-                            <label className={styles.inputLabel}>Name*</label>
-                            <input type="text" className={styles.textInput} placeholder="Your Name" />
-                        </div>
-                        <div className={styles.inputGroup}>
-                            <label className={styles.inputLabel}>Last Name*</label>
-                            <input type="text" className={styles.textInput} placeholder="Your Last Name" />
-                        </div>
-                        <div className={styles.inputGroup}>
-                            <label className={styles.inputLabel}>Contact Number*</label>
-                            <input type="tel" className={styles.textInput} placeholder="+61..." />
-                        </div>
-                        <div className={styles.inputGroup}>
-                            <label className={styles.inputLabel}>Email Address*</label>
-                            <input type="email" className={styles.textInput} placeholder="email@example.com" />
-                        </div>
-                        <div className={styles.inputGroup} style={{ gridColumn: '1 / -1' }}>
-                            <label className={styles.inputLabel}>Message</label>
-                            <textarea className={styles.textInput} rows={3} style={{ resize: 'none' }}></textarea>
-                        </div>
-
-                        <button className={styles.submitBtn}>Submit</button>
-                    </form>
                 </div>
+
+                {/* 3 Step Process */}
+                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>How It Works</h2>
+                <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '3rem', marginBottom: '4rem', marginTop: '2rem' }}>
+                    {[
+                        { step: "1", title: "Book", desc: "Enter your flight details online." },
+                        { step: "2", title: "Track", desc: "We monitor landing time." },
+                        { step: "3", title: "Ride", desc: "Meet your driver at Arrivals." }
+                    ].map((item, idx) => (
+                        <div key={idx} style={{ textAlign: 'center', maxWidth: '300px' }}>
+                            <div style={{ width: '60px', height: '60px', background: '#c5a467', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 'bold', margin: '0 auto 1.5rem' }}>
+                                {item.step}
+                            </div>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{item.title}</h3>
+                            <p style={{ color: '#4b5563' }}>{item.desc}</p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Sydney Airport FAQs</h2>
+                    <LocationFAQ city="Sydney" />
+                </div>
+
+                {/* EEAT Block (Dark) */}
+                <section style={{ background: '#111827', color: 'white', padding: '5rem 1rem', borderRadius: '16px', marginTop: '4rem' }}>
+                    <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+                        {/* Expertise */}
+                        <div>
+                            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#c5a467' }}>Sydney Specialists</h3>
+                            <p style={{ lineHeight: '1.7', marginBottom: '1.5rem', color: '#d1d5db' }}>
+                                Auzzie Chauffeur provides trusted transport solutions across Sydney. Our drivers are NSW accredited and undergo rigorous background checks. We specialize in corporate accounts, ensuring your team travels safely between meetings and the airport.
+                            </p>
+                            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                                {['NSW Accredited', 'Point to Point', 'Insured'].map((badge, idx) => (
+                                    <span key={idx} style={{ background: '#374151', padding: '0.25rem 0.75rem', borderRadius: '999px', fontSize: '0.875rem' }}>{badge}</span>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Testimonials */}
+                        <div>
+                            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#c5a467' }}>Client Feedback</h3>
+                            <blockquote style={{ borderLeft: '3px solid #c5a467', paddingLeft: '1rem', marginBottom: '1.5rem' }}>
+                                <p style={{ fontStyle: 'italic', marginBottom: '0.5rem', color: '#e5e7eb' }}>“Arrived late at T1 from Los Angeles. Driver was still there smiling. Great car, smooth journey to the Rocks.”</p>
+                                <cite style={{ fontSize: '0.9rem', color: '#9ca3af' }}>— Sarah, USA</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Case Study */}
+                <div style={{ marginTop: '4rem', background: '#f8fafc', padding: '2rem', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                    <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1f2937' }}>Case Study: Family Cruise Transfer</h3>
+                    <p style={{ lineHeight: '1.7', color: '#4b5563' }}>
+                        <strong>Scenario:</strong> Family of 5 arriving at SYD Domestic, needing transfer to Overseas Passenger Terminal.
+                        <br /><strong>Solution:</strong> Provided a Mercedes V-Class with ample luggage space and child seats.
+                        <br /><strong>Result:</strong> Direct door-to-terminal service, avoiding the hassle of multiple taxis or public transport with bags.
+                    </p>
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Explore More:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        View our <Link href="/the-fleet" className={styles.inlineLink}>luxury fleet</Link>.
+                        Need hourly hire? Check our <Link href="/sydney/hourly-chauffeur" className={styles.inlineLink}>hourly rates</Link>.
+                        Book now via our <Link href="/contact-us" className={styles.inlineLink}>online booking page</Link>.
+                    </p>
+                </div>
+
+                {/* Directions Section */}
+                <div className={styles.directionsSection} style={{ marginTop: '4rem' }}>
+                    <h3 className={styles.directionsTitle}>
+                        <Map color="#c5a467" /> SYD Meeting Points
+                    </h3>
+                    <p className={styles.directionsText}>
+                        <strong>T1 International:</strong> In the Arrivals Hall at the designated chauffeur meeting point (Look for the drivers with signs near McDonald's inside arrivals A or B).<br />
+                        <strong>T2 Domestic:</strong> At the baggage carousel relevant to your flight.<br />
+                        <strong>T3 Qantas Domestic:</strong> At the baggage carousel relevant to your flight.
+                    </p>
+                    <div className={styles.mapContainer}>
+                        <iframe
+                            src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Sydney+Airport,Australia&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                    </div>
+                </div>
+
             </section>
 
             <Footer />

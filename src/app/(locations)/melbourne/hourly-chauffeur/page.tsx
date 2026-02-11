@@ -2,178 +2,140 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
-import { Navigation, PauseCircle, ShoppingBag, Utensils, Award, ShieldCheck, Users, Briefcase } from "lucide-react";
-import VehicleTabs from "@/components/ServicePage/VehicleTabs";
-import FaqAccordion from "@/components/ServicePage/FaqAccordion";
-import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import Link from "next/link";
+import { Clock, MapPin, Camera, Coffee, Star, Shield, Car, Navigation } from "lucide-react";
 import type { Metadata } from 'next';
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
 
 export const metadata: Metadata = {
-    title: "Hourly Chauffeur Service Melbourne | Private Car Hire",
-    description: "Flexible hourly chauffeur service in Melbourne. 'As Directed' private car hire for business meetings, Yarra Valley wine tours, and city exploration.",
+    title: "Hourly Chauffeur Melbourne | Private Driver Hire | Yarra Valley & Great Ocean Road",
+    description: "Hire a private driver in Melbourne. Hourly chauffeur service for Yarra Valley wine tours, Great Ocean Road trips, and city sightseeing.",
 };
 
 export default function MelbourneHourlyPage() {
-    const faqs = [
-        {
-            question: "What Is The Minimum Hire Time For Hourly Service?",
-            answer: "Our minimum hire period for hourly 'As Directed' service in Melbourne is typically 2 hours for sedans and 3 hours for larger vehicles. This provides flexibility for quick meetings or extended tours."
-        },
-        {
-            question: "Can I Use This Service For Yarra Valley Wine Tours?",
-            answer: "Absolutely! Hourly hire is the perfect way to explore the Yarra Valley. You create your own itinerary, visit the wineries you love, and your chauffeur will drive and wait for you at each stop."
-        },
-        {
-            question: "Does The Hourly Rate Include Waiting Time?",
-            answer: "Yes. Your chauffeur and vehicle are exclusively yours for the duration of the booking. Whether you are in a meeting at Collins Street, visiting the MCG, or shopping at Chadstone, we wait for you."
-        },
-        {
-            question: "Are Tolls Included In The Hourly Rate?",
-            answer: "Hourly rates cover the vehicle and driver. Melbourne's CityLink tolls incurred during your journey are generally charged as extras. We recommend discussing your itinerary with us if you expect significant toll usage."
-        },
-        {
-            question: "Can I Extend My Booking On The Day?",
-            answer: "In most cases, yes. If you wish to extend your hire, simply inform your chauffeur. We will extend the booking in 15 or 30-minute increments, subject to vehicle availability."
-        }
-    ];
-
-    const vehicles = [
-        {
-            category: 'Executive Sedans',
-            name: 'Executive Sedan',
-            desc: 'Cost-effective luxury. Perfect for multiple CBD meetings or day trips to the Dandenongs.',
-            passengers: 4,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Premium Sedans',
-            name: 'European Premium Sedan',
-            desc: 'Elevate your experience. Ideal for special occasions, theatre nights, or VIP guests.',
-            passengers: 3,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'People Movers',
-            name: 'Mercedes V-Class',
-            desc: 'Group outings made easy. Keep your party together for Yarra Valley tours or sporting events.',
-            passengers: 7,
-            luggage: 6,
-            bags: 6,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Melbourne" service="Hourly Chauffeur" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="Hourly Chauffeur Service Melbourne"
-                subtitle="Complete flexibility with our 'As Directed' service. Your private car and driver in Melbourne, ready when you are."
-                showStats={false}
-            />
-
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Your Car, Your Schedule</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Explore Melbourne on your own terms. Our hourly chauffeur service gives you the freedom
-                        to travel at your own pace without the hassle of re-booking taxis or waiting for rideshares.
-                        <br /><br />
-                        Whether you are hopping between business meetings in the CBD and Docklands, exploring the laneways and cafes,
-                        or enjoying a day trip to the Yarra Valley, your chauffeur waits for you.
-                        Leave your belongings in the car and enjoy true convenience.
-                    </p>
-                    <h3 style={{ marginTop: '2rem' }}>Ideal For</h3>
-                    <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
-                        <li><strong>Business Logistics:</strong> Multiple site visits across Melbourne and suburbs.</li>
-                        <li><strong>Winery Tours:</strong> Create your own itinerary for the Yarra Valley region.</li>
-                        <li><strong>City Sightseeing:</strong> Visit Federation Square, Royal Botanic Gardens, and St Kilda at your leisure.</li>
-                        <li><strong>Special Events:</strong> Arrive at the MCG, Crown Casino, or theatre in style.</li>
-                    </ul>
-                </div>
-            </section>
-
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Navigation size={28} /></div>
-                        <span className={styles.featureLabel}>As Directed<br />Service</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><PauseCircle size={28} /></div>
-                        <span className={styles.featureLabel}>Waiting<br />Included</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShoppingBag size={28} /></div>
-                        <span className={styles.featureLabel}>Secure<br />Storage</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Utensils size={28} /></div>
-                        <span className={styles.featureLabel}>Dinner<br />Transfers</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Award size={28} /></div>
-                        <span className={styles.featureLabel}>Local<br />Knowledge</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShieldCheck size={28} /></div>
-                        <span className={styles.featureLabel}>Fixed<br />Hourly Rates</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Flexible Fleet Options</h2>
-                <p style={{ maxWidth: '700px', margin: '0 auto', color: '#666', marginBottom: '2rem' }}>
-                    Choose the vehicle that fits your day. All come with complimentary water and climate control.
-                </p>
-                <VehicleTabs vehicles={vehicles} />
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        Hourly Charter FAQs
-                    </h2>
-                    <FaqAccordion faqs={faqs} />
-                </div>
-            </section>
-
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
-                </div>
-                <ServiceContactForm
-                    title="Plan Your Day"
-                    subtitle={<>
-                        Get a quote for an hourly booking or a custom tour itinerary in Melbourne.
-                        <br />
-                        <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span> or <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
-                    </>}
-                    dateLabel="Duration Needed"
-                    emailLabel="Email Address*"
-                    detailsLabel="Itinerary Details"
-                    btnText="Get Hourly Quote"
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Melbourne Private Driver & Tours"
+                    subtitle="Discover Victoria's secrets. From Yarra Valley wineries to the Twelve Apostles, travel in style with your own chauffeur."
+                    showStats={false}
                 />
+            </div>
+
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#fffbeb', padding: '3rem 1rem', borderBottom: '3px solid #f59e0b' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#fef3c7', padding: '1rem', borderRadius: '50%', color: '#d97706', flexShrink: 0 }}>
+                        <Clock size={32} />
+                    </div>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#78350f', marginBottom: '0.5rem' }}>
+                            Cost for a private driver in Melbourne?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#78350f' }}>
+                            Enjoy the freedom of an <strong>hourly chauffeur in Melbourne</strong> starting from <strong>$95 - $115 per hour</strong> for executive sedans. <strong>Yarra Valley wine tours</strong> (usually 6-8 hours) are priced based on duration, typically ranging from <strong>$600 - $900</strong>. Long-distance trips like the <strong>Great Ocean Road</strong> are quoted as a full-day package.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#b45309', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *Tasting fees not typically included in transport price.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
+
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>Victoria's Best Sightseeing</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Yarra Valley", desc: "Visit Domaine Chandon, Rochford Wines, and Yering Station without worrying about the drive home.", icon: <Coffee size={28} color="#f59e0b" /> },
+                            { title: "Great Ocean Road", desc: "A full day journey to see the Twelve Apostles. Stop for photos whenever you want.", icon: <Camera size={28} color="#f59e0b" /> },
+                            { title: "Penguin Parade", desc: "Evening tours to Phillip Island to see the famous penguins return to shore.", icon: <Star size={28} color="#f59e0b" /> },
+                            { title: "City Shopping", desc: "Hourly hire for a shopping spree at Chadstone or Collins Street. Leave your bags in the car.", icon: <Car size={28} color="#f59e0b" /> },
+                            { title: "Transparent Pricing", desc: "No surge pricing. The rate we quote is the rate you pay.", icon: <Shield size={28} color="#f59e0b" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #fef3c7', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#78350f' }}>{item.title}</h3>
+                                    <p style={{ color: '#4b5563', fontSize: '0.95rem' }}>{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Popular Itineraries Table */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Melbourne Hire Rates</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#1f2937', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Hire Type / Tour</th>
+                                    <th style={{ padding: '1rem' }}>Vehicle</th>
+                                    <th style={{ padding: '1rem' }}>Duration</th>
+                                    <th style={{ padding: '1rem' }}>Est. Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { route: "Hourly As Directed (Melbourne)", veh: "Luxury Sedan", cap: "Min 3 Hours", price: "$95 - $115 / hr" },
+                                    { route: "Yarra Valley Wine Tour", veh: "Mercedes V-Class", cap: "8 Hours", price: "$850 - $950" },
+                                    { route: "Great Ocean Road (12 Apostles)", veh: "Luxury SUV", cap: "10-12 Hours", price: "$1100 - $1400" },
+                                    { route: "Phillip Island (Penguins)", veh: "People Mover", cap: "8-10 Hours", price: "$900 - $1100" },
+                                    { route: "Mornington Peninsula", veh: "Sedan or SUV", cap: "8 Hours", price: "$800 - $1000" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#1f2937' }}>{row.route}</td>
+                                        <td style={{ padding: '1.25rem', color: '#4b5563' }}>{row.veh}</td>
+                                        <td style={{ padding: '1.25rem', color: '#4b5563' }}>{row.cap}</td>
+                                        <td style={{ padding: '1.25rem', color: '#d97706', fontWeight: 'bold' }}>{row.price}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Venue Info */}
+                <div style={{ marginBottom: '5rem', background: '#fffbeb', padding: '3rem', borderRadius: '16px' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Must-See Destinations</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#92400e', marginBottom: '1rem' }}>Yarra Valley</h3>
+                            <p style={{ color: '#4b5563' }}>Australia's premier cool-climate wine region. Just an hour's drive from the CBD.</p>
+                        </div>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#92400e', marginBottom: '1rem' }}>Great Ocean Road</h3>
+                            <p style={{ color: '#4b5563' }}>One of the world's most scenic coastal drives. Perfect for a full-day private excursion.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Private Tour FAQs</h2>
+                    <LocationFAQ city="Melbourne" />
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Start Your Journey:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        Explore our <Link href="/the-fleet" className={styles.inlineLink}>touring vehicles</Link>.
+                        Contact us for a <Link href="/contact-us" className={styles.inlineLink}>custom itinerary</Link>.
+                    </p>
+                </div>
+
             </section>
 
             <Footer />

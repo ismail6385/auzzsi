@@ -1,194 +1,229 @@
-"use client";
-
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
 import Link from "next/link";
-import { useState } from "react";
-import {
-    Clock, DollarSign, ShieldCheck, Plane, Award, Users, Briefcase, ChevronDown, ChevronUp
-} from "lucide-react";
+import { Plane, Briefcase, Heart, Clock, ChevronRight, Map, Anchor, Shield, CheckCircle, Calculator, UserCheck, Calendar } from "lucide-react";
+import type { Metadata } from 'next';
+import WeatherWidget from "@/components/WeatherWidget";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
+import LocationTestimonials from "@/components/LocationTestimonials";
+
+export const metadata: Metadata = {
+    title: "Gold Coast Airport Transfers | OOL to Surfers & Byron | Auzzie Chauffeur",
+    description: "Your premium ride from Gold Coast Airport (OOL). Chauffeur transfers to Surfers Paradise, Broadbeach, and Byron Bay. Family friendly, surfboard ready.",
+};
 
 export default function GoldCoastAirportPage() {
-    const [openFaq, setOpenFaq] = useState<number | null>(0);
-    const toggleFaq = (index: number) => setOpenFaq(openFaq === index ? null : index);
-
-    const faqs = [
-        {
-            question: "How far is Gold Coast Airport from Surfers Paradise?",
-            answer: "Gold Coast Airport (OOL) is located at Coolangatta. Ideally allow 30-45 minutes to reach Surfers Paradise, depending on traffic on the Gold Coast Highway."
-        },
-        {
-            question: "Can I book a transfer to Byron Bay?",
-            answer: "Yes, we frequently transfer passengers from Gold Coast Airport to Byron Bay. The journey takes approximately 45-60 minutes south."
-        }
-    ];
-
-    const [activeVehicle, setActiveVehicle] = useState('Executive Sedans');
-
-    // Using same vehicles for simplicity
-    const vehicles = [
-        {
-            category: 'Executive Sedans',
-            name: 'Executive Sedan',
-            desc: 'Ideal for up to 4 passengers with light luggage. Features leather seating, climate control, and a smooth quite ride.',
-            passengers: 4,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Premium Sedans',
-            name: 'European Premium Sedan',
-            desc: 'Top-tier luxury from Mercedes-Benz or Audi. Perfect for VIPs requiring maximum comfort.',
-            passengers: 3,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Premium SUVs',
-            name: 'Luxury SUV',
-            desc: 'Spacious and commanding presence. Audi Q7 or similar, offering extra legroom.',
-            passengers: 4,
-            luggage: 4,
-            bags: 3,
-            image: '/tile-driver.png'
-        },
-        {
-            category: 'People Movers',
-            name: 'Mercedes V-Class',
-            desc: 'The gold standard for group travel. Seats up to 7 people in absolute luxury.',
-            passengers: 7,
-            luggage: 6,
-            bags: 6,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
-            <section className={styles.hero}>
-                <div className={styles.overlay}></div>
-                <div className={styles.heroContent}>
-                    <div className={styles.breadcrumb}>
-                        <Link href="/">Home</Link> <span>&gt;</span>
-                        <Link href="/locations">Locations</Link> <span>&gt;</span>
-                        <Link href="/locations/gold-coast">Gold Coast</Link> <span>&gt;</span>
-                        Airport Transfers
+            <Breadcrumbs city="Gold Coast" service="Airport Transfers" />
+
+            {/* HERO SECTION */}
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Gold Coast Airport (OOL) Transfers"
+                    subtitle="Start your holiday in style. Reliable private transfers from OOL to Surfers Paradise, Broadbeach, and Byron Bay."
+                    showStats={false}
+                />
+                <div className={styles.weatherWidgetWrapper}>
+                    <WeatherWidget location="Gold Coast" />
+                </div>
+            </div>
+
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#f9fafb', padding: '3rem 1rem', borderBottom: '3px solid #c5a467' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#e0f2fe', padding: '1rem', borderRadius: '50%', color: '#0284c7', flexShrink: 0 }}>
+                        <Calculator size={32} />
                     </div>
-                    <h1 className={styles.heroTitle}>Gold Coast Airport Transfers</h1>
-                    <p className={styles.heroSubtitle}>Luxury transfers from Coolangatta to Surfers Paradise, Broadbeach & Byron Bay.</p>
-                    <div className={styles.heroButtons}>
-                        <Link href="/book"><button className={styles.btnGold}>Book Now</button></Link>
-                        <button className={styles.btnOutline}>Instant Quote</button>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '0.5rem' }}>
+                            How much is a transfer from Gold Coast Airport?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#374151' }}>
+                            A private chauffeur transfer from <strong>Gold Coast Airport (OOL)</strong> to <strong>Surfers Paradise</strong> starts from <strong>$85 - $115</strong>. Transfers south to <strong>Byron Bay</strong> typically range from <strong>$160 - $210</strong>. We offer spacious vans for families with luggage and surfboards.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#6b7280', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *Prices vary by destination and vehicle size.
+                        </p>
                     </div>
                 </div>
             </section>
 
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Gold Coast & Tweed Chauffeurs</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Arrive at Gold Coast Airport (OOL) in style. Auzzsi Chauffeur offers premium transport
-                        to all major hotels, resorts and theme parks on the Gold Coast.
-                        We also service the Tweed Coast and Byron Bay region.
-                    </p>
-                </div>
-            </section>
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
 
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><DollarSign size={28} /></div>
-                        <span className={styles.featureLabel}>Fixed Price<br />Transfers</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Users size={28} /></div>
-                        <span className={styles.featureLabel}>Meet & Greet<br />Service</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Plane size={28} /></div>
-                        <span className={styles.featureLabel}>Flight Tracking<br />Included</span>
-                    </div>
-                </div>
-            </section>
-
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Our Gold Coast Fleet</h2>
-                <div className={styles.fleetTabs}>
-                    {vehicles.map((v) => (
-                        <button
-                            key={v.category}
-                            className={`${styles.tabBtn} ${activeVehicle === v.category ? styles.active : ''}`}
-                            onClick={() => setActiveVehicle(v.category)}
-                        >
-                            {v.category}
-                        </button>
-                    ))}
-                </div>
-
-                <div className={styles.vehicleCard}>
-                    {vehicles.filter(v => v.category === activeVehicle).map((v) => (
-                        <div key={v.category} style={{ display: 'flex', width: '100%', flexWrap: 'wrap' }}>
-                            <div className={styles.vehicleImage}>
-                                <img src={v.image} alt={v.name} />
-                            </div>
-                            <div className={styles.vehicleInfo}>
-                                <h3 className={styles.vehicleTitle}>{v.name}</h3>
-                                <p className={styles.vehicleDesc}>{v.desc}</p>
-
-                                <div className={styles.vehicleStats}>
-                                    <div className={styles.stat}><Users size={18} /> {v.passengers} Passengers</div>
-                                    <div className={styles.stat}><Briefcase size={18} /> {v.luggage} Suitcases</div>
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>Why Choose Auzzie Chauffeur OOL?</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Family Friendly", desc: "Free child seats (capsules/boosters) pre-installed for your peace of mind.", icon: <Heart size={28} color="#1e3a8a" /> },
+                            { title: "Flight Tracking", desc: "Whether you land early or late, we track your flight into Coolangatta.", icon: <Plane size={28} color="#c5a467" /> },
+                            { title: "All Destinations", desc: "Covering the entire coast from Noosa to Byron (and everywhere in between).", icon: <Map size={28} color="#1e3a8a" /> },
+                            { title: "Surfboard Ready", desc: "Our Mercedes V-Class vans have ample room for surfboards and golf clubs.", icon: <Briefcase size={28} color="#c5a467" /> },
+                            { title: "Theme Parks", desc: "Direct transfers to Sea World, Movie World, and Dreamworld.", icon: <Shield size={28} color="#1e3a8a" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #f3f4f6', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#1f2937' }}>{item.title}</h3>
+                                    <p style={{ color: '#6b7280', fontSize: '0.95rem' }}>{item.desc}</p>
                                 </div>
-
-                                <Link href="/book">
-                                    <button className={styles.btnGold} style={{ fontSize: '0.8rem', padding: '0.6rem 1.5rem' }}>
-                                        Book Now
-                                    </button>
-                                </Link>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        FAQs: Gold Coast Transfers
-                    </h2>
-                    <div className={styles.accordion}>
-                        {faqs.map((faq, idx) => (
-                            <div key={idx} className={styles.accordionItem}>
-                                <button className={styles.accordionHeader} onClick={() => toggleFaq(idx)}>
-                                    {faq.question}
-                                    {openFaq === idx ? <ChevronUp size={20} color="#c5a467" /> : <ChevronDown size={20} color="#9ca3af" />}
-                                </button>
-                                {openFaq === idx && <div className={styles.accordionContent}><p>{faq.answer}</p></div>}
                             </div>
                         ))}
                     </div>
                 </div>
-            </section>
 
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}></div>
-                <div className={styles.contactFormWrapper}>
-                    <h2 className={styles.helpTitle}>Contact Gold Coast Support</h2>
-                    <p className={styles.helpSubtitle}>Call us 24/7 on <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span></p>
-                    <form className={styles.contactGrid} onSubmit={(e) => e.preventDefault()}>
-                        <div className={styles.inputGroup}><label className={styles.inputLabel}>Name*</label><input type="text" className={styles.textInput} /></div>
-                        <div className={styles.inputGroup}><label className={styles.inputLabel}>Last Name*</label><input type="text" className={styles.textInput} /></div>
-                        <div className={styles.inputGroup}><label className={styles.inputLabel}>Phone*</label><input type="tel" className={styles.textInput} /></div>
-                        <div className={styles.inputGroup}><label className={styles.inputLabel}>Email*</label><input type="email" className={styles.textInput} /></div>
-                        <div className={styles.inputGroup} style={{ gridColumn: '1/-1' }}><label className={styles.inputLabel}>Message</label><textarea className={styles.textInput} rows={3}></textarea></div>
-                        <button className={styles.submitBtn}>Submit</button>
-                    </form>
+                {/* Common Problems */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Holiday Without Hassle</h2>
+                    <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1.5rem' }}>
+                        {[
+                            "Skip the shuttle bus that stops at 10 other hotels before yours.",
+                            "Direct transfer to Byron Bay (no changing buses at the border).",
+                            "Air-conditioned comfort immediately after stepping off the tarmac.",
+                            "Drivers who know the back roads during Schoolies or the GC500.",
+                            "Assistance with heavy luggage and prams.",
+                            "Fixed price regardless of traffic on the Gold Coast Highway."
+                        ].map((item, idx) => (
+                            <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', background: '#f8fafc', borderRadius: '0.5rem', textAlign: 'left' }}>
+                                <CheckCircle size={20} color="#16a34a" style={{ flexShrink: 0 }} />
+                                <span style={{ color: '#334155' }}>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
+
+                {/* Pricing Guide */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Gold Coast Airport Pricing Guide</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#1e3a8a', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Destination (from OOL)</th>
+                                    <th style={{ padding: '1rem' }}>Sedan Price</th>
+                                    <th style={{ padding: '1rem' }}>Van Price (7 Pax)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { route: "Surfers Paradise", sedan: "$85 - $115", van: "$130 - $160" },
+                                    { route: "Broadbeach", sedan: "$80 - $110", van: "$120 - $150" },
+                                    { route: "Byron Bay", sedan: "$160 - $210", van: "$220 - $280" },
+                                    { route: "Brisbane CBD", sedan: "$220 - $280", van: "$290 - $350" },
+                                    { route: "Theme Parks", sedan: "$95 - $125", van: "$140 - $180" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#1f2937' }}>{row.route}</td>
+                                        <td style={{ padding: '1.25rem', color: '#c5a467', fontWeight: 'bold' }}>{row.sedan}</td>
+                                        <td style={{ padding: '1.25rem', color: '#1e3a8a', fontWeight: 'bold' }}>{row.van}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style={{ fontSize: '0.9rem', color: '#6b7280', marginTop: '1rem', textAlign: 'center', fontStyle: 'italic' }}>
+                        (Note: Estimates include generic tolls. Booking confirms exact fixed price.)
+                    </p>
+                </div>
+
+                {/* 3 Step Process */}
+                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>How It Works</h2>
+                <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '3rem', marginBottom: '4rem', marginTop: '2rem' }}>
+                    {[
+                        { step: "1", title: "Book", desc: "Enter OOL arrival details online." },
+                        { step: "2", title: "Wait", desc: "Driver tracks your flight arrival." },
+                        { step: "3", title: "Surf", desc: "Enjoy the ride to the beach." }
+                    ].map((item, idx) => (
+                        <div key={idx} style={{ textAlign: 'center', maxWidth: '300px' }}>
+                            <div style={{ width: '60px', height: '60px', background: '#c5a467', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 'bold', margin: '0 auto 1.5rem' }}>
+                                {item.step}
+                            </div>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{item.title}</h3>
+                            <p style={{ color: '#4b5563' }}>{item.desc}</p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>OOL Airport FAQs</h2>
+                    <LocationFAQ city="Gold Coast" />
+                </div>
+
+                {/* EEAT Block (Dark) */}
+                <section style={{ background: '#111827', color: 'white', padding: '5rem 1rem', borderRadius: '16px', marginTop: '4rem' }}>
+                    <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+                        {/* Expertise */}
+                        <div>
+                            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#c5a467' }}>QLD & NSW Licensed</h3>
+                            <p style={{ lineHeight: '1.7', marginBottom: '1.5rem', color: '#d1d5db' }}>
+                                We hold accreditation in both Queensland and New South Wales, allowing us to seamlessly transfer you across the border to Byron Bay or Tweed Heads. Our drivers are local experts who know the best surf breaks and coffee spots.
+                            </p>
+                            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                                {['Cross-Border Licensed', 'Family Safe', 'Insured'].map((badge, idx) => (
+                                    <span key={idx} style={{ background: '#374151', padding: '0.25rem 0.75rem', borderRadius: '999px', fontSize: '0.875rem' }}>{badge}</span>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Testimonials */}
+                        <div>
+                            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#c5a467' }}>Client Reviews</h3>
+                            <blockquote style={{ borderLeft: '3px solid #c5a467', paddingLeft: '1rem', marginBottom: '1.5rem' }}>
+                                <p style={{ fontStyle: 'italic', marginBottom: '0.5rem', color: '#e5e7eb' }}>“Great van for our family of 6 plus luggage. Driver was friendly and had the booster seats ready as requested.”</p>
+                                <cite style={{ fontSize: '0.9rem', color: '#9ca3af' }}>— The Wilson Family, NZ</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Case Study */}
+                <div style={{ marginTop: '4rem', background: '#f8fafc', padding: '2rem', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                    <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1f2937' }}>Case Study: Byron Bay Festival Transfer</h3>
+                    <p style={{ lineHeight: '1.7', color: '#4b5563' }}>
+                        <strong>Scenario:</strong> A group of 4 friends attending Splendour in the Grass needed transport from OOL.
+                        <br /><strong>Solution:</strong> We provided a V-Class van with plenty of room for camping gear.
+                        <br /><strong>Result:</strong> Direct drop-off at their accommodation, avoiding the festival shuttle bus queues.
+                    </p>
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Explore More:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        View our <Link href="/the-fleet" className={styles.inlineLink}>vehicles</Link>.
+                        Book now via our <Link href="/contact-us" className={styles.inlineLink}>online booking page</Link>.
+                    </p>
+                </div>
+
+                {/* Directions Section */}
+                <div className={styles.directionsSection} style={{ marginTop: '4rem' }}>
+                    <h3 className={styles.directionsTitle}>
+                        <Map color="#c5a467" /> OOL Meeting Points
+                    </h3>
+                    <p className={styles.directionsText}>
+                        <strong>Domestic/International Terminal:</strong> Gold Coast Airport is a single terminal. Your driver will meet you in the arrivals hall near the baggage carousels holding a sign with your name.
+                        The pickup area is conveniently located just outside the main doors.
+                    </p>
+                    <div className={styles.mapContainer}>
+                        <iframe
+                            src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Gold+Coast+Airport,Australia&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                    </div>
+                </div>
+
             </section>
 
             <Footer />

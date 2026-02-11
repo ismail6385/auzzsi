@@ -2,175 +2,140 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
-import { GraduationCap, BookOpen, ShieldCheck, Clock, Award, Users, MapPin, Bus } from "lucide-react";
-import VehicleTabs from "@/components/ServicePage/VehicleTabs";
-import FaqAccordion from "@/components/ServicePage/FaqAccordion";
-import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import Link from "next/link";
+import { GraduationCap, MapPin, Users, BookOpen, Clock, ShieldCheck, Wifi, CheckCircle } from "lucide-react";
 import type { Metadata } from 'next';
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
 
 export const metadata: Metadata = {
-    title: "International Student Transfers Melbourne | Airport Pickups",
-    description: "Safe, reliable airport transfers for international students arriving in Melbourne. University, college, and homestay drop-offs.",
+    title: "International Student Transfers Melbourne | Uni Melb, Monash, RMIT",
+    description: "Reliable student airport transfers in Melbourne. Safe transport from Melbourne Airport (MEL) to University of Melbourne, Monash, RMIT and student colleges.",
 };
 
 export default function MelbourneStudentPage() {
-    const faqs = [
-        {
-            question: "Do You Offer Discounts For Students?",
-            answer: "We offer competitive fixed rates for student transfers. While we provide a premium service, sharing a People Mover van with fellow students can make the cost very comparable to other modes of transport."
-        },
-        {
-            question: "Can You Pick Me Up From Melbourne Airport And Take Me To Student Accommodation?",
-            answer: "Yes, we transfer students to all major student accommodation providers including Scape, Unilodge, The Student Housing Company, and university residential colleges."
-        },
-        {
-            question: "I Have A Lot Of Luggage, Which Car Should I Book?",
-            answer: "International students often travel with 2-3 large suitcases. We highly recommend booking our Luxury SUV or Mercedes V-Class People Mover to ensure all your luggage fits comfortably."
-        },
-        {
-            question: "My Parents Want To Knowing I Arrived Safely. How Can You Help?",
-            answer: "We understand safety is a priority. Drivers can provide a confirmation message to parents upon drop-off. Our vehicles are also tracked via GPS for peace of mind."
-        },
-        {
-            question: "Can I Book A Transfer For My Orientation Week Tours?",
-            answer: "Absolutely. We can arrange day tours for groups of students wanting to explore Melbourne, the Great Ocean Road, or Phillip Island during orientation week."
-        }
-    ];
-
-    const vehicles = [
-        {
-            category: 'Economy Luxury',
-            name: 'Executive Sedan',
-            desc: 'For individual students with standard luggage.',
-            passengers: 3,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'SUV',
-            name: 'Luxury SUV',
-            desc: 'Extra capacity for 3-4 large suitcases.',
-            passengers: 4,
-            luggage: 4,
-            bags: 4,
-            image: '/tile-driver.png'
-        },
-        {
-            category: 'Group Van',
-            name: 'Mercedes V-Class',
-            desc: 'Ideal for groups of friends arriving together.',
-            passengers: 7,
-            luggage: 6,
-            bags: 6,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Melbourne" service="Student Transfers" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="International Student Transfers Melbourne"
-                subtitle="Welcome to Melbourne. Safe, reliable transport from the airport to your university or new home."
-                showStats={false}
-            />
-
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Welcome to Melbourne</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Arriving in a new city to study is an exciting adventure. Auzzsi Chauffeur ensures your
-                        arrival is smooth and stress-free. We provide a safe, direct transfer from Melbourne
-                        Airport (Tulla) to your student accommodation, homestay, or rental property.
-                        <br /><br />
-                        Our drivers are friendly locals who can offer tips about the city. We meet you inside the
-                        terminal, help with your heavy luggage, and drive you directly to your door. No navigating
-                        trains or buses with heavy bags after a long flight.
-                    </p>
-                    <h3 style={{ marginTop: '2rem' }}>Safety & Peace of Mind</h3>
-                    <p>
-                        For parents sending their children abroad, safety is paramount. Auzzsi Chauffeur is a fully
-                        accredited operator with police-checked drivers. We offer a secure, tracked service so you
-                        can rest assured that your arrival in Australia is in safe hands.
-                    </p>
-                </div>
-            </section>
-
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><GraduationCap size={28} /></div>
-                        <span className={styles.featureLabel}>Student<br />Focus</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><BookOpen size={28} /></div>
-                        <span className={styles.featureLabel}>University<br />Drop-off</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShieldCheck size={28} /></div>
-                        <span className={styles.featureLabel}>Safe &<br />Secure</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Clock size={28} /></div>
-                        <span className={styles.featureLabel}>Flight<br />Monitoring</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Award size={28} /></div>
-                        <span className={styles.featureLabel}>Trusted<br />Driver</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Users size={28} /></div>
-                        <span className={styles.featureLabel}>Group<br />Fare</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Student Transport Fleet</h2>
-                <p style={{ maxWidth: '700px', margin: '0 auto', color: '#666', marginBottom: '2rem' }}>
-                    Affordable luxury options for reliable arrival.
-                </p>
-                <VehicleTabs vehicles={vehicles} />
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        Student Transfer FAQs
-                    </h2>
-                    <FaqAccordion faqs={faqs} />
-                </div>
-            </section>
-
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
-                </div>
-                <ServiceContactForm
-                    title="Get Student Transfer Quote"
-                    subtitle={<>
-                        Contact us for university group bookings or individual arrivals.
-                        <br />
-                        <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
-                    </>}
-                    detailsLabel="Arrival Details (Flight, Accommodation)"
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Melbourne Student Airport Transfers"
+                    subtitle="Arrive in Melbourne stress-free. Direct transfer from Tullamarine to your university, college, or student accommodation."
+                    showStats={false}
                 />
+            </div>
+
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#f0fdf4', padding: '3rem 1rem', borderBottom: '3px solid #16a34a' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#dcfce7', padding: '1rem', borderRadius: '50%', color: '#16a34a', flexShrink: 0 }}>
+                        <GraduationCap size={32} />
+                    </div>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#14532d', marginBottom: '0.5rem' }}>
+                            Cost for Melbourne student transfers?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#14532d' }}>
+                            Start your studies with a smooth arrival. Transfers from <strong>Melbourne Airport (Tullamarine) to University of Melbourne (Parkville)</strong> or <strong>RMIT (City)</strong> start from <strong>$90 - $105</strong>. For <strong>Monash University (Clayton)</strong>, which is further out, rates range from approx <strong>$130 - $150</strong>.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#15803d', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *Includes waiting time for customs clearance.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
+
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>Safe & Reliable</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Terminal Pickup", desc: "Driver meets you at the arrivals hall with a sign. Easy to find.", icon: <Users size={28} color="#16a34a" /> },
+                            { title: "Direct to Dorm", desc: "Door-to-door service to Urbanest, Scape, Iglu, and UniLodge.", icon: <MapPin size={28} color="#16a34a" /> },
+                            { title: "No Luggage Fees", desc: "Bring your suitcases, instruments, and books. We have ample trunk space.", icon: <CheckCircle size={28} color="#16a34a" /> },
+                            { title: "Safety First", desc: "All drivers are accredited and background checked. GPS tracking on all trips.", icon: <ShieldCheck size={28} color="#16a34a" /> },
+                            { title: "Clayton Campus", desc: "We service the outer suburbs including Monash Clayton and La Trobe Bundoora.", icon: <BookOpen size={28} color="#16a34a" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #dcfce7', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#14532d' }}>{item.title}</h3>
+                                    <p style={{ color: '#4b5563', fontSize: '0.95rem' }}>{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Popular Routes Table */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Melbourne Student Rates</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#14532d', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Route / Campus</th>
+                                    <th style={{ padding: '1rem' }}>Vehicle</th>
+                                    <th style={{ padding: '1rem' }}>Passengers</th>
+                                    <th style={{ padding: '1rem' }}>Est. Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { route: "Tullamarine -> UniMelb (Parkville)", veh: "Sedan", cap: "1-3 Pax", price: "$90 - $105" },
+                                    { route: "Tullamarine -> RMIT (CBD)", veh: "Sedan", cap: "1-3 Pax", price: "$95 - $110" },
+                                    { route: "Tullamarine -> Monash (Clayton)", veh: "Sedan", cap: "1-3 Pax", price: "$130 - $150" },
+                                    { route: "Tullamarine -> La Trobe (Bundoora)", veh: "Sedan", cap: "1-3 Pax", price: "$110 - $130" },
+                                    { route: "Group Transfer (Minivan)", veh: "Mercedes V-Class", cap: "4-7 Pax", price: "From $160" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#14532d' }}>{row.route}</td>
+                                        <td style={{ padding: '1.25rem', color: '#475569' }}>{row.veh}</td>
+                                        <td style={{ padding: '1.25rem', color: '#475569' }}>{row.cap}</td>
+                                        <td style={{ padding: '1.25rem', color: '#16a34a', fontWeight: 'bold' }}>{row.price}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Venue Info */}
+                <div style={{ marginBottom: '5rem', background: '#f0fdf4', padding: '3rem', borderRadius: '16px' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Campus Locations</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#15803d', marginBottom: '1rem' }}>Parkville & CBD</h3>
+                            <p style={{ color: '#475569' }}>Home to UniMelb and RMIT. Dense traffic area, pre-booked transfer saves stress.</p>
+                        </div>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#15803d', marginBottom: '1rem' }}>Monash Clayton</h3>
+                            <p style={{ color: '#475569' }}>A significant distance from the airport. A fixed-price transfer avoids high meter fares.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Arrival FAQs</h2>
+                    <LocationFAQ city="Melbourne" />
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Organize Your Pickup:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        Check our <Link href="/the-fleet" className={styles.inlineLink}>fleet options</Link>.
+                        Email us for a <Link href="/contact-us" className={styles.inlineLink}>student booking</Link>.
+                    </p>
+                </div>
+
             </section>
 
             <Footer />

@@ -24,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: route === '' ? 1 : 0.9,
     }));
 
-    // Fetch dynamic news posts
+    // Fetch dynamic news posts (if any)
     const { data: posts } = await supabase
         .from('posts')
         .select('slug, updated_at, created_at');
@@ -36,24 +36,44 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.7,
     }));
 
-    // Location Hubs
-    const locationRoutes = [
-        '/sydney',
-        '/melbourne',
-        '/brisbane',
-        '/adelaide',
-        '/gold-coast',
-        '/hobart',
-        '/perth',
-        '/cairns-port-douglas',
-    ].map((route) => ({
-        url: `${baseUrl}${route}`,
-        lastModified: new Date(),
-        changeFrequency: 'monthly' as const,
-        priority: 0.9,
-    }));
+    // Locations and their sub-services
+    const locations = [
+        'sydney',
+        'melbourne',
+        'brisbane',
+        'adelaide',
+        'perth',
+        'gold-coast',
+        'hobart',
+        'cairns-port-douglas',
+    ];
 
-    // Service Main Pages
+    const locationServices = [
+        '', // Main hub page
+        '/airport-transfers',
+        '/corporate-transfers',
+        '/wedding-cars',
+        '/hourly-chauffeur',
+        '/cruise-ship-transfers',
+        '/conferences-special-events',
+        '/international-student-transfers',
+        '/luxury-tours',
+    ];
+
+    const locationRoutes: MetadataRoute.Sitemap = [];
+
+    locations.forEach(loc => {
+        locationServices.forEach(service => {
+            locationRoutes.push({
+                url: `${baseUrl}/${loc}${service}`,
+                lastModified: new Date(),
+                changeFrequency: 'monthly' as const,
+                priority: service === '' ? 0.9 : 0.8, // Hubs higher priority than sub-pages
+            });
+        });
+    });
+
+    // General Service Main Pages
     const serviceRoutes = [
         '/services/airport-transfers',
         '/services/corporate-transfers',

@@ -2,178 +2,140 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
-import { Navigation, PauseCircle, ShoppingBag, Utensils, Award, ShieldCheck, Users, Briefcase } from "lucide-react";
-import VehicleTabs from "@/components/ServicePage/VehicleTabs";
-import FaqAccordion from "@/components/ServicePage/FaqAccordion";
-import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import Link from "next/link";
+import { Clock, MapPin, Camera, Coffee, Star, Shield, Car, Navigation } from "lucide-react";
 import type { Metadata } from 'next';
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
 
 export const metadata: Metadata = {
-    title: "Hourly Chauffeur Service Gold Coast | Private Car Hire",
-    description: "Flexible hourly chauffeur service on the Gold Coast. 'As Directed' private car hire for meetings, theme parks, shopping, and tours.",
+    title: "Hourly Chauffeur Gold Coast | Private Tours & Theme Park Transfers",
+    description: "Hire a private driver on the Gold Coast. Hourly rates for theme park transfers, Byron Bay day trips, and Mount Tamborine tours.",
 };
 
 export default function GoldCoastHourlyPage() {
-    const faqs = [
-        {
-            question: "What Is The Minimum Hire Time For Hourly Service?",
-            answer: "Our minimum hire period for hourly 'As Directed' service on the Gold Coast is typically 2 hours. This provides flexibility for quick meetings or a sunset drive to Burleigh Heads."
-        },
-        {
-            question: "Can I Use This Service For Theme Parks?",
-            answer: "Yes! Hourly hire is a great way to handle theme park drop-offs and pick-ups. We can drop you at Dreamworld or Movie World and be waiting there when you are ready to leave, saving you from taxi queues."
-        },
-        {
-            question: "Does The Hourly Rate Include Waiting Time?",
-            answer: "Yes. Your chauffeur and vehicle are exclusively yours. Whether you are dining at Pacific Fair, surfing at Coolangatta, or exploring the Hinterland, we wait for you."
-        },
-        {
-            question: "Are Tolls And Parking Included In The Hourly Rate?",
-            answer: "Hourly rates cover the vehicle and driver. Tolls and parking fees incurred at your request are generally charged as extras. Most Gold Coast travel is toll-free, except routes to Brisbane."
-        },
-        {
-            question: "Can I Extend My Booking On The Day?",
-            answer: "In most cases, yes. If you wish to extend your hire, simply inform your chauffeur. We will extend the booking in 15 or 30-minute increments, subject to vehicle availability."
-        }
-    ];
-
-    const vehicles = [
-        {
-            category: 'Executive Sedans',
-            name: 'Executive Sedan',
-            desc: 'Cost-effective luxury. Perfect for multiple meetings or day trips to theme parks.',
-            passengers: 4,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Premium Sedans',
-            name: 'European Premium Sedan',
-            desc: 'Elevate your experience. Ideal for special date nights at The Star, or VIP guests.',
-            passengers: 3,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'People Movers',
-            name: 'Mercedes V-Class',
-            desc: 'Group outings made easy. Keep your party together for Hinterland wine tours or golf trips.',
-            passengers: 7,
-            luggage: 6,
-            bags: 6,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Gold Coast" service="Hourly Chauffeur" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="Hourly Chauffeur Service Gold Coast"
-                subtitle="Complete flexibility with our 'As Directed' service. Your private car and driver on the Gold Coast, ready when you are."
-                showStats={false}
-            />
-
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Your Car, Your Schedule</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Explore the Gold Coast on your own terms. Our hourly chauffeur service gives you the freedom
-                        to travel at your own pace without the hassle of re-booking taxis or waiting for rideshares.
-                        <br /><br />
-                        Whether you are hopping between meetings in Southport, enjoying a day at the races,
-                        or exploring the lush hinterland of Mt Tamborine, your chauffeur waits for you.
-                        Leave your beach gear or shopping bags in the car and enjoy true convenience.
-                    </p>
-                    <h3 style={{ marginTop: '2rem' }}>Ideal For</h3>
-                    <ul style={{ paddingLeft: '20px', lineHeight: '1.8' }}>
-                        <li><strong>Theme Parks:</strong> Reliable transport to and from major attractions.</li>
-                        <li><strong>Hinterland Tours:</strong> Create your own itinerary for Mt Tamborine and Springbrook.</li>
-                        <li><strong>Shopping & Dining:</strong> Visit Pacific Fair or Marina Mirage with a ride waiting outside.</li>
-                        <li><strong>Golf Trips:</strong> Transport for small groups to Sanctuary Cove or Royal Pines.</li>
-                    </ul>
-                </div>
-            </section>
-
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Navigation size={28} /></div>
-                        <span className={styles.featureLabel}>As Directed<br />Service</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><PauseCircle size={28} /></div>
-                        <span className={styles.featureLabel}>Waiting<br />Included</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShoppingBag size={28} /></div>
-                        <span className={styles.featureLabel}>Secure<br />Storage</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Utensils size={28} /></div>
-                        <span className={styles.featureLabel}>Dinner<br />Transfers</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Award size={28} /></div>
-                        <span className={styles.featureLabel}>Local<br />Knowledge</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShieldCheck size={28} /></div>
-                        <span className={styles.featureLabel}>Fixed<br />Hourly Rates</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Flexible Fleet Options</h2>
-                <p style={{ maxWidth: '700px', margin: '0 auto', color: '#666', marginBottom: '2rem' }}>
-                    Choose the vehicle that fits your day. All come with complimentary water and climate control.
-                </p>
-                <VehicleTabs vehicles={vehicles} />
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        Hourly Charter FAQs
-                    </h2>
-                    <FaqAccordion faqs={faqs} />
-                </div>
-            </section>
-
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
-                </div>
-                <ServiceContactForm
-                    title="Plan Your Day"
-                    subtitle={<>
-                        Get a quote for an hourly booking or a custom tour itinerary on the Gold Coast.
-                        <br />
-                        <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span> or <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
-                    </>}
-                    dateLabel="Duration Needed"
-                    emailLabel="Email Address*"
-                    detailsLabel="Itinerary Details"
-                    btnText="Get Hourly Quote"
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Gold Coast Private Driver & Tours"
+                    subtitle="Relax while we drive. From Surfers Paradise to Byron Bay or the Theme Parks, enjoy door-to-door luxury."
+                    showStats={false}
                 />
+            </div>
+
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#fffbeb', padding: '3rem 1rem', borderBottom: '3px solid #f59e0b' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#fef3c7', padding: '1rem', borderRadius: '50%', color: '#d97706', flexShrink: 0 }}>
+                        <Clock size={32} />
+                    </div>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#78350f', marginBottom: '0.5rem' }}>
+                            Cost for a private driver on the Gold Coast?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#78350f' }}>
+                            <strong>Hourly chauffeur services</strong> on the Gold Coast start from <strong>$90 - $110 per hour</strong>. A return day trip to <strong>Byron Bay</strong> (approx 8 hours total) typically costs between <strong>$750 - $950</strong>. Full-day standby for <strong>Theme Parks</strong> (drop-off, wait, return) ensures you have a car ready the moment you exit the gates.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#b45309', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *Also serving transfers to Crystal Castle and The Farm.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
+
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>Explore the Coast</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Byron Bay", desc: "Cross the border for a day of shopping and beaches at Wategos. We handle the parking.", icon: <Star size={28} color="#f59e0b" /> },
+                            { title: "Mt Tamborine", desc: "Escape to the hinterland for wine tasting and rainforest walks.", icon: <Camera size={28} color="#f59e0b" /> },
+                            { title: "Theme Parks", desc: "Skip the crowded shuttle buses. Private transfers to Dreamworld, Movie World, and Sea World.", icon: <Navigation size={28} color="#f59e0b" /> },
+                            { title: "Shopping Tours", desc: "Visit Pacific Fair or Harbour Town Outlets with plenty of boot space for your purchases.", icon: <Car size={28} color="#f59e0b" /> },
+                            { title: "Springbrook", desc: "See the Natural Bridge and waterfalls on a scenic drive through the national park.", icon: <MapPin size={28} color="#f59e0b" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #fef3c7', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#78350f' }}>{item.title}</h3>
+                                    <p style={{ color: '#4b5563', fontSize: '0.95rem' }}>{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Popular Itineraries Table */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Gold Coast Hire Rates</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#1f2937', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Hire Type / Destination</th>
+                                    <th style={{ padding: '1rem' }}>Vehicle</th>
+                                    <th style={{ padding: '1rem' }}>Duration</th>
+                                    <th style={{ padding: '1rem' }}>Est. Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { route: "Hourly As Directed (GC)", veh: "Exec Sedan", cap: "Min 3 Hours", price: "$90 - $110 / hr" },
+                                    { route: "Byron Bay Day Trip", veh: "Mercedes V-Class", cap: "8 Hours", price: "$850 - $950" },
+                                    { route: "Mt Tamborine Wine Tour", veh: "Luxury SUV", cap: "6 Hours", price: "$650 - $750" },
+                                    { route: "Theme Park Standby (Full Day)", veh: "People Mover", cap: "8 Hours", price: "$750 - $900" },
+                                    { route: "Springbrook National Park", veh: "SUV", cap: "5 Hours", price: "$550 - $650" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#1f2937' }}>{row.route}</td>
+                                        <td style={{ padding: '1.25rem', color: '#4b5563' }}>{row.veh}</td>
+                                        <td style={{ padding: '1.25rem', color: '#4b5563' }}>{row.cap}</td>
+                                        <td style={{ padding: '1.25rem', color: '#d97706', fontWeight: 'bold' }}>{row.price}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Venue Info */}
+                <div style={{ marginBottom: '5rem', background: '#fffbeb', padding: '3rem', borderRadius: '16px' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Top Attractions</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#92400e', marginBottom: '1rem' }}>Byron Bay</h3>
+                            <p style={{ color: '#4b5563' }}>Iconic lighthouse walks, pristine beaches, and The Farm. A perfect day trip south of the border.</p>
+                        </div>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#92400e', marginBottom: '1rem' }}>Hinterland</h3>
+                            <p style={{ color: '#4b5563' }}>Cool mountain air, waterfalls, and gallery walks. A refreshing change from the beach.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Private Hire FAQs</h2>
+                    <LocationFAQ city="Gold Coast" />
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Reserve Your Ride:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        Check our <Link href="/the-fleet" className={styles.inlineLink}>vehicle options</Link>.
+                        Email us for a <Link href="/contact-us" className={styles.inlineLink}>custom quote</Link>.
+                    </p>
+                </div>
+
             </section>
 
             <Footer />

@@ -134,6 +134,60 @@ export default function LuxuryToursPage() {
                 </div>
             </section>
 
+            {/* Tours Pricing Table */}
+            <section style={{ maxWidth: '1000px', margin: '4rem auto', padding: '0 1rem' }}>
+                <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '1rem' }}>Private Tour Pricing</h2>
+                <p style={{ textAlign: 'center', color: '#666', marginBottom: '2rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
+                    Transparent daily rates for private touring. Includes luxury vehicle, fuel, and professional chauffeur.
+                </p>
+
+                <div style={{ overflowX: 'auto' }}>
+                    <table style={{ width: '100%', borderCollapse: 'collapse', backgroundColor: 'white', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', borderRadius: '8px', overflow: 'hidden' }}>
+                        <thead>
+                            <tr style={{ backgroundColor: '#1f2937', color: 'white' }}>
+                                <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Region / Tour Type</th>
+                                <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Time</th>
+                                <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Sedan Rate</th>
+                                <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>V-Class Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+                                <td style={{ padding: '1rem' }}><strong>Yarra Valley (VIC)</strong></td>
+                                <td style={{ padding: '1rem', fontSize: '0.9rem' }}>8 Hours</td>
+                                <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$750 - $850</td>
+                                <td style={{ padding: '1rem', fontWeight: 'bold' }}>$850 - $950</td>
+                            </tr>
+                            <tr style={{ borderBottom: '1px solid #e5e7eb', backgroundColor: '#f9fafb' }}>
+                                <td style={{ padding: '1rem' }}><strong>Hunter Valley (NSW)</strong></td>
+                                <td style={{ padding: '1rem', fontSize: '0.9rem' }}>10-12 Hours</td>
+                                <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$1,100+</td>
+                                <td style={{ padding: '1rem', fontWeight: 'bold' }}>$1,300+</td>
+                            </tr>
+                            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+                                <td style={{ padding: '1rem' }}><strong>Barossa Valley (SA)</strong></td>
+                                <td style={{ padding: '1rem', fontSize: '0.9rem' }}>8 Hours</td>
+                                <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$720 - $850</td>
+                                <td style={{ padding: '1rem', fontWeight: 'bold' }}>$850 - $950</td>
+                            </tr>
+                            <tr style={{ borderBottom: '1px solid #e5e7eb', backgroundColor: '#f9fafb' }}>
+                                <td style={{ padding: '1rem' }}><strong>Margaret River (WA)</strong></td>
+                                <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Multi-Day</td>
+                                <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>Custom</td>
+                                <td style={{ padding: '1rem', fontWeight: 'bold' }}>Custom</td>
+                            </tr>
+                            <tr style={{ backgroundColor: '#fff' }}>
+                                <td style={{ padding: '1rem' }}><strong>City Sightseeing</strong></td>
+                                <td style={{ padding: '1rem', fontSize: '0.9rem' }}>4 Hours</td>
+                                <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$380 - $450</td>
+                                <td style={{ padding: '1rem', fontWeight: 'bold' }}>$450 - $550</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
             {/* Scenic chauffeur tours Blue Mountains Barossa Valley Great Ocean Road */}
             <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
                 <div className={styles.featuresGrid}>
@@ -163,6 +217,52 @@ export default function LuxuryToursPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Luxury tours Sydney Melbourne Brisbane Adelaide Perth */}
+            <div style={{
+                maxWidth: '1200px',
+                margin: '0 auto',
+                padding: '0 2rem 4rem 2rem'
+            }}>
+                <h2 style={{
+                    fontSize: '1.8rem',
+                    fontWeight: 'bold',
+                    marginBottom: '2rem',
+                    color: '#111'
+                }}>Australia's Best Driving Holidays</h2>
+
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                    gap: '2rem'
+                }}>
+                    {[
+                        { city: "Sydney Tours", link: "/sydney/luxury-tours", desc: "Hunter Valley, Blue Mountains & City" },
+                        { city: "Melbourne Tours", link: "/melbourne/luxury-tours", desc: "Yarra Valley, Mornington & GOR" },
+                        { city: "Adelaide Tours", link: "/adelaide/luxury-tours", desc: "Barossa Valley, McLaren Vale & Hills" },
+                        { city: "Perth Tours", link: "/perth/luxury-tours", desc: "Swan Valley, Pinnacles & Margaret River" },
+                        { city: "Brisbane Tours", link: "/brisbane/luxury-tours", desc: "Mt Tamborine, Australia Zoo & Byron" },
+                        { city: "Gold Coast Tours", link: "/gold-coast/luxury-tours", desc: "Hinterland & Theme Park Transfers" },
+                        { city: "Hobart Tours", link: "/hobart/luxury-tours", desc: "MONA, Port Arthur & Huon Valley" },
+                        { city: "Cairns Tours", link: "/cairns-port-douglas/luxury-tours", desc: "Daintree, Atherton Tablelands & Coast" },
+                    ].map((loc, idx) => (
+                        <Link href={loc.link} key={idx} style={{ textDecoration: 'none' }}>
+                            <div className={styles.serviceCard} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                                <div style={{ marginBottom: '1rem', color: '#c5a467' }}><Wine size={32} /></div>
+                                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '0.5rem' }}>
+                                    {loc.city}
+                                </h3>
+                                <p style={{ color: '#6b7280', marginBottom: '1.5rem', flex: 1 }}>
+                                    {loc.desc}
+                                </p>
+                                <div style={{ display: 'flex', alignItems: 'center', color: '#1e3a8a', fontWeight: 'bold' }}>
+                                    View Itineraries <Navigation size={16} style={{ marginLeft: '4px' }} />
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </div>
 
             <section className={styles.fleetSection}>
                 <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Touring In Style</h2>

@@ -99,6 +99,53 @@ export default function ConferenceServicesPage() {
                     </p>
                 </div>
 
+                {/* Event Pricing Table */}
+                <section style={{ maxWidth: '1200px', margin: '4rem auto', padding: '0 1rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '1rem' }}>Event Transport Rates</h2>
+                    <p style={{ textAlign: 'center', color: '#666', marginBottom: '2rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
+                        Flexible hourly hire and day rates for corporate events. Volume discounts available for multi-vehicle bookings.
+                    </p>
+
+                    <div style={{ overflowX: 'auto' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', backgroundColor: 'white', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', borderRadius: '8px', overflow: 'hidden' }}>
+                            <thead>
+                                <tr style={{ backgroundColor: '#1f2937', color: 'white' }}>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Service Type</th>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Vehicle</th>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Capacity</th>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Rate (From)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Delegate Shuttle (Hourly)</strong></td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Mercedes V-Class</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>7 Pax</td>
+                                    <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$110 / hr</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb', backgroundColor: '#f9fafb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>VIP Speaker Transfer</strong></td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Luxury Sedan</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>4 Pax</td>
+                                    <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$95 / hr</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Full Day Disposal (8 hrs)</strong></td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Exec Sedan or Van</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Varies</td>
+                                    <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$800+</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb', backgroundColor: '#f9fafb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Large Group Move</strong></td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>Multiple Vans/Sprinters</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>14-50+ Pax</td>
+                                    <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>Custom Quote</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',

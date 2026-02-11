@@ -139,6 +139,78 @@ export default function WeddingServicesPage() {
                 </div>
             </section>
 
+            {/* Wedding Pricing Table */}
+            <section style={{ maxWidth: '1200px', margin: '0 auto 4rem', padding: '0 1rem' }}>
+                <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '1rem' }}>Wedding Car Packages</h2>
+                <p style={{ textAlign: 'center', color: '#666', marginBottom: '2rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
+                    Transparent package pricing for your special day. All packages include white ribbons, red carpet service, and champagne on ice.
+                </p>
+
+                <div style={{ overflowX: 'auto' }}>
+                    <table style={{ width: '100%', borderCollapse: 'collapse', backgroundColor: 'white', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', borderRadius: '8px', overflow: 'hidden' }}>
+                        <thead>
+                            <tr style={{ backgroundColor: '#1f2937', color: 'white' }}>
+                                <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Package Type</th>
+                                <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Starting From</th>
+                                <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Includes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+                                <td style={{ padding: '1rem' }}><strong>Silver (Getaway)</strong></td>
+                                <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$250</td>
+                                <td style={{ padding: '1rem', fontSize: '0.9rem' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+                                        <CheckCircle size={14} color="#16a34a" />
+                                        <span>Point-to-point transfer</span>
+                                    </div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                                        <CheckCircle size={14} color="#16a34a" />
+                                        <span>End of night hotel / airport</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr style={{ borderBottom: '1px solid #e5e7eb', backgroundColor: '#f9fafb' }}>
+                                <td style={{ padding: '1rem' }}><strong>Gold (Half Day)</strong></td>
+                                <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$550</td>
+                                <td style={{ padding: '1rem', fontSize: '0.9rem' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+                                        <CheckCircle size={14} color="#16a34a" />
+                                        <span>4 Hours continuous hire</span>
+                                    </div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+                                        <CheckCircle size={14} color="#16a34a" />
+                                        <span>Ceremony & photos</span>
+                                    </div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                                        <CheckCircle size={14} color="#16a34a" />
+                                        <span>Ribbons & Champagne</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+                                <td style={{ padding: '1rem' }}><strong>Platinum (Full Day)</strong></td>
+                                <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$1100</td>
+                                <td style={{ padding: '1rem', fontSize: '0.9rem' }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+                                        <CheckCircle size={14} color="#16a34a" />
+                                        <span>8 Hours continuous hire</span>
+                                    </div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+                                        <CheckCircle size={14} color="#16a34a" />
+                                        <span>Start to finish service</span>
+                                    </div>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                                        <CheckCircle size={14} color="#16a34a" />
+                                        <span>Multiple locations</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
             {/* Wedding chauffeur Sydney Melbourne Brisbane Adelaide Gold Coast nationwide */}
             <div style={{
                 maxWidth: '1200px',

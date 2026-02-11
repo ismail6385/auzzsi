@@ -2,153 +2,140 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
-import { Calendar, Users, Calculator, MapPin, Clock, Award, ShieldCheck, Briefcase } from "lucide-react";
-import VehicleTabs from "@/components/ServicePage/VehicleTabs";
-import FaqAccordion from "@/components/ServicePage/FaqAccordion";
-import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import Link from "next/link";
+import { Users, Calendar, MapPin, Clock, Award, Briefcase, CheckCircle, Car } from "lucide-react";
 import type { Metadata } from 'next';
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
 
 export const metadata: Metadata = {
-    title: "Conference Transport Hobart | Grand Chancellor & Events",
-    description: "Professional chauffeur service for conferences at Hotel Grand Chancellor Hobart and Federation Concert Hall. Executive transport for delegates.",
+    title: "Conference Transfers Hobart | Grand Chancellor & Waterfront Events | Auzzie Chauffeur",
+    description: "Reliable event transfers for Hobart hotels and function centres. Executive chauffeur service for Dark Mofo, Taste of Tasmania, and corporate retreats.",
 };
 
 export default function HobartEventsPage() {
-    const faqs = [
-        {
-            question: "Do You Drop Off at the Grand Chancellor?",
-            answer: "Yes, we provide direct door-to-door transfers to the Hotel Grand Chancellor Hobart, the city's primary conference venue on the waterfront."
-        },
-        {
-            question: "Can You Arrange Dinner Transfers for Groups?",
-            answer: "Certainly. Hobart has a vibrant dining scene. We can transport your corporate group to restaurants in Salamanca Place or North Hobart."
-        },
-        {
-            question: "Do You Service MONA events?",
-            answer: "Yes, we provide transfers to the Museum of Old and New Art (MONA) for private corporate functions and events."
-        },
-        {
-            question: "How Far in Advance Should We Book?",
-            answer: "For major conferences, we recommend booking as early as possible to secure your preferred vehicles, especially for group movements."
-        }
-    ];
-
-    const vehicles = [
-        {
-            category: 'Classic',
-            name: 'Executive Sedan',
-            desc: 'Professional transport for VIPs.',
-            passengers: 4,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Luxury SUV',
-            name: 'Audi Q7 / Similar',
-            desc: 'Comfortable workspace on wheels.',
-            passengers: 4,
-            luggage: 4,
-            bags: 4,
-            image: '/tile-driver.png'
-        },
-        {
-            category: 'People Mover',
-            name: 'Mercedes V-Class',
-            desc: 'Efficient shuttle for teams.',
-            passengers: 7,
-            luggage: 6,
-            bags: 6,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Hobart" service="Conferences & Special Events" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="Conference Transport Hobart"
-                subtitle="Executive logistics for Hobart conferences and events."
-                showStats={false}
-            />
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Hobart Conference & Event Transport"
+                    subtitle="Professional transfers for conferences at Hotel Grand Chancellor, waterfront events, and corporate retreats in Tasmania."
+                    showStats={false}
+                />
+            </div>
 
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Hobart Business Events</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Hobart's stunning waterfront and compact size make it a unique destination for business events.
-                        Auzzsi Chauffeur provides reliable transport for delegates attending the Hotel Grand Chancellor,
-                        Wrest Point, or Federation Concert Hall.
-                        <br /><br />
-                        We ensure punctual airport transfers and smooth logistics for off-site dinners and tours,
-                        allowing your team to focus on the business at hand.
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#eff6ff', padding: '3rem 1rem', borderBottom: '3px solid #3b82f6' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#dbeafe', padding: '1rem', borderRadius: '50%', color: '#3b82f6', flexShrink: 0 }}>
+                        <Calendar size={32} />
+                    </div>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '0.5rem' }}>
+                            Event transfer costs in Hobart?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#1e3a8a' }}>
+                            We offer personalized service for Hobart's boutique event market. <strong>Mercedes V-Class (7 pax)</strong> hire starts from <strong>$85 per hour</strong>. Transfers from <strong>Hobart Airport (HBA) to the Hotel Grand Chancellor</strong> (Federation Concert Hall) typically range from <strong>$75 - $95</strong>.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#60a5fa', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *Dark Mofo and Wooden Boat Festival transfers available.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
+
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>Tasmanian Hospitality</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Grand Chancellor", desc: "The primary venue for major conferences. We offer seamless pick-ups from the Campbell St entrance.", icon: <Briefcase size={28} color="#3b82f6" /> },
+                            { title: "Waterfront Events", desc: "Drop-off points close to PW1 (Princes Wharf) for festivals and exhibitions.", icon: <MapPin size={28} color="#3b82f6" /> },
+                            { title: "MONA Transfers", desc: "Private vehicle transfers to MONA (Museum of Old and New Art) for exclusive functions.", icon: <Award size={28} color="#3b82f6" /> },
+                            { title: "Small Groups", desc: "Ideal for executive retreats and board meetings requiring discreet transport.", icon: <Users size={28} color="#3b82f6" /> },
+                            { title: "Local Drivers", desc: "Our chauffeurs know the history and best routes around Sullivan's Cove.", icon: <Clock size={28} color="#3b82f6" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #e0f2fe', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#1e3a8a' }}>{item.title}</h3>
+                                    <p style={{ color: '#475569', fontSize: '0.95rem' }}>{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Popular Routes Table */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Hobart Event Transfers</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#1e40af', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Route / Venue</th>
+                                    <th style={{ padding: '1rem' }}>Vehicle</th>
+                                    <th style={{ padding: '1rem' }}>Capacity</th>
+                                    <th style={{ padding: '1rem' }}>Est. Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { route: "Hobart Airport -> Grand Chancellor", veh: "Mercedes V-Class", cap: "7 Pax", price: "$90 - $110" },
+                                    { route: "City -> MONA (Berriedale)", veh: "Luxury Sedan", cap: "4 Pax", price: "$60 - $80" },
+                                    { route: "Hourly Hire (Delegate Shuttle)", veh: "People Mover", cap: "7 Pax", price: "$85 / hour" },
+                                    { route: "Airport -> Wrest Point Casino", veh: "Executive Sedan", cap: "4 Pax", price: "$65 - $85" },
+                                    { route: "Port Arthur Day Tour (Groups)", veh: "Minibus", cap: "10-20 Pax", price: "Enquire" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#1e3a8a' }}>{row.route}</td>
+                                        <td style={{ padding: '1.25rem', color: '#475569' }}>{row.veh}</td>
+                                        <td style={{ padding: '1.25rem', color: '#475569' }}>{row.cap}</td>
+                                        <td style={{ padding: '1.25rem', color: '#3b82f6', fontWeight: 'bold' }}>{row.price}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Venue Info */}
+                <div style={{ marginBottom: '5rem', background: '#f0f9ff', padding: '3rem', borderRadius: '16px' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Key Hobart Venues</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#1e40af', marginBottom: '1rem' }}>Hotel Grand Chancellor</h3>
+                            <p style={{ color: '#475569' }}>Features the Federation Concert Hall. Located on the waterfront, suitable for large conferences.</p>
+                        </div>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#1e40af', marginBottom: '1rem' }}>Princes Wharf (PW1)</h3>
+                            <p style={{ color: '#475569' }}>A massive shed on the waterfront used for large exhibitions and dinners. </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Event FAQs</h2>
+                    <LocationFAQ city="Hobart" />
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Organize Your Transport:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        View our <Link href="/the-fleet" className={styles.inlineLink}>fleet options</Link>.
+                        Contact us for a <Link href="/contact-us" className={styles.inlineLink}>quote</Link>.
                     </p>
                 </div>
-            </section>
 
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Calendar size={28} /></div>
-                        <span className={styles.featureLabel}>Conference<br />Focus</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Users size={28} /></div>
-                        <span className={styles.featureLabel}>Group<br />Logistics</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Clock size={28} /></div>
-                        <span className={styles.featureLabel}>Punctual<br />Service</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Award size={28} /></div>
-                        <span className={styles.featureLabel}>Executive<br />Fleet</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Event Fleet</h2>
-                <VehicleTabs vehicles={vehicles} />
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        Event FAQs
-                    </h2>
-                    <FaqAccordion faqs={faqs} />
-                </div>
-            </section>
-
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
-                </div>
-                <ServiceContactForm
-                    title="Get an Event Quote"
-                    subtitle={<>
-                        Contact us for Hobart event transport.
-                        <br />
-                        <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
-                    </>}
-                    detailsLabel="Event Details (Date, Venue, Pax)"
-                />
             </section>
 
             <Footer />

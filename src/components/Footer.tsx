@@ -5,32 +5,31 @@ import Link from 'next/link';
 
 export default function Footer() {
     const quickLinks = [
-        { name: "Airport Meeting Points", href: "#" },
+        { name: "Airport Meeting Points", href: "/services/meeting-points" },
         { name: "Book Now", href: "/contact-us" },
-        { name: "Manage Booking", href: "#" },
+        { name: "Manage Booking", href: "/contact-us" },
         { name: "Contact Us", href: "/contact-us" },
         { name: "City Guides", href: "/locations" },
-        { name: "Popular Routes", href: "#" },
-        { name: "Corporate Transfers", href: "/services" },
-        { name: "Conferences & Special Events", href: "/services" },
-        { name: "Cruise Ship Transfers", href: "/services" },
-        { name: "Private Driver", href: "/services" },
-        { name: "Airline & Cruise Crewing", href: "/services" },
-        { name: "Luxury Private Tours", href: "/the-fleet" },
+        { name: "Popular Routes", href: "/locations" },
+        { name: "Corporate Transfers", href: "/services/corporate-transfers" },
+        { name: "Conferences & Special Events", href: "/services/conferences-special-events" },
+        { name: "Cruise Ship Transfers", href: "/services/cruise-ship-transfers" },
+        { name: "Private Driver", href: "/services/hourly-chauffeur" },
+        { name: "Airline & Cruise Crewing", href: "/services/airline-cruise-crewing" },
+        { name: "Luxury Private Tours", href: "/services/luxury-tours" },
         { name: "Customer Reviews", href: "/reviews" }
     ];
 
     const services = [
-        { name: "Airport Transfer Sydney", href: "/sydney/airport-transfers" },
         { name: "Sydney Chauffeur", href: "/sydney" },
-        { name: "Airport Transfer Melbourne", href: "/melbourne/airport-transfers" },
         { name: "Melbourne Chauffeur", href: "/melbourne" },
-        { name: "Airport Transfer Brisbane", href: "/brisbane/airport-transfers" },
         { name: "Brisbane Chauffeur", href: "/brisbane" },
-        { name: "Airport Transfer Adelaide", href: "/adelaide/airport-transfers" },
+        { name: "Perth Chauffeur", href: "/perth" },
         { name: "Adelaide Chauffeur", href: "/adelaide" },
-        { name: "Airport Transfer Gold Coast", href: "/gold-coast/airport-transfers" },
-        { name: "Gold Coast Chauffeur", href: "/gold-coast" }
+        { name: "Gold Coast Chauffeur", href: "/gold-coast" },
+        { name: "Hobart Chauffeur", href: "/hobart" },
+        { name: "Cairns Chauffeur", href: "/cairns-port-douglas" },
+        { name: "Airport Transfers", href: "/services/airport-transfers" },
     ];
 
     return (

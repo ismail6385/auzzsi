@@ -137,6 +137,53 @@ export default function HourlyServicesPage() {
                         Leave your bags in the <Link href="/the-fleet" className={styles.inlineLink}>luxury vehicle</Link>, change your plans on the fly, and enjoy the ultimate convenience of having a <Link href="/" className={styles.inlineLink}>private chauffeur</Link> ready whenever you are. Perfect for <Link href="/services/corporate-transfers" className={styles.inlineLink}>business meetings</Link>, <Link href="/services/luxury-tours" className={styles.inlineLink}>wine tours</Link>, or <Link href="/sydney" className={styles.inlineLink}>city sightseeing</Link>.
                     </p>
                 </div>
+
+                {/* Hourly Pricing Table */}
+                <section style={{ maxWidth: '1000px', margin: '4rem auto', padding: '0 1rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '1rem' }}>Hourly Hire Rates</h2>
+                    <p style={{ textAlign: 'center', color: '#666', marginBottom: '2rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
+                        Transparent pricing with no hidden fees. All hourly bookings include fuel, insurance, and professional chauffeur.
+                    </p>
+
+                    <div style={{ overflowX: 'auto' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', backgroundColor: 'white', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', borderRadius: '8px', overflow: 'hidden' }}>
+                            <thead>
+                                <tr style={{ backgroundColor: '#1f2937', color: 'white' }}>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Vehicle Class</th>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Capacity</th>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Hourly Rate</th>
+                                    <th style={{ padding: '1rem', textAlign: 'left', fontWeight: '600' }}>Min. Hire</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Executive Sedan</strong></td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>4 Pax</td>
+                                    <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$95 / hr</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>3 Hours</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb', backgroundColor: '#f9fafb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Luxury SUV</strong></td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>4 Pax</td>
+                                    <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$110 / hr</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>3 Hours</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>People Mover (V-Class)</strong></td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>7 Pax</td>
+                                    <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$120 / hr</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>4 Hours</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid #e5e7eb', backgroundColor: '#f9fafb' }}>
+                                    <td style={{ padding: '1rem' }}><strong>Premium First Class</strong></td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>3 Pax</td>
+                                    <td style={{ padding: '1rem', color: '#c5a467', fontWeight: 'bold', fontSize: '1.1rem' }}>$145 / hr</td>
+                                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>3 Hours</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
             </section>
 
             {/* Hourly chauffeur Sydney Melbourne Brisbane Adelaide Gold Coast Perth */}
@@ -167,7 +214,7 @@ export default function HourlyServicesPage() {
                         { city: "Hobart", link: "/hobart/hourly-chauffeur", desc: "Flexible day trips & tours" },
                         { city: "Cairns", link: "/cairns-port-douglas/hourly-chauffeur", desc: "Sightseeing & local hire" },
                     ].map((loc, idx) => (
-                        <a href={loc.link} key={idx} style={{ textDecoration: 'none' }}>
+                        <Link href={loc.link} key={idx} style={{ textDecoration: 'none' }}>
                             <div className={styles.serviceCard} style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
                                 <div style={{ marginBottom: '1rem', color: '#c5a467' }}><Clock size={32} /></div>
                                 <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '0.5rem' }}>
@@ -177,10 +224,10 @@ export default function HourlyServicesPage() {
                                     {loc.desc}
                                 </p>
                                 <div style={{ display: 'flex', alignItems: 'center', color: '#1e3a8a', fontWeight: 'bold' }}>
-                                    View Details <svg width="16" height="16" style={{ marginLeft: '4px' }} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                    View Details <Navigation size={16} style={{ marginLeft: '4px' }} />
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </div>

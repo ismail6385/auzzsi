@@ -1,289 +1,232 @@
-"use client";
-
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
-import styles from "./airport-transfers.module.css";
+import styles from "../../shared-airport.module.css";
 import Link from "next/link";
-import { useState } from "react";
-import {
-    Clock,
-    DollarSign,
-    ShieldCheck,
-    Plane,
-    Award,
-    Users,
-    Briefcase,
-    ChevronDown,
-    ChevronUp
-} from "lucide-react";
+import { Plane, Briefcase, Heart, Clock, ChevronRight, Map, Anchor, Shield, CheckCircle, Calculator, UserCheck, Calendar } from "lucide-react";
+import type { Metadata } from 'next';
+import WeatherWidget from "@/components/WeatherWidget";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
+import LocationTestimonials from "@/components/LocationTestimonials";
+
+export const metadata: Metadata = {
+    title: "Melbourne Airport Transfers | Private Chauffeur MEL to City | Auzzie Chauffeur",
+    description: "Premium chauffeur transfers from Melbourne Airport (MEL) to CBD, Southbank, and suburbs. flight tracking, meet & greet, fixed pricing. Book online 24/7.",
+};
 
 export default function MelbourneAirportPage() {
-    // FAQ State
-    const [openFaq, setOpenFaq] = useState<number | null>(0);
-
-    const toggleFaq = (index: number) => {
-        setOpenFaq(openFaq === index ? null : index);
-    };
-
-    const faqs = [
-        {
-            question: "How Long Is The Trip From Melbourne Airport To Melbourne CBD?",
-            answer: "The travel time from Melbourne Tullamarine Airport (MEL) to the CBD basically depends on traffic. In normal conditions, it takes approximately 25-35 minutes via the Tullamarine Freeway. During peak hours (morning 7-9am and evening 4-6pm), allow for 45-60 minutes."
-        },
-        {
-            question: "Where Will My Chauffeur Meet Me? Melbourne Airport Pickup Location",
-            answer: "Your chauffeur will meet you inside the terminal at the designated Chauffeur Meeting Point. They will be holding a sign with your name or company logo. For international arrivals, this is usually near the exit gates A or B."
-        },
-        {
-            question: "How Much Does A Melbourne Airport Transfer Cost?",
-            answer: "Our fixed-price airport transfers start from $110 for a luxury sedan to the CBD. Prices vary based on vehicle type and exact drop-off location. Use our Instant Quote tool above for a precise fare with no hidden costs."
-        },
-        {
-            question: "How Much Luggage Can My Car Accommodate?",
-            answer: "Our Executive Sedans (e.g. Holden Caprice, Genesis) fit 4 passengers and 2 large suitcases. Premium European Sedans (Audi/Mercedes) fit 3-4 passengers and 2 large suitcases. For more luggage, we recommend our Luxury People Movers (Mercedes V-Class) which can carry 7 passengers and 5-6 large bags."
-        },
-        {
-            question: "Will My Chauffeur Wait If My Flight Is Delayed?",
-            answer: "Yes. We monitor all incoming flights in real-time. If your flight is delayed, your pickup time is automatically adjusted, and your chauffeur will be there when you land at no extra waiting cost."
-        }
-    ];
-
-    // Vehicle Tabs State
-    const [activeVehicle, setActiveVehicle] = useState('Executive Sedans');
-
-    const vehicles = [
-        {
-            category: 'Executive Sedans',
-            name: 'Executive Sedan',
-            desc: 'Ideal for up to 4 passengers with light luggage. Features leather seating, climate control, and a smooth quiet ride for corporate transfers.',
-            passengers: 4,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Premium Sedans',
-            name: 'European Premium Sedan',
-            desc: 'Top-tier luxury from Mercedes-Benz or Audi. Perfect for VIPs requiring maximum comfort, style and prestige.',
-            passengers: 3,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Premium SUVs',
-            name: 'Luxury SUV',
-            desc: 'Spacious and commanding presence. Audi Q7 or similar, offering extra legroom and luggage capacity for families or groups.',
-            passengers: 4,
-            luggage: 4,
-            bags: 3,
-            image: '/tile-driver.png' // Using placeholder
-        },
-        {
-            category: 'People Movers',
-            name: 'Mercedes V-Class',
-            desc: 'The gold standard for group travel. Seats up to 7 people in absolute luxury with conference style seating options.',
-            passengers: 7,
-            luggage: 6,
-            bags: 6,
-            image: '/tile-driver.png' // Using placeholder
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Melbourne" service="Airport Transfers" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="Airport Transfers Melbourne"
-                subtitle="Professional, licensed and safe drivers. An fleet of luxury vehicles. And the assurance that your ride will be waiting for you."
-                showStats={false}
-            />
-
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Reliable Melbourne Airport Transfers</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Travel to and from Tullamarine Airport in comfort, style, and peace of mind.
-                        Whether you are travelling for business or pleasure, Auzzsi Chauffeur provides a seamless
-                        airport transfer service that ensures you arrive on time and relaxed.
-                        <br /><br />
-                        Avoid the queue for taxis and the unpredictability of rideshare apps. With Auzzsi, your
-                        professional chauffeur meets you inside the terminal, assists with your luggage, and drives
-                        you directly to your destination in a pristine luxury vehicle.
-                    </p>
-                    <h3 style={{ marginTop: '2rem' }}>Melbourne Tullamarine Airport To City Transfers Duration</h3>
-                    <p>
-                        A trip from Melbourne Airport (MEL) to the City (CBD) typically takes 25-35 minutes via the Tullamarine Freeway.
-                        However, during peak traffic times, we recommend allowing 45-60 minutes to ensure you make your meetings or check-in on time.
-                    </p>
-                    <h3 style={{ marginTop: '2rem' }}>Melbourne International To City Transport Costs</h3>
-                    <p>
-                        Why risk a running meter? Our fixed-price transfers offer complete transparency. You know the cost
-                        before you ride. Prices start from just $110 for an Executive Sedan to the Melbourne CBD, offering
-                        exceptional value for a premium service.
-                    </p>
-                    <p style={{ color: '#c5a467', fontStyle: 'italic', marginTop: '1rem' }}>
-                        Click "Instant Quote" above to see exact pricing for your trip.
-                    </p>
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Melbourne Airport (MEL) Chauffeur Transfers"
+                    subtitle="Stress-free luxury transfers from Tullamarine to Melbourne CBD, South Yarra, and beyond. We track your flight and wait for you."
+                    showStats={false}
+                />
+                <div className={styles.weatherWidgetWrapper}>
+                    <WeatherWidget location="Melbourne Area" />
                 </div>
-            </section>
+            </div>
 
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><DollarSign size={28} /></div>
-                        <span className={styles.featureLabel}>Fixed Price<br />No Surprises</span>
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#f9fafb', padding: '3rem 1rem', borderBottom: '3px solid #c5a467' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#e0f2fe', padding: '1rem', borderRadius: '50%', color: '#0284c7', flexShrink: 0 }}>
+                        <Calculator size={32} />
                     </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Users size={28} /></div>
-                        <span className={styles.featureLabel}>Meet & Greet<br />Inside Terminal</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Plane size={28} /></div>
-                        <span className={styles.featureLabel}>Flight Tracking<br />On Arrival</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Clock size={28} /></div>
-                        <span className={styles.featureLabel}>Free Waiting<br />Time included</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Award size={28} /></div>
-                        <span className={styles.featureLabel}>Professional<br />Chauffeurs</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShieldCheck size={28} /></div>
-                        <span className={styles.featureLabel}>Licensed &<br />Insured</span>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '0.5rem' }}>
+                            How much is a private transfer from Melbourne Airport?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#374151' }}>
+                            Private chauffeur transfers from <strong>Melbourne Airport (MEL)</strong> to the <strong>CBD</strong> typically cost between <strong>$110 - $145</strong> depending on the vehicle class. Transfers to <strong>St Kilda</strong> or <strong>South Yarra</strong> range from <strong>$120 - $160</strong>. We offer fixed pricing with no hidden toll or parking fees.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#6b7280', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *Estimates for sedan class. Van and SUV pricing varies.
+                        </p>
                     </div>
                 </div>
             </section>
 
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>A Vehicle To Suit Every Traveller</h2>
-                <p style={{ maxWidth: '700px', margin: '0 auto', color: '#666', marginBottom: '2rem' }}>
-                    Whether you are travelling solo, as a couple, or with a large group, our diverse fleet ensures
-                    we have the perfect vehicle for your needs. All our cars are late-model, immaculate, and strictly maintained.
-                </p>
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
 
-                <div className={styles.fleetTabs}>
-                    {vehicles.map((v) => (
-                        <button
-                            key={v.category}
-                            className={`${styles.tabBtn} ${activeVehicle === v.category ? styles.active : ''}`}
-                            onClick={() => setActiveVehicle(v.category)}
-                        >
-                            {v.category}
-                        </button>
-                    ))}
-                </div>
-
-                <div className={styles.vehicleCard}>
-                    {vehicles.filter(v => v.category === activeVehicle).map((v) => (
-                        <div key={v.category} style={{ display: 'flex', width: '100%', flexWrap: 'wrap' }}>
-                            <div className={styles.vehicleImage}>
-                                <img src={v.image} alt={v.name} />
-                            </div>
-                            <div className={styles.vehicleInfo}>
-                                <h3 className={styles.vehicleTitle}>{v.name}</h3>
-                                <p className={styles.vehicleDesc}>{v.desc}</p>
-
-                                <div className={styles.vehicleStats}>
-                                    <div className={styles.stat}><Users size={18} /> {v.passengers} Passengers</div>
-                                    <div className={styles.stat}><Briefcase size={18} /> {v.luggage} Suitcases</div>
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>Why Choose Our MEL Airport Service?</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Flight Tracking", desc: "We monitor your flight (QF, VA, JQ, etc.) to ensure your driver is there when you land.", icon: <Plane size={28} color="#1e3a8a" /> },
+                            { title: "Meet & Greet", desc: "Your chauffeur meets you inside the terminal with a name sign, assisting with luggage.", icon: <UserCheck size={28} color="#c5a467" /> },
+                            { title: "Fixed Price", desc: "Pre-booked fixed rates mean no ticking meters in heavy Tullamarine Freeway traffic.", icon: <Calculator size={28} color="#1e3a8a" /> },
+                            { title: "60 Mins Wait", desc: "Complimentary 60 minutes waiting time for international arrivals to clear customs.", icon: <Clock size={28} color="#c5a467" /> },
+                            { title: "Luxury Fleet", desc: "Choose from Mercedes E-Class, Audi A8, or V-Class Vans for groups.", icon: <Shield size={28} color="#1e3a8a" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #f3f4f6', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#1f2937' }}>{item.title}</h3>
+                                    <p style={{ color: '#6b7280', fontSize: '0.95rem' }}>{item.desc}</p>
                                 </div>
-
-                                <Link href="/book">
-                                    <button className={styles.btnGold} style={{ fontSize: '0.8rem', padding: '0.6rem 1.5rem' }}>
-                                        Book This Car
-                                    </button>
-                                </Link>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        FAQs On Airport Transfer To & From<br /> Melbourne Tullamarine
-                    </h2>
-
-                    <div className={styles.accordion}>
-                        {faqs.map((faq, idx) => (
-                            <div key={idx} className={styles.accordionItem}>
-                                <button className={styles.accordionHeader} onClick={() => toggleFaq(idx)}>
-                                    {faq.question}
-                                    {openFaq === idx ? <ChevronUp size={20} color="#c5a467" /> : <ChevronDown size={20} color="#9ca3af" />}
-                                </button>
-                                {openFaq === idx && (
-                                    <div className={styles.accordionContent}>
-                                        <p>{faq.answer}</p>
-                                    </div>
-                                )}
                             </div>
                         ))}
                     </div>
                 </div>
-            </section>
 
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    {/* Background Image set in CSS */}
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
+                {/* Common Problems */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Avoid The Airport Chaos</h2>
+                    <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1.5rem' }}>
+                        {[
+                            "Skip the long taxi queues at T1, T2, T3, and T4 terminals.",
+                            "No surging rideshare prices during peak arrival times.",
+                            "Avoid hauling luggage through the car park to the Pickup Zone.",
+                            "Direct door-to-door service to your hotel or residence.",
+                            "Professional drivers who know the best routes to avoid CityLink traffic.",
+                            "Immaculate vehicles with water and chargers provided."
+                        ].map((item, idx) => (
+                            <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', background: '#f8fafc', borderRadius: '0.5rem', textAlign: 'left' }}>
+                                <CheckCircle size={20} color="#16a34a" style={{ flexShrink: 0 }} />
+                                <span style={{ color: '#334155' }}>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
-                <div className={styles.contactFormWrapper}>
-                    <h2 className={styles.helpTitle}>We're Here To Help!</h2>
-                    <p className={styles.helpSubtitle}>
-                        Call our Customer care team on our 24/7 number or email us.
-                        <br />
-                        <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
+
+                {/* Pricing Guide */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Melbourne Airport Pricing Guide</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#1e3a8a', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Destination (from MEL)</th>
+                                    <th style={{ padding: '1rem' }}>Sedan Price</th>
+                                    <th style={{ padding: '1rem' }}>Van Price (7 Pax)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { route: "Melbourne CBD", sedan: "$110 - $145", van: "$160 - $190" },
+                                    { route: "South Yarra / Toorak", sedan: "$125 - $155", van: "$175 - $210" },
+                                    { route: "St Kilda / Brighton", sedan: "$135 - $165", van: "$185 - $220" },
+                                    { route: "Geelong / Surf Coast", sedan: "$280 - $340", van: "$350 - $420" },
+                                    { route: "Mornington Peninsula", sedan: "$290 - $350", van: "$380 - $450" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#1f2937' }}>{row.route}</td>
+                                        <td style={{ padding: '1.25rem', color: '#c5a467', fontWeight: 'bold' }}>{row.sedan}</td>
+                                        <td style={{ padding: '1.25rem', color: '#1e3a8a', fontWeight: 'bold' }}>{row.van}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style={{ fontSize: '0.9rem', color: '#6b7280', marginTop: '1rem', textAlign: 'center', fontStyle: 'italic' }}>
+                        (Note: Estimates include generic tolls. Booking confirms exact fixed price.)
                     </p>
-
-                    <form className={styles.contactGrid} onSubmit={(e) => e.preventDefault()}>
-                        <div className={styles.inputGroup}>
-                            <label className={styles.inputLabel}>Name*</label>
-                            <input type="text" className={styles.textInput} placeholder="Your Name" />
-                        </div>
-                        <div className={styles.inputGroup}>
-                            <label className={styles.inputLabel}>Last Name*</label>
-                            <input type="text" className={styles.textInput} placeholder="Your Last Name" />
-                        </div>
-                        <div className={styles.inputGroup}>
-                            <label className={styles.inputLabel}>Contact Number*</label>
-                            <input type="tel" className={styles.textInput} placeholder="+61..." />
-                        </div>
-                        <div className={styles.inputGroup}>
-                            <label className={styles.inputLabel}>Email Address*</label>
-                            <input type="email" className={styles.textInput} placeholder="email@example.com" />
-                        </div>
-                        <div className={styles.inputGroup} style={{ gridColumn: '1 / -1' }}>
-                            <label className={styles.inputLabel}>Subject</label>
-                            <input type="text" className={styles.textInput} />
-                        </div>
-                        <div className={styles.inputGroup} style={{ gridColumn: '1 / -1' }}>
-                            <label className={styles.inputLabel}>Message</label>
-                            <textarea className={styles.textInput} rows={3} style={{ resize: 'none' }}></textarea>
-                        </div>
-
-                        <button className={styles.submitBtn}>Submit</button>
-                    </form>
                 </div>
+
+                {/* 3 Step Process */}
+                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>How It Works</h2>
+                <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '3rem', marginBottom: '4rem', marginTop: '2rem' }}>
+                    {[
+                        { step: "1", title: "Book", desc: "Enter flight number and pickup time." },
+                        { step: "2", title: "Track", desc: "We track your flight arrival time." },
+                        { step: "3", title: "Ride", desc: "Driver meets you at the arrivals gate." }
+                    ].map((item, idx) => (
+                        <div key={idx} style={{ textAlign: 'center', maxWidth: '300px' }}>
+                            <div style={{ width: '60px', height: '60px', background: '#c5a467', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', fontWeight: 'bold', margin: '0 auto 1.5rem' }}>
+                                {item.step}
+                            </div>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{item.title}</h3>
+                            <p style={{ color: '#4b5563' }}>{item.desc}</p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Melbourne Airport FAQs</h2>
+                    <LocationFAQ city="Melbourne" />
+                </div>
+
+                {/* EEAT Block (Dark) */}
+                <section style={{ background: '#111827', color: 'white', padding: '5rem 1rem', borderRadius: '16px', marginTop: '4rem' }}>
+                    <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+                        {/* Expertise */}
+                        <div>
+                            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#c5a467' }}>Melbourne Experts</h3>
+                            <p style={{ lineHeight: '1.7', marginBottom: '1.5rem', color: '#d1d5db' }}>
+                                For over 10 years, Auzzie Chauffeur has been the preferred transfer partner for Melbourne executives. handling thousands of airport transfers annually with a 99.9% on-time record.
+                            </p>
+                            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                                {['VHA Licensed', '5-Star Rated', 'Insured'].map((badge, idx) => (
+                                    <span key={idx} style={{ background: '#374151', padding: '0.25rem 0.75rem', borderRadius: '999px', fontSize: '0.875rem' }}>{badge}</span>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Testimonials */}
+                        <div>
+                            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#c5a467' }}>Traveller Reviews</h3>
+                            <blockquote style={{ borderLeft: '3px solid #c5a467', paddingLeft: '1rem', marginBottom: '1.5rem' }}>
+                                <p style={{ fontStyle: 'italic', marginBottom: '0.5rem', color: '#e5e7eb' }}>“Driver was waiting at T2 international arrivals with a sign. Helped with 4 suitcases. Brilliant service.”</p>
+                                <cite style={{ fontSize: '0.9rem', color: '#9ca3af' }}>— James, London</cite>
+                            </blockquote>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Case Study */}
+                <div style={{ marginTop: '4rem', background: '#f8fafc', padding: '2rem', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                    <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem', color: '#1f2937' }}>Case Study: Corporate Group Arrival</h3>
+                    <p style={{ lineHeight: '1.7', color: '#4b5563' }}>
+                        <strong>Scenario:</strong> 6 Executives arriving on different flights within a 2-hour window.
+                        <br /><strong>Solution:</strong> We coordinated 3 vehicles, tracking each flight individually.
+                        <br /><strong>Result:</strong> Each executive was met personally and transported to the Crown Towers hotel without waiting for the others, maximizing efficiency.
+                    </p>
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Explore More:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        Check our <Link href="/the-fleet" className={styles.inlineLink}>vehicle options</Link>.
+                        See our <Link href="/melbourne/corporate-transfers" className={styles.inlineLink}>corporate services</Link>.
+                        Book now via our <Link href="/contact-us" className={styles.inlineLink}>online booking page</Link>.
+                    </p>
+                </div>
+
+                {/* Directions Section */}
+                <div className={styles.directionsSection} style={{ marginTop: '4rem' }}>
+                    <h3 className={styles.directionsTitle}>
+                        <Map color="#c5a467" /> Meeting Points at MEL
+                    </h3>
+                    <p className={styles.directionsText}>
+                        <strong>T1 Qantas:</strong> At the chauffeurs meeting point near carousel 1.<br />
+                        <strong>T2 International:</strong> Inside the arrival hall near the designated chauffeur meeting point (near the cafe).<br />
+                        <strong>T3 Virgin:</strong> At the bottom of the escalators in the baggage claim area.<br />
+                        <strong>T4 Jetstar:</strong> On the ground floor near the baggage carousels.
+                    </p>
+                    <div className={styles.mapContainer}>
+                        <iframe
+                            src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Melbourne+Airport,Australia&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                    </div>
+                </div>
+
             </section>
 
             <Footer />

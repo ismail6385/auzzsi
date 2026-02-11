@@ -2,152 +2,140 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
-import { Clock, Map, Coffee, Camera, Sun, Wine } from "lucide-react";
-import VehicleTabs from "@/components/ServicePage/VehicleTabs";
-import FaqAccordion from "@/components/ServicePage/FaqAccordion";
-import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import Link from "next/link";
+import { Clock, MapPin, Camera, Coffee, Star, Shield, Car, Navigation } from "lucide-react";
 import type { Metadata } from 'next';
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
 
 export const metadata: Metadata = {
-    title: "Hourly Chauffeur Perth | Private Tours & Charter",
-    description: "Hire a private chauffeur in Perth by the hour. Explore Swan Valley wineries, Fremantle, Margaret River, or The Pinnacles at your own pace.",
+    title: "Hourly Chauffeur Perth | Swan Valley Wine Tours | Margaret River Day Trips",
+    description: "Hire a private driver in Perth. Hourly chauffeur for Swan Valley wine tours, Margaret River day trips, and Fremantle sightseeing.",
 };
 
 export default function PerthHourlyPage() {
-    const faqs = [
-        {
-            question: "Can We Do a Swan Valley Wine Tour?",
-            answer: "Yes, this is our most popular hourly service. Your chauffeur can drive you between cellar doors, breweries, and chocolate factories while you enjoy the tastings."
-        },
-        {
-            question: "Do You Drive to Margaret River?",
-            answer: "Yes, we can arrange day trips to Margaret River (approx 3 hours each way). We recommend a full day booking (10-12 hours) for this experience."
-        },
-        {
-            question: "Can We Visit The Pinnacles?",
-            answer: "Certainly. A day trip to Nambung National Park to see the Pinnacles Desert is a fantastic way to see WA's unique landscapes."
-        },
-        {
-            question: "What Is the Minimum Hire Time?",
-            answer: "Our standard minimum hire is typically 2-3 hours depending on the vehicle type and day of the week."
-        }
-    ];
-
-    const vehicles = [
-        {
-            category: 'Luxury Sedan',
-            name: 'European Sedan',
-            desc: 'Perfect for couples touring the wineries.',
-            passengers: 3,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Luxury SUV',
-            name: 'Audi Q7 / Similar',
-            desc: 'Comfortable touring with elevated views.',
-            passengers: 4,
-            luggage: 4,
-            bags: 4,
-            image: '/tile-driver.png'
-        },
-        {
-            category: 'People Mover',
-            name: 'Mercedes V-Class',
-            desc: 'Social seating for groups of friends.',
-            passengers: 7,
-            luggage: 6,
-            bags: 6,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Perth" service="Hourly Chauffeur" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="Hourly Chauffeur Perth"
-                subtitle="Explore Western Australia on your own schedule."
-                showStats={false}
-            />
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Perth Private Wine Tours & Drivers"
+                    subtitle="Experience the Swan Valley or journey to Margaret River in luxury. Your itinerary, your pace."
+                    showStats={false}
+                />
+            </div>
 
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Discover the West</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        Western Australia offers some of the country's most spectacular drives. With Auzzsi Chauffeur's hourly service,
-                        you have the freedom to explore Perth and its surrounds without watching the meter.
-                        <br /><br />
-                        Design your own itinerary: spend the morning at Cottesloe Beach, lunch in Fremantle, and the afternoon tasting
-                        premium wines in the Swan Valley. Your chauffeur is at your disposal.
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#fffbeb', padding: '3rem 1rem', borderBottom: '3px solid #f59e0b' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#fef3c7', padding: '1rem', borderRadius: '50%', color: '#d97706', flexShrink: 0 }}>
+                        <Clock size={32} />
+                    </div>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#78350f', marginBottom: '0.5rem' }}>
+                            Cost of a private driver in Perth?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#78350f' }}>
+                            <strong>Hourly chauffeur hire in Perth</strong> starts from <strong>$100 - $125 per hour</strong> for premium sedans. A 6-hour <strong>Swan Valley wine tour</strong> typically ranges from <strong>$600 - $750</strong> depending on the vehicle. Full-day trips to <strong>Margaret River</strong> (12+ hours) are quoted as a comprehensive package starting above <strong>$1400</strong>.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#b45309', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *Margaret River is a 3-hour drive each way from Perth CBD.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
+
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>West Coast Experiences</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Swan Valley", desc: "Just 25 mins from the city. Enjoy tastings at Sandalford, Mandoon Estate, and localized cheese factories.", icon: <Coffee size={28} color="#f59e0b" /> },
+                            { title: "Margaret River", desc: "A world-class wine region. Perfect for a long day trip or a multi-day overnight excursion.", icon: <Star size={28} color="#f59e0b" /> },
+                            { title: "Fremantle", desc: "Explore the Maritime Museum and cappuccino strip. We can wait while you enjoy a seafood lunch.", icon: <Camera size={28} color="#f59e0b" /> },
+                            { title: "The Pinnacles", desc: "A scenic coastal drive north to the Nambung National Park desert formations.", icon: <Navigation size={28} color="#f59e0b" /> },
+                            { title: "Luxury Comfort", desc: "Our vehicles are perfect for long drives, offering smooth rides and plenty of legroom.", icon: <Car size={28} color="#f59e0b" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #fef3c7', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#78350f' }}>{item.title}</h3>
+                                    <p style={{ color: '#4b5563', fontSize: '0.95rem' }}>{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Popular Itineraries Table */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Perth Hire Rates</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#1f2937', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Hire Type / Tour</th>
+                                    <th style={{ padding: '1rem' }}>Vehicle</th>
+                                    <th style={{ padding: '1rem' }}>Duration</th>
+                                    <th style={{ padding: '1rem' }}>Est. Cost</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { route: "Hourly As Directed (Perth)", veh: "Luxury Sedan", cap: "Min 3 Hours", price: "$100 - $125 / hr" },
+                                    { route: "Swan Valley Wine Tour", veh: "Mercedes V-Class", cap: "6 Hours", price: "$700 - $800" },
+                                    { route: "Margaret River Day Trip", veh: "Luxury SUV", cap: "12 Hours", price: "$1400 - $1600" },
+                                    { route: "Pinnacles Desert Tour", veh: "People Mover", cap: "8-10 Hours", price: "$1000 - $1200" },
+                                    { route: "Fremantle Dinner (Wait & Return)", veh: "Premium Sedan", cap: "5 Hours", price: "$500 - $600" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f3f4f6' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#1f2937' }}>{row.route}</td>
+                                        <td style={{ padding: '1.25rem', color: '#4b5563' }}>{row.veh}</td>
+                                        <td style={{ padding: '1.25rem', color: '#4b5563' }}>{row.cap}</td>
+                                        <td style={{ padding: '1.25rem', color: '#d97706', fontWeight: 'bold' }}>{row.price}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Venue Info */}
+                <div style={{ marginBottom: '5rem', background: '#fffbeb', padding: '3rem', borderRadius: '16px' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Tour Highlights</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#92400e', marginBottom: '1rem' }}>Swan Valley</h3>
+                            <p style={{ color: '#4b5563' }}>Western Australia's oldest wine region. Famous for Chenin Blanc, Verdelho, and fortified wines.</p>
+                        </div>
+                        <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', textAlign: 'center' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#92400e', marginBottom: '1rem' }}>Margaret River</h3>
+                            <p style={{ color: '#4b5563' }}>Internationally renovated for Cabernet Sauvignon and Chardonnay. Pristine beaches and tall timber forests.</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Touring FAQs</h2>
+                    <LocationFAQ city="Perth" />
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Plan Your Trip:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        Browse our <Link href="/the-fleet" className={styles.inlineLink}>luxury cars</Link>.
+                        Email us for a <Link href="/contact-us" className={styles.inlineLink}>tour proposal</Link>.
                     </p>
                 </div>
-            </section>
 
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Clock size={28} /></div>
-                        <span className={styles.featureLabel}>Flexible<br />Booking</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Wine size={28} /></div>
-                        <span className={styles.featureLabel}>Winery<br />Tours</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Map size={28} /></div>
-                        <span className={styles.featureLabel}>Custom<br />Itinerary</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Camera size={28} /></div>
-                        <span className={styles.featureLabel}>Scenic<br />Stops</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Touring Fleet</h2>
-                <VehicleTabs vehicles={vehicles} />
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        Hourly Charter FAQs
-                    </h2>
-                    <FaqAccordion faqs={faqs} />
-                </div>
-            </section>
-
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
-                </div>
-                <ServiceContactForm
-                    title="Get a Tour Quote"
-                    subtitle={<>
-                        Plan your private Perth tour today.
-                        <br />
-                        <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
-                    </>}
-                    detailsLabel="Tour Details (Date, Duration, Stops)"
-                />
             </section>
 
             <Footer />

@@ -2,179 +2,149 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import styles from "../../shared-airport.module.css";
-import { FileText, Laptop, ShieldCheck, Clock, Award, Coffee, Users, Briefcase } from "lucide-react";
-import VehicleTabs from "@/components/ServicePage/VehicleTabs";
-import FaqAccordion from "@/components/ServicePage/FaqAccordion";
-import ServiceContactForm from "@/components/ServicePage/ServiceContactForm";
+import Link from "next/link";
+import { FileText, Laptop, ShieldCheck, Clock, Award, Coffee, Briefcase, Calculator, Building2, UserCheck } from "lucide-react";
 import type { Metadata } from 'next';
+import Breadcrumbs from "@/components/Breadcrumbs";
+import LocationFAQ from "@/components/LocationFAQ";
 
 export const metadata: Metadata = {
-    title: "Corporate Chauffeur Sydney | Executive Car Service",
-    description: "Premium executive transport for business meetings, roadshows, and VIP events in Sydney. Punctual, professional, and discreet.",
+    title: "Corporate Chauffeur Sydney | Executive Car Hire | Auzzie Chauffeur",
+    description: "Premium corporate car service in Sydney. Executive chauffeurs for Barangaroo, North Sydney, and CBD meetings. Reliable, private, and punctual.",
 };
 
 export default function SydneyCorporatePage() {
-    const faqs = [
-        {
-            question: "Do You Offer Corporate Accounts With Monthly Invoicing?",
-            answer: "Yes, we offer dedicated corporate accounts for high-volume business clients in Sydney. This includes detailed monthly invoicing, priority booking status, and flexible payment terms. Contact our team to set up an account today."
-        },
-        {
-            question: "Can I Book A Chauffeur By The Hour For Meetings?",
-            answer: "Absolutely. Our 'Hourly Hire' service is ideal for executives attending multiple meetings across Sydney CBD, North Sydney, and Parramatta. Your chauffeur stays with you, ready to move instantly when you are."
-        },
-        {
-            question: "What Vehicles Are Available For Executive Travel?",
-            answer: "We offer a range of executive vehicles including the Genesis / Holden Caprice (Executive Sedan), Audi A8/Mercedes S-Class (Premium European), and Mercedes V-Class vans for corporate teams. All vehicles are unmarked or discreetly badged."
-        },
-        {
-            question: "Will My Chauffeur Sign A Non-Disclosure Agreement (NDA)?",
-            answer: "Our chauffeurs are professionals who understand the importance of discretion and confidentiality. We are happy to have drivers sign specific NDAs for high-profile clients or sensitive financial roadshows."
-        },
-        {
-            question: "How Far In Advance Should I Book For Corporate Events?",
-            answer: "For individual transfers, we can often accommodate same-day bookings. For large corporate events at the ICC Sydney or major conferences, we recommend booking 1-2 weeks in advance to secure the specific fleet mix."
-        }
-    ];
-
-    const vehicles = [
-        {
-            category: 'Executive Sedans',
-            name: 'Executive Sedan',
-            desc: 'The corporate standard. Reliable, understated, and comfortable. Features leather seating and ample workspace.',
-            passengers: 4,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'Premium Sedans',
-            name: 'European Premium Sedan',
-            desc: 'Impress your clients or travel in ultimate luxury. Mercedes-Benz S-Class or Audi A8L.',
-            passengers: 3,
-            luggage: 2,
-            bags: 2,
-            image: '/tile-audi.png'
-        },
-        {
-            category: 'People Movers',
-            name: 'Mercedes V-Class',
-            desc: 'Perfect for roadshows and site visits. Conference style seating allows your team to brief and debrief on the move.',
-            passengers: 7,
-            luggage: 6,
-            bags: 6,
-            image: '/tile-driver.png'
-        }
-    ];
-
     return (
         <main className={styles.pageWrapper}>
             <Navbar />
+            <Breadcrumbs city="Sydney" service="Corporate Transfers" />
 
             {/* HERO SECTION */}
-            <Hero
-                title="Corporate Chauffeur Sydney"
-                subtitle="Premium executive transport for business meetings, roadshows, and VIP events in Sydney. Punctual, professional, and discreet."
-                showStats={false}
-            />
-
-            {/* INTRO CONTENT */}
-            <section className={styles.contentSection}>
-                <h2 className={styles.sectionTitle}>Business Class Travel On The Ground</h2>
-                <div className={styles.textBlock}>
-                    <p>
-                        In Sydney's fast-paced business environment, every minute counts. Auzzsi Chauffeur's
-                        corporate service ensures you maximize your productivity while on the move. Transform travel time
-                        into work time in the quiet, private cabin of our executive vehicles.
-                        <br /><br />
-                        Whether you are commuting between the Sydney CBD and Parramatta, attending a conference at the ICC Sydney,
-                        or entertaining international clients, our professional chauffeurs ensure you arrive relaxed,
-                        prepared, and on time. We act as an extension of your own professional brand.
-                    </p>
-                    <h3 style={{ marginTop: '2rem' }}>Corporate Accounts & Priority Service</h3>
-                    <p>
-                        Streamline your company's ground transport with an Auzzsi Corporate Account. Enjoy benefits such as
-                        priority vehicle allocation during peak times, fixed corporate rates, and consolidated monthly
-                        billing with detailed trip reporting to make expense management effortless.
-                    </p>
-                </div>
-            </section>
-
-            {/* FEATURES ICONS */}
-            <section style={{ backgroundColor: '#f9fafb', padding: '2rem 0' }}>
-                <div className={styles.featuresGrid}>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><FileText size={28} /></div>
-                        <span className={styles.featureLabel}>Monthly<br />Invoicing</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Laptop size={28} /></div>
-                        <span className={styles.featureLabel}>Mobile<br />Office</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><ShieldCheck size={28} /></div>
-                        <span className={styles.featureLabel}>100%<br />Confidential</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Clock size={28} /></div>
-                        <span className={styles.featureLabel}>Punctuality<br />Guarantee</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Award size={28} /></div>
-                        <span className={styles.featureLabel}>Top Rated<br />Professionals</span>
-                    </div>
-                    <div className={styles.featureItem}>
-                        <div className={styles.iconCircle}><Coffee size={28} /></div>
-                        <span className={styles.featureLabel}>Concierge<br />Service</span>
-                    </div>
-                </div>
-            </section>
-
-            {/* VEHICLE FLEET */}
-            <section className={styles.fleetSection}>
-                <h2 className={styles.sectionTitle} style={{ textAlign: 'center' }}>Executive Fleet Options</h2>
-                <p style={{ maxWidth: '700px', margin: '0 auto', color: '#666', marginBottom: '2rem' }}>
-                    Choose the right vehicle for the occasion. From understated executive sedans for daily meetings to
-                    premium limousines for VIP guests.
-                </p>
-                <VehicleTabs vehicles={vehicles} />
-            </section>
-
-            {/* FAQ SECTION */}
-            <section className={styles.faqSection}>
-                <img src="/au-map.png" className={styles.mapBackground} alt="Australia Map" />
-                <div className={styles.faqContainer}>
-                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>
-                        Corporate Travel FAQs
-                    </h2>
-                    <FaqAccordion faqs={faqs} />
-                </div>
-            </section>
-
-            {/* CONTACT HELP SECTION */}
-            <section className={styles.contactSection}>
-                <div className={styles.contactImage}>
-                    <div style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '50%',
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-                    }}></div>
-                </div>
-                <ServiceContactForm
-                    title="Open A Corporate Account"
-                    subtitle={<>
-                        Contact our Sydney corporate team to discuss rates and set up your account.
-                        <br />
-                        <span style={{ fontWeight: 'bold', color: '#1e3a8a' }}>info@auzziechauffeur.com.au</span>
-                    </>}
-                    dateLabel="Company Name*"
-                    emailLabel="Work Email*"
-                    detailsLabel="Message / Request"
-                    btnText="Request Information"
+            <div style={{ position: 'relative' }}>
+                <Hero
+                    title="Sydney Corporate Chauffeur"
+                    subtitle="Executive travel redefined. Seamless transfers between Sydney Airport, the CBD, and North Sydney. Open a corporate account for priority service."
+                    showStats={false}
                 />
+            </div>
+
+            {/* AI OVERVIEW BLOCK */}
+            <section style={{ backgroundColor: '#f8fafc', padding: '3rem 1rem', borderBottom: '3px solid #1e40af' }}>
+                <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
+                    <div style={{ background: '#dbeafe', padding: '1rem', borderRadius: '50%', color: '#1e40af', flexShrink: 0 }}>
+                        <Briefcase size={32} />
+                    </div>
+                    <div>
+                        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1e3a8a', marginBottom: '0.5rem' }}>
+                            Why hire a corporate chauffeur in Sydney?
+                        </h2>
+                        <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: '#334155' }}>
+                            Navigating Sydney's traffic requires local expertise. Our chauffeurs use real-time data to find the fastest routes, ensuring you make your meeting at <strong>Barangaroo</strong> or <strong>North Sydney</strong> on time. Enjoy a private, quiet cabin to prepare for your presentation while we handle the driving.
+                        </p>
+                        <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                            *WiFi and bottled water standard in all executive sedans.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* SERVICE DETAILS */}
+            <section className={styles.contentSection} style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
+
+                {/* Why Choose Us */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '3rem' }}>Executive Standards</h2>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                        {[
+                            { title: "Priority Booking", desc: "Account holders get first preference during peak morning travel times.", icon: <Clock size={28} color="#c5a467" /> },
+                            { title: "Discretion", desc: "We regularly transport high-profile executives and understand the need for privacy.", icon: <ShieldCheck size={28} color="#1e40af" /> },
+                            { title: "Mobile Workspace", desc: "Utilize travel time efficiently with a smooth ride and quiet environment.", icon: <Laptop size={28} color="#c5a467" /> },
+                            { title: "Consolidated Accounts", desc: "One monthly invoice for all your diverse transport needs.", icon: <FileText size={28} color="#1e40af" /> },
+                            { title: "Professional Image", desc: "Arrive in a pristine black car driven by a uniformed chauffeur.", icon: <Award size={28} color="#c5a467" /> }
+                        ].map((item, idx) => (
+                            <div key={idx} style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)', border: '1px solid #e2e8f0', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                <div>{item.icon}</div>
+                                <div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#0f172a' }}>{item.title}</h3>
+                                    <p style={{ color: '#64748b', fontSize: '0.95rem' }}>{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Corporate Services/Rates */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Services for Sydney Business</h2>
+                    <div style={{ overflowX: 'auto', background: 'white', borderRadius: '12px', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+                            <thead style={{ background: '#0f172a', color: 'white' }}>
+                                <tr>
+                                    <th style={{ padding: '1rem' }}>Service</th>
+                                    <th style={{ padding: '1rem' }}>Usage Case</th>
+                                    <th style={{ padding: '1rem' }}>Key Benefit</th>
+                                    <th style={{ padding: '1rem' }}>Availability</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {[
+                                    { name: "Airport Transfer", for: "SYD Domestic/Intl", feat: "Wait & Meet Service", avail: "24/7" },
+                                    { name: "As Directed (Hourly)", for: "Meetings across CBD/Parramatta", feat: "Vehicle stays with you", avail: "Mon-Sun" },
+                                    { name: "Corporate Event", for: "ICC Sydney Conferences", feat: "Group Logistics (Vans)", avail: "Pre-book" },
+                                    { name: "Executive Van", for: "Site Visits / Team Lunch", feat: "Seat 7 in comfort", avail: "On Request" }
+                                ].map((row, idx) => (
+                                    <tr key={idx} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                                        <td style={{ padding: '1.25rem', fontWeight: 'bold', color: '#0f172a' }}>{row.name}</td>
+                                        <td style={{ padding: '1.25rem', color: '#475569' }}>{row.for}</td>
+                                        <td style={{ padding: '1.25rem', color: '#475569' }}>{row.feat}</td>
+                                        <td style={{ padding: '1.25rem', color: '#1e40af', fontWeight: 'bold' }}>{row.avail}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Major Business Hubs */}
+                <div style={{ marginBottom: '5rem', background: '#f1f5f9', padding: '3rem', borderRadius: '16px' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Key Sydney Corporate Hubs</h2>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
+                        {[
+                            "Barangaroo International Towers", "Sydney CBD (Martin Place)", "North Sydney Business District",
+                            "Parramatta CBD", "Macquarie Park Technology Park", "ICC Sydney (Darling Harbour)",
+                            "Sydney Olympic Park", "Norwest Business Park"
+                        ].map((hub, idx) => (
+                            <span key={idx} style={{ background: 'white', border: '1px solid #cbd5e1', padding: '0.5rem 1rem', borderRadius: '999px', color: '#334155', fontWeight: '500', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                                <Building2 size={16} /> {hub}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+
+                {/* FAQs */}
+                <div style={{ marginBottom: '5rem', maxWidth: '800px', margin: '0 auto' }}>
+                    <h2 className={styles.sectionTitle} style={{ textAlign: 'center', marginBottom: '2rem' }}>Corporate FAQs</h2>
+                    <LocationFAQ city="Sydney" />
+                </div>
+
+                {/* Testimonials */}
+                <div style={{ background: '#f8fafc', padding: '4rem 2rem', borderRadius: '16px', textAlign: 'center', border: '1px solid #e2e8f0' }}>
+                    <h2 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#0f172a', marginBottom: '2rem' }}>Trusted by Professionals</h2>
+                    <blockquote style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.25rem', fontStyle: 'italic', color: '#334155' }}>
+                        “The only way to get around Sydney. The drivers know the shortcuts to avoid the Bridge traffic during peak hour.”
+                    </blockquote>
+                    <cite style={{ display: 'block', marginTop: '1rem', fontWeight: 'bold', color: '#1e40af' }}>— Partner, Law Firm (Barangaroo)</cite>
+                </div>
+
+                {/* Internal Links */}
+                <div style={{ marginTop: '4rem', textAlign: 'center' }}>
+                    <p style={{ marginBottom: '1rem', fontWeight: 'bold' }}>Partner With Us:</p>
+                    <p style={{ color: '#4b5563', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
+                        View our <Link href="/the-fleet" className={styles.inlineLink}>executive fleet</Link>.
+                        Contact us to <Link href="/contact-us" className={styles.inlineLink}>open an account</Link>.
+                    </p>
+                </div>
+
             </section>
 
             <Footer />
